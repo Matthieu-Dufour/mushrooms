@@ -11,28 +11,17 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::view('/', 'welcome');
 
-Route::get('/inscription', function () {
-    return view('inscription');
-});
+Route::get('/inscription', 'InscriptionController@formulaire');
 
-Route::post('/inscription', function () {
+Route::post('/inscription', 'InscriptionController@traitement');
 
-    request()->validate([
-        'email' => ['required', 'email'],
-        'password' => ['required', 'confirmed', 'min:8'],
-        'password_confirmation' => ['required'],
-    ], [
-        'password.min' => 'Pour des raisons de sécurité, votre mot de passe doit faire :min caractères minimum.'
-    ]);
 
-    $user = App\Users::create([
-        'email' => request ('email'),
-        'password' => bcrypt(request('password')),
-    ]);
+Route::get('/connection', 'ConnectionController@formulaire');
 
-    return "yessaille, mail : " . request('email') . ", mdp : " . request('password');
-});
+Route::post('/connection', 'ConnectionController@traitement');
+
+Route::get('/my-account', 'AccountController@home');
+
+Route::get('/disconnection', 'AccountController@disconnection');
