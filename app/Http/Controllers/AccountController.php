@@ -8,11 +8,6 @@ class AccountController extends Controller
 {
     public function home()
     {
-        if( auth()->guest() ){
-            return redirect('/connection')->withErrors([
-                'email' => 'Vous devez être connecté pour voir cette page.'
-            ]);
-        }
 
         return view('my-account');
     }
@@ -21,6 +16,31 @@ class AccountController extends Controller
     {
         auth()->logout();
 
+        flash('Vous êtes maintenant déconnecté.')->success();
+
         return redirect('/');
+    }
+
+    public function passwordChange()
+    {
+
+        request()->validate([
+            'password' => ['required', 'confirmed', 'min:8'],
+            'password_confirmation' => ['required'],
+        ]);
+
+        // dump(auth()->user());
+
+        //$user = auth()->user();
+        //$user->password = bcrypt(request('password'));
+        //$user->save();
+
+        auth()->user()->update([
+            'password' => bcrypt(request('password')),
+        ]);
+
+        flash('Votre mot de passe a bien été mis à jour.')->success();
+
+        return redirect('/my-account');
     }
 }

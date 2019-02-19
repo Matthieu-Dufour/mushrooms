@@ -3,14 +3,20 @@
 @section('content')
     <form action="/connection" method="post">
         {{ csrf_field() }}
-        <p><input type="email" name="email" placeholder="Email" value="{{ old('email') }}"></p>
-        @if($errors->has('email'))
-            <p>{{ $errors->first('email') }}</p>
-        @endif
-        <p><input type="password" name="password" placeholder="Mot de passe"></p>
-        @if($errors->has('password'))
-            <p>{{ $errors->first('password') }}</p>
-        @endif
-        <p><input type="submit" value="Se connecter"></p>
+        <div class="form-group">
+            <label>Adresse email</label>
+            <input class="form-control" type="email" name="email" placeholder="Email" value="{{ old('email') }}">
+            @if($errors->has('email'))
+                <p>{{ $errors->first('email') }}</p>
+            @endif
+        </div>
+        <div class="form-group">
+            <label>Mot de passe</label>
+            <input class="form-control" type="password" name="password" placeholder="Mot de passe">
+            @if($errors->has('password'))
+                <p>{{ $errors->first('password') }}</p>
+            @endif
+        </div>
+        <button type="submit" class="btn btn-primary">Se connecter</button>
     </form>
 @endsection

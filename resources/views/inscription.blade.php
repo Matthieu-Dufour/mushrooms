@@ -1,20 +1,33 @@
 @extends('layout')
 
 @section('content')
-    <form action="/inscription" method="post">
-        {{ csrf_field() }}
-        <p><input type="email" name="email" placeholder="Email" value="{{ old('email') }}"></p>
+<form action="/inscription" method="post">
+    {{ csrf_field() }}
+
+    <div class="form-group">
+        <label>Adresse email</label>
+        <input class="form-control" type="email" name="email" placeholder="Email" value="{{ old('email') }}">
         @if($errors->has('email'))
-            <p>{{ $errors->first('email') }}</p>
+        {{ $errors->first('email') }}
         @endif
-        <p><input type="password" name="password" placeholder="Mot de passe"></p>
+    </div>
+
+    <div class="form-group">
+        <label>Mot de passe</label>
+        <input class="form-control" type="password" name="password" placeholder="Mot de passe">
         @if($errors->has('password'))
-            <p>{{ $errors->first('password') }}</p>
+        {{ $errors->first('password') }}
         @endif
-        <p><input type="password" name="password_confirmation" placeholder="Mot de passe (confirmation)"></p>
+    </div>
+
+    <div class="form-group">
+        <label>Mot de passe (confirmation)</label>
+        <input class="form-control" type="password" name="password_confirmation" placeholder="Mot de passe (confirmation)">
         @if($errors->has('password_confirmation'))
-            <p>{{ $errors->first('password_confirmation') }}</p>
+        {{ $errors->first('password_confirmation') }}
         @endif
-        <p><input type="submit" value="M'inscrire"></p>
-    </form>
+    </div>
+
+    <button type="submit" class="btn btn-primary">M'inscrire</button>
+</form>
 @endsection
