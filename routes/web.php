@@ -16,7 +16,9 @@
  *
  */
 
-Route::view('/', 'welcome');
+Route::get('/', function () {
+    return view('welcome');
+});
 
 Route::get('/inscription', 'InscriptionController@formulaire');
 
@@ -27,6 +29,17 @@ Route::get('/connection', 'ConnectionController@formulaire');
 
 Route::post('/connection', 'ConnectionController@traitement');
 
+Route::get('/mushrooms', 'MushroomController@showAllMushrooms');
+
+Route::get('/mushroom/{id}', 'MushroomController@showMushroom');
+
+Route::post('/mushroomAdd', 'MushroomController@addTraitement');
+Route::get('/mushroomAdd', 'MushroomController@addFormulaire');
+
+Route::get('/mushroom/{id}/edit', 'MushroomController@editFormulaire');
+Route::post('/mushroom/{id}/edit', 'MushroomController@editTraitement');
+
+Route::get('/cards','cardController@showAll');
 
 Route::group([
     'middleware' => 'App\Http\Middleware\Auth'

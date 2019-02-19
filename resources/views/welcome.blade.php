@@ -6,6 +6,9 @@
         <h1>Accueil</h1>
 
         <p>Bienvenue.</p>
+
+        <p><a href='/mushrooms'>Voir tous les champignons</a></p>
+        <p><a href='/mushroomAdd'>Ajouter un champignon</a></p>
     </div>
 
 @endsection
