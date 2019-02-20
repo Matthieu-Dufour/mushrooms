@@ -10,8 +10,6 @@ class MushroomController extends Controller
     public function showAllMushrooms(){
         $mushrooms = Mushroom::all();
 
-        //dump($mushrooms);
-
         return view('mushrooms', [
             'mushrooms' => $mushrooms,
         ]);
