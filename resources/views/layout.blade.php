@@ -24,6 +24,11 @@
         <div class="collapse navbar-collapse" id="navbarToggler">
             <ul class="navbar-nav mr-auto">
                 @include('partials.nav-item',['link'=>'/', 'text' => 'Accueil'])
+
+                <li class="nav-item {{ request()->is('/my-list') ? 'active' : '' }}">
+                <a href="{{ url('/my-list') }}" class="nav-link">Ma Liste<span class="badge">{{ Session::has('cart') ? Session::get('cart')->totalQty : 'vide' }}</span></a>
+                </li>
+
             </ul>
 
             <ul class="navbar-nav my-2 my-lg-0">
@@ -46,6 +51,7 @@
     </nav>
 
     <div class="container">
+           {{ Session::has('cart') ? "oui" : "non" }}
         @include('flash::message')
         @yield('content')
     </div>

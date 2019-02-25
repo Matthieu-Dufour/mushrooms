@@ -27,6 +27,6 @@ class InscriptionController extends Controller
             'password' => bcrypt(request('password')),
         ]);
     
-        return "yessaille, mail : " . request('email') . ", mdp : " . request('password');
+        return redirect('/connection');
     }
 }

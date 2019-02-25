@@ -7,7 +7,7 @@
     <ul>
         @foreach($mushrooms as $mushroom)
         
-        <a href="/mushroom/{{ $mushroom->id }}"><li>{{ $mushroom->name }}</li></a>
+        <a href='/addToCart/{{ $mushroom->id }}'> <li>{{ $mushroom->name }}</li> </a>
 
         @endforeach
     </ul>

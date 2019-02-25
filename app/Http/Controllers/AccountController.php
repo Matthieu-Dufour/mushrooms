@@ -8,7 +8,7 @@ class AccountController extends Controller
 {
     public function home()
     {
-
+        
         return view('my-account');
     }
 

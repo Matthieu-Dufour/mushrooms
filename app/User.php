@@ -23,4 +23,8 @@ class User extends Model implements Authenticatable
     {
         return '';
     }
+
+    public function orders(){
+        return $this->hasMany('App\Order');
+    }
 }

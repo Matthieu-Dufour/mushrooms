@@ -33,13 +33,7 @@ Route::get('/mushrooms', 'MushroomController@showAllMushrooms');
 
 Route::get('/mushroom/{id}', 'MushroomController@showMushroom');
 
-Route::post('/mushroomAdd', 'MushroomController@addTraitement');
-Route::get('/mushroomAdd', 'MushroomController@addFormulaire');
 
-Route::get('/mushroom/{id}/edit', 'MushroomController@editFormulaire');
-Route::post('/mushroom/{id}/edit', 'MushroomController@editTraitement');
-
-Route::get('/cards','cardController@showAll');
 
 Route::group([
     'middleware' => 'App\Http\Middleware\Auth'
@@ -51,4 +45,24 @@ Route::group([
 
     Route::post('/password-change', 'AccountController@passwordChange');
 
+    /* Mycologue */
+
+    Route::post('/mushroomAdd', 'MushroomController@addTraitement');
+    Route::get('/mushroomAdd', 'MushroomController@addFormulaire');
+
+    Route::get('/mushroom/{id}/edit', 'MushroomController@editFormulaire');
+    Route::post('/mushroom/{id}/edit', 'MushroomController@editTraitement');
+
+    Route::get('/cards','CardController@showAll');
+    Route::get('/addToCart/{id}', 'CardController@addToCart');
+
+    Route::get('/my-list', 'CardController@getList');
+
+    Route::post('/checkout','CardController@postCheckout');
+
+    Route::get('/history','CardController@historyIndex');
+
+    Route::get('/reduce/{id}','CardController@getReduceByOne');
+
+    Route::get('remove/{id}', 'CardController@getRemoveItem');
 });
