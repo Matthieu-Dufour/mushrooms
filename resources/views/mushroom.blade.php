@@ -1,10 +1,12 @@
 @extends('layout')
 
 @section('content')
+<div class="container">
     <h1>{{ $mushroom->name }}</h1>
 
     @auth
-    <a href="/mushroom/{{ $mushroom->id}}/edit">Editer</a>
+    <a class="btn btn-primary mushroomBtn" href="/mushroom/{{ $mushroom->id}}/edit">Editer</a>
     @endauth
-    <a href="/mushrooms">Retour à la liste</a>
-@endsection
+    <a class="btn btn-primary mushroomBtn" href="/mushrooms">Retour à la liste</a>
+</div>
+@endsection 

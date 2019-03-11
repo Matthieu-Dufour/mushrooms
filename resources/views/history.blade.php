@@ -1,34 +1,45 @@
 @extends('layout')
 
 @section('content')
-
+<div class="container">
     <h1>HISTORIQUE</h1>
 
     
-    <div class="panel panel-default">
-        <div class="panel-body">
-            <ul class="list-group">
-                
-                
-                
-            </ul>
-        </div>
-    </div>
-    
 
     @foreach($orders as $order)
-    <div class="panel panel-default">
-            <div class="panel-heading">
-              <h3 class="panel-title">{{ $order->created_at }}</h3>
-            </div>
-            <div class="panel-body">
-                    @foreach($order->cart->items as $item)
-                    <li class="list-group-item">
-                            {{ $item['item']['name'] }} | {{ $item['qty'] }}
-                        </li>
-                    @endforeach
-            </div>
-          </div>
-          @endforeach
+   @php
+    $source = $order->created_at;
+    $date = new DateTime($source);
+    $newdate = $date->format('d.m.Y');
+   @endphp
 
-@endsection
+
+    <table class="table table-hover">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col"></th>
+                <th scope="col">Commande du : {{ $newdate }}</th>
+                <th scope="col"><a class="btn btn-secondary welcomeBtn" href='/print/{{$order}}'>Imprimer</a></th>
+            </tr>
+        </thead>
+        <thead>
+            <tr>
+                <th scope="col">Id</th>
+                <th scope="col">Nom</th>
+                <th scope="col">Quantité</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach($order->cart->items as $item)
+            <tr>
+                <th scope="row">{{ $item['item']['id'] }}</th>
+                <td>{{ $item['item']['name'] }}</td>
+                <td>{{ $item['qty'] }}</td>
+            </tr>
+            @endforeach
+        </tbody>
+    </table>
+    @endforeach
+
+</div>
+@endsection 

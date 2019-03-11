@@ -5,17 +5,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    @yield('title')
     <title>Document</title>
 
-    @yield('link')
-
+   
+    <link rel="stylesheet" href="{{ asset('css/reset.css') }}">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{ asset('css/layout.css') }}">
+    @yield('link')
+
 </head>
 
 <body>
+    
 
-    <nav class="navbar navbar-expand-lg navbar-light bg-light" style="margin-bottom: 30px">
+    <nav class=" navbar-default navbar navbar-expand-lg navbar-light bg-light" style="margin-bottom: 30px">
 
             <a class="navbar-brand" href="#">Navbar</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggler" aria-controls="navbarToggler" aria-expanded="false" aria-label="Toggle navigation">
@@ -52,9 +58,9 @@
         </div>
     </nav>
 
-    <div class="container">
-           {{ Session::has('cart') ? "oui" : "non" }}
-        @include('flash::message')
+    <div class="corpsPage">
+        <div class="container">@include('flash::message')</div>
+        
         @yield('content')
     </div>
 

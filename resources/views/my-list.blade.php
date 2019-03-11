@@ -1,28 +1,40 @@
 @extends('layout')
 
 @section('content')
-
+<div class="container">
     @if(Session::has('cart'))
-        <ul>
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th scope="col">id</th>
+                <th scope="col">Nom</th>
+                <th scope="col">Quantité</th>
+                <th scope="col">Action</th>
+            </tr>
+        </thead>
+        <tbody>
             @foreach($mushrooms as $mushroom)
-                <li>
-                    <span class="badge">{{ $mushroom['qty'] }}</span>
-                    <strong>{{ $mushroom['item']['name'] }}</strong>
-                    <div class="btn-group">
-                        <button type="button" class="btn btn-primary btn-xs dropdown-toggle" data-toggle="dropdown">Action <span class="caret"></span></button>
-                        <ul class="dropdown-menu">
-                        <li><a href="/reduce/{{$mushroom['item']['id']}}"> Reduce by 1</a></li>
-                            <li><a href="/remove/{{$mushroom['item']['id']}}"> Reduce All</a></li>
-                        </ul>
-                    </div>
-                </li>
+            <tr>
+                <th scope="row">{{ $mushroom['item']['id'] }}</th>
+                <td>{{ $mushroom['item']['name'] }}</td>
+                <td>{{ $mushroom['qty'] }}</td>
+                <td>
+                    <button type="button" class="btn btn-primary btn-xs dropdown-toggle listBtn" data-toggle="dropdown">Action <span class="caret"></span></button>
+                    <ul class="dropdown-menu">
+                        <li><a href="/reduce/{{$mushroom['item']['id']}}">Retirer une unité</a></li>
+                        <li><a href="/remove/{{$mushroom['item']['id']}}">Retirer tout</a></li>
+                    </ul>
+                </td>
+            </tr>
             @endforeach
-        </ul>
-        <form action="/checkout" method="post">
-            {{ csrf_field() }}
-            <input type="submit" name="upvote" value="Imprimer" />
+        </tbody>
+    </table>
+    <form action="/checkout" method="post">
+        {{ csrf_field() }}
+        <input type="submit" name="upvote" class="btn btn-primary listBtn" value="Imprimer" />
         <form>
-    @else
-        <p>Rien dans le panier</p>
-    @endif
-@endsection
+            @else
+            <p>Il n'y a pas de champignons dans votre liste d'impression</p>
+            @endif
+</div>
+@endsection 

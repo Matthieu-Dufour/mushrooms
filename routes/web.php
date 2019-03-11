@@ -33,7 +33,7 @@ Route::get('/mushrooms', 'MushroomController@showAllMushrooms');
 
 Route::get('/mushroom/{id}', 'MushroomController@showMushroom');
 
-
+Route::get('/print/{order}','CardController@print');
 
 Route::group([
     'middleware' => 'App\Http\Middleware\Auth'

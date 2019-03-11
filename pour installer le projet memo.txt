@@ -1,0 +1,8 @@
+composer install
+php artisan key:generate
+
+.env : 
+supprimer tout entre 
+DB_CONNECTION=sqlite et BROADCAST_DRIVER=log
+
+php artisan migrate:refresh

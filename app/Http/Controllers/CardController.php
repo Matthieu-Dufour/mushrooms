@@ -7,6 +7,8 @@ use App\Mushroom;
 use App\Cart;
 use App\Order;
 use Auth;
+use PDF;
+use App;
 
 use Illuminate\Support\Facades\Session;
 
@@ -22,7 +24,6 @@ class CardController extends Controller
     }
 
   
-
     public function addToCart(){
 
         $id = request('id');
@@ -86,7 +87,7 @@ class CardController extends Controller
         $oldCart = Session::get('cart');
         $cart = new Cart($oldCart);
 
-        //gerer l'impression ICI
+        
 
         $order = new Order();
         $order->cart = serialize($cart);
@@ -108,5 +109,12 @@ class CardController extends Controller
         return view('history', ['orders' => $orders]);
     }
 
+    public function print($order){
+        dd($order);
+        
+        $pdf = App::make('dompdf.wrapper');
+        $pdf->loadHTML('<h1>Test</h1>');
+        return $pdf->stream();
+    }
 
 }

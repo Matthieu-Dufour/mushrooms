@@ -16,6 +16,15 @@ class CreateMushroomsTable extends Migration
         Schema::create('mushrooms', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
+            $table->string('nameLatin');
+            $table->string('odeur');
+            $table->string('comestible');
+            $table->string('ecologie');
+            $table->string('chapeau');
+            $table->string('lames');
+            $table->string('pied');
+            $table->string('chair');
+            $table->string('sporee');
             $table->timestamps();
         });
     }
