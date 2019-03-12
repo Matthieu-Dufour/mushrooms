@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\User;
+use App\Role;
 
 class InscriptionController extends Controller
 {
@@ -25,7 +26,9 @@ class InscriptionController extends Controller
         $user = User::create([
             'email' => request ('email'),
             'password' => bcrypt(request('password')),
+            
         ]);
+        $user->roles()->attach(Role::where('name', 'User')->first());
     
         return redirect('/connection');
     }

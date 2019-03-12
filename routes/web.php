@@ -35,6 +35,30 @@ Route::get('/mushroom/{id}', 'MushroomController@showMushroom');
 
 Route::get('/print/{order}','CardController@print');
 
+Route::post('/assignroles', 'UsersController@assignRoles');
+
+
+Route::group([
+    'middleware' => 'roles',
+    'roles' => ['admin']
+], function () {
+    
+});
+
+Route::group([
+    'middleware' => 'roles',
+    'roles' => ['mycologist']
+], function () {
+    
+});
+
+Route::group([
+    'middleware' => 'roles',
+    'roles' => ['user']
+], function () {
+    
+});
+
 Route::group([
     'middleware' => 'App\Http\Middleware\Auth'
 ], function () {
@@ -65,4 +89,7 @@ Route::group([
     Route::get('/reduce/{id}','CardController@getReduceByOne');
 
     Route::get('remove/{id}', 'CardController@getRemoveItem');
+
+    /* Admin */
+    Route::get('/users', 'UsersController@index');
 });

@@ -20,20 +20,9 @@ class MushroomsTableSeeder extends Seeder
             'pied' => 'Blanc, chiné ou zébré de gros olivâtre, anneau blanc membraneux, volve blanche en sac blanc pur, cylindrique [5-10(15) x 1-2(3) cm]',
             'chair' => 'Blanche, sans odeur (ou odeur de rose en vieillisant), goût agréable',
             'ecologie' => 'Feuillus, parfois conifères, argilo-calcaire.',
-            'cosmetible' => "Mortel",
+            'comestible' => "Mortel",
             'odeur' => 'odeur1',
         ]);
-        DB::table('mushrooms')->insert([
-            'name' => 'Lactarius controversus',
-            'odeur' => 'odeur1'
-        ]);
-        DB::table('mushrooms')->insert([
-            'name' => 'bbbbbb',
-            'odeur' => 'odeur1'
-        ]);
-        DB::table('mushrooms')->insert([
-            'name' => 'ccccccaa',
-            'odeur' => 'odeur2'
-        ]);
+    
     }
 }

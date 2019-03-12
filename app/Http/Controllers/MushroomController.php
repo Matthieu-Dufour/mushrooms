@@ -57,6 +57,15 @@ class MushroomController extends Controller
     {
         $mushroom = Mushroom::create([
             'name' => request('name'),
+            'nameLatin' => request('nameLatin'),
+            'odeur' => request('odeur'),
+            'comestible' => request('comestible'),
+            'ecologie' => request('ecologie'),
+            'chapeau' => request('chapeau'),
+            'lames' => request('lames'),
+            'pied' => request('pied'),
+            'chair' => request('chair'),
+            'sporee' => request('sporee'),
         ]);
     
         flash('Le champignon à été ajouté.')->success();
