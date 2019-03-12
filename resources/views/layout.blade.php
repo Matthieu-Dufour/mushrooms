@@ -34,7 +34,11 @@
                 @include('partials.nav-item',['link'=>'/', 'text' => 'Accueil'])
 
                 <li class="nav-item {{ request()->is('/my-list') ? 'active' : '' }}">
-                <a href="{{ url('/my-list') }}" class="nav-link">Ma Liste<span class="badge">{{ Session::has('cart') ? Session::get('cart')->totalQty : 'vide' }}</span></a>
+                    @auth
+                        @if(Auth::user()->hasRole("mycologist"))
+                            <a href="{{ url('/my-list') }}" class="nav-link">Ma Liste<span class="badge">{{ Session::has('cart') ? Session::get('cart')->totalQty : 'vide' }}</span></a>
+                        @endif 
+                    @endauth
                 </li>
 
             </ul>
