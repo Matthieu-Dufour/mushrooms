@@ -28,11 +28,14 @@ class UserTableSeeder extends Seeder
         $admin->password = bcrypt("azertyuiop");
         $admin->save();
         $admin->roles()->attach($role_admin);
+        $admin->roles()->attach($role_mycologue);
+        $admin->roles()->attach($role_user);
 
         $mycologue = new User();
         $mycologue->email = "mycologue@mycologue.fr";
         $mycologue->password = bcrypt("azertyuiop");
         $mycologue->save();
         $mycologue->roles()->attach($role_mycologue);
+        $admin->roles()->attach($role_user);
     }
 }
