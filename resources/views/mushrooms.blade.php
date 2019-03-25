@@ -19,8 +19,6 @@
         </select>
     </div>
 
-    <p>@{{ mushrooms }}</p>
-
     <table class="table table-hover">
         <thead>
             <tr>

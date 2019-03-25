@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use App\Models\Concerns\UsesUuid;
 
 class CreateUserRoleTable extends Migration
 {
@@ -15,7 +16,7 @@ class CreateUserRoleTable extends Migration
     {
 
         Schema::create('user_role', function (Blueprint $table) {
-            $table->increments('id');
+            $table->uuid('id');
             $table->timestamps();
             $table->string('user_id');
             $table->string('role_id');
