@@ -20,18 +20,41 @@
 
 <body>
     
+    <!-- <nav class="navbar">
+        <div class="container">
+            <div class="navbar-header">
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggler" aria-controls="navbarToggler" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <a class="navbar-brand" href="{{route('GETaccueil')}}">Navbar</a>
+            </div>
+            <div class="collapse navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    @auth
+                        @include('partials.nav-item',['link'=>'my-account', 'text' => 'Mon compte'])
+                        @include('partials.nav-item',['link'=>'disconnection', 'text' => 'Déconnexion'])
+                    @else
+                        @include('partials.nav-item',['link'=>'connection', 'text' => 'Connexion'])
+                        @include('partials.nav-item',['link'=>'inscription', 'text' => 'Inscription'])
+                    @endauth
+                </ul>
+            </div>
+        </div>
+    </nav> -->
 
-    <nav class=" navbar-default navbar navbar-expand-lg navbar-light bg-light" style="margin-bottom: 30px">
+
+
+
+    <nav class=" navbar-default navbar-expand-lg navbar-light bg-light navbar test" style="margin-bottom: 30px">
 
             <a class="navbar-brand" href="{{route('GETaccueil')}}">Navbar</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggler" aria-controls="navbarToggler" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
             </button>
 
-
         <div class="collapse navbar-collapse" id="navbarToggler">
             <ul class="navbar-nav mr-auto">
-                @include('partials.nav-item',['link'=>'/', 'text' => 'Accueil'])
+                    @include('partials.nav-item',['link'=>'/', 'text' => 'Accueil'])
 
                 <li class="nav-item {{ request()->is('/my-list') ? 'active' : '' }}">
                     @auth

@@ -18,8 +18,8 @@
             @foreach($mushrooms as $mushroom)
                 <tr href="{{route('GETaddToCart', ['id' => $mushroom->id])}}">
                     <th scope="row">{{ $mushroom->id }}</th>
-                    <td>{{ $mushroom->name }}</td>
-                    <td><a class="btn btn-primary" href='/addToCart/{{ $mushroom->id }}'>Ajouter</a></td>
+                    <td>{{ $mushroom->name }}</td> 
+                    <td><a class="btn btn-primary" href="{{route('GETaddToCart', ['id' => $mushroom->id])}}">Ajouter</a></td>
                 </tr>
             @endforeach
         </tbody>

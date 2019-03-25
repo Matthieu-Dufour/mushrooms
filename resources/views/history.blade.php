@@ -6,7 +6,7 @@
 
     
 
-    @foreach($orders as $order)
+   @foreach($orders as $order)
    @php
     $source = $order->created_at;
     $date = new DateTime($source);

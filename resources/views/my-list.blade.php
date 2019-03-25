@@ -21,7 +21,6 @@
                 <td>
                     <button type="button" class="btn btn-primary btn-xs dropdown-toggle listBtn" data-toggle="dropdown">Action <span class="caret"></span></button>
                     <ul class="dropdown-menu">
-                    , ['id' => 1]
                         <li><a href="{{route('GETreduce', ['id' => $mushroom['item']['id']])}}">Retirer une unité</a></li>
                         <li><a href="{{route('GETremove', ['id' => $mushroom['item']['id']])}}">Retirer tout</a></li>
                     </ul>
