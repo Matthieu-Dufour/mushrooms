@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="container">
-    <form action="/connection" method="post">
+    <form action="{{route('POSTconnexion')}}" method="post">
         {{ csrf_field() }}
         <div class="form-group">
             <label>Adresse email</label>

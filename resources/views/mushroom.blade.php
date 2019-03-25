@@ -5,8 +5,8 @@
     <h1>{{ $mushroom->name }}</h1>
 
     @auth
-    <a class="btn btn-primary mushroomBtn" href="/mushroom/{{ $mushroom->id}}/edit">Editer</a>
+    <a class="btn btn-primary mushroomBtn" href="{{route('GETeditMushroom'), ['id' => $mushroom->id]}}">Editer</a>
     @endauth
-    <a class="btn btn-primary mushroomBtn" href="/mushrooms">Retour à la liste</a>
+    <a class="btn btn-primary mushroomBtn" href="{{route('GETmushrooms')}}">Retour à la liste</a>
 </div>
 @endsection 

@@ -13,7 +13,7 @@
         <h2>Modifier votre mot de passe :<h2>
     </div>
     <div class="row">
-        <form action="/password-change" method="post">
+        <form action="{{route('POSTpassword')}}" method="post">
             {{ csrf_field() }}
 
             <div class="form-group">

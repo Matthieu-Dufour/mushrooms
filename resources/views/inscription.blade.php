@@ -6,7 +6,7 @@
 
 @section('content')
 <div class="container">
-    <form action="/inscription" method="post">
+    <form action="{{route('POSTinscription')}}" method="post">
         {{ csrf_field() }}
 
         <div class="form-group">

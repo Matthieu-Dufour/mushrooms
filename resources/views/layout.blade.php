@@ -23,7 +23,7 @@
 
     <nav class=" navbar-default navbar navbar-expand-lg navbar-light bg-light" style="margin-bottom: 30px">
 
-            <a class="navbar-brand" href="#">Navbar</a>
+            <a class="navbar-brand" href="{{route('GETaccueil')}}">Navbar</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggler" aria-controls="navbarToggler" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
             </button>
@@ -36,7 +36,7 @@
                 <li class="nav-item {{ request()->is('/my-list') ? 'active' : '' }}">
                     @auth
                         @if(Auth::user()->hasRole("mycologist"))
-                            <a href="{{ url('/my-list') }}" class="nav-link">Ma Liste<span class="badge">{{ Session::has('cart') ? Session::get('cart')->totalQty : 'vide' }}</span></a>
+                            <a href="{{route('GETmaListe')}}" class="nav-link">Ma Liste<span class="badge">{{ Session::has('cart') ? Session::get('cart')->totalQty : 'vide' }}</span></a>
                         @endif 
                     @endauth
                 </li>

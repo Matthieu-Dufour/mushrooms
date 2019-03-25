@@ -31,8 +31,9 @@
             <tr v-for="mushroom in filteredList">
                 <th scope="row">@{{mushroom.id}}</th>
                 <td>@{{ mushroom.name }}</td>
-                <td><a class="btn btn-primary mushroomsBtn" :href="'/mushroom/' + mushroom.id">Voir</a>
-                    <a class="btn btn-primary mushroomsBtn" :href="'/mushroom/' + mushroom.id + '/edit'">Editer</a>
+                <td>
+                    <a class="btn btn-primary mushroomsBtn" :href="routeMushroom">Voir</a>
+                    <a class="btn btn-primary mushroomsBtn" :href="routeEditMushroom">Editer</a>
                 </td>
             </tr>
         </tbody>
@@ -48,6 +49,8 @@
             mushrooms: {!!json_encode($mushrooms) !!},
             search: "",
             odeur: "vide",
+            routeMushroom: "{{route('GETmushroom'), ['id' => @{{mushroom.id}} ]}}",
+            routeEditMushroom: "{{route('GETeditMushroom'), ['id' => @{{mushroom.id}} ]}}",
         },
 
         methods: {

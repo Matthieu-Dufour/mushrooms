@@ -19,7 +19,7 @@
             <tr>
                 <th scope="col"></th>
                 <th scope="col">Commande du : {{ $newdate }}</th>
-                <th scope="col"><a class="btn btn-secondary welcomeBtn" href='/print/{{$order}}'>Imprimer</a></th>
+                <th scope="col"><a class="btn btn-secondary welcomeBtn" href="{{ route('GETprint', ['order' => $order]) }}">Imprimer</a></th>
             </tr>
         </thead>
         <thead>

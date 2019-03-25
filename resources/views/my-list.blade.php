@@ -21,15 +21,16 @@
                 <td>
                     <button type="button" class="btn btn-primary btn-xs dropdown-toggle listBtn" data-toggle="dropdown">Action <span class="caret"></span></button>
                     <ul class="dropdown-menu">
-                        <li><a href="/reduce/{{$mushroom['item']['id']}}">Retirer une unité</a></li>
-                        <li><a href="/remove/{{$mushroom['item']['id']}}">Retirer tout</a></li>
+                    , ['id' => 1]
+                        <li><a href="{{route('GETreduce', ['id' => $mushroom['item']['id']])}}">Retirer une unité</a></li>
+                        <li><a href="{{route('GETremove', ['id' => $mushroom['item']['id']])}}">Retirer tout</a></li>
                     </ul>
                 </td>
             </tr>
             @endforeach
         </tbody>
     </table>
-    <form action="/checkout" method="post">
+    <form action="{{route('POSTcheckout')}}" method="post">
         {{ csrf_field() }}
         <input type="submit" name="upvote" class="btn btn-primary listBtn" value="Imprimer" />
         <form>

@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="container">
-    <form action="/mushroomAdd" method="post">
+    <form action="{{route('POSTaddMushroom')}}" method="post">
         {{ csrf_field() }}
 
         <div class="form-group">

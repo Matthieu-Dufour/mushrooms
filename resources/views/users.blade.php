@@ -15,7 +15,7 @@
         <tbody>
             @foreach($users as $user)
             <tr>
-                <form action="/assignroles" method="post">
+                <form action="{{route('POSTassignRoles')}}" method="post">
                     <td>{{ $user->email }} <input type="hidden" name="email" value="{{ $user->email }}"></td>
                     <td><input type="checkbox" {{ $user->hasRole('user') ? 'checked' : '' }} name="role_user"></td>
                     <td><input type="checkbox" {{ $user->hasRole('mycologist') ? 'checked' : '' }} name="role_mycologist"></td>

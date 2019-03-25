@@ -4,7 +4,7 @@
 
     <h1>Editer</h1>
 
-    <form action="/mushroom/{{ $mushroom->id}}/edit" method="post">
+    <form action="route('POSTeditMushroom', ['id' => $mushroom->id)]" method="post">
         {{ csrf_field() }}
     
         <div class="form-group">
