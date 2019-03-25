@@ -14,7 +14,7 @@ class ComestibiliteTable extends Migration
     public function up()
     {
         Schema::create('Comestibilité', function (Blueprint $table) {
-            $table->increments('id');
+            $table->uuid('id');
             $table->string('nom', 50)->nullable(false);
         });    }
 

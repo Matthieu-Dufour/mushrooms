@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class TypeTrophiqueTable extends Migration
+class GroupeTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,9 @@ class TypeTrophiqueTable extends Migration
      */
     public function up()
     {
-        Schema::create('Type_Trophique', function (Blueprint $table) {
+        Schema::create('Groupe', function (Blueprint $table) {
             $table->uuid('id');
-            $table->string('status', 50)->nullable(false);
+            $table->string('nom', 50)->nullable(false);
         });
     }
 
@@ -26,6 +26,6 @@ class TypeTrophiqueTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('Type_Trophique');
+        Schema::dropIfExists('Groupe');
     }
 }

@@ -14,7 +14,7 @@ class EcologieTable extends Migration
     public function up()
     {
         Schema::create('Ecologie', function (Blueprint $table) {
-            $table->increments('id');
+            $table->uuid('id');
             $table->string('region', 50)->nullable(false);
         });
     }

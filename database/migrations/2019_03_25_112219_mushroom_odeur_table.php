@@ -1,10 +1,8 @@
 <?php
-
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
-
-class TypeTrophiqueTable extends Migration
+class CreateSmellTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +11,11 @@ class TypeTrophiqueTable extends Migration
      */
     public function up()
     {
-        Schema::create('Type_Trophique', function (Blueprint $table) {
-            $table->uuid('id');
-            $table->string('status', 50)->nullable(false);
+        Schema::create('Odeur', function (Blueprint $table) {
+            $table->incremeuuidnts('id');
+            $table->string('nom', 50)->nullable(false);
         });
     }
-
     /**
      * Reverse the migrations.
      *
@@ -26,6 +23,6 @@ class TypeTrophiqueTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('Type_Trophique');
+        Schema::dropIfExists('Odeur');
     }
 }
