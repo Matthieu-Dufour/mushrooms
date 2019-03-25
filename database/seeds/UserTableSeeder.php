@@ -36,6 +36,6 @@ class UserTableSeeder extends Seeder
         $mycologue->password = bcrypt("azertyuiop");
         $mycologue->save();
         $mycologue->roles()->attach($role_mycologue);
-        $admin->roles()->attach($role_user);
+        $mycologue->roles()->attach($role_user);
     }
 }
