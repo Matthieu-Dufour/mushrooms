@@ -29,28 +29,29 @@
         </thead>
         <tbody>
             <tr v-for="mushroom in filteredList">
-                <th scope="row">@{{mushroom.id}}</th>
+                <th scope="row">@{{ mushroom.id }}</th>
                 <td>@{{ mushroom.name }}</td>
                 <td>
-                    <a class="btn btn-primary mushroomsBtn" :href="routeMushroom">Voir</a>
-                    <a class="btn btn-primary mushroomsBtn" :href="routeEditMushroom">Editer</a>
+                    <a class="btn btn-primary mushroomsBtn" :href="mushroom.routeVoir" >Voir</a>
+                    <a class="btn btn-primary mushroomsBtn" :href="mushroom.routeEdit">Editer</a>
                 </td>
             </tr>
         </tbody>
     </table>
 
-
+<?php 
+    $url = url('/mushroom');
+?>
 
 </div>
 <script>
     var app = new Vue({
         el: "#application",
         data: {
-            mushrooms: {!!json_encode($mushrooms) !!},
+            mushrooms: {!! json_encode($mushrooms) !!},
             search: "",
             odeur: "vide",
-            routeMushroom: "{{route('GETmushroom'), ['id' => @{{mushroom.id}} ]}}",
-            routeEditMushroom: "{{route('GETeditMushroom'), ['id' => @{{mushroom.id}} ]}}",
+            url: {!! json_encode($url) !!},
         },
 
         methods: {
@@ -66,27 +67,29 @@
 
                     return list
                 })
-
             },
-
-
-
         },
 
         computed: {
             filteredList() {
                 return this.mushrooms.filter(mushroom => {
                     let list;
-                    
+
+                    mushroom.routeVoir = this.url + "/" + mushroom.id
+                    mushroom.routeEdit = this.url + "/" + mushroom.id + "/edit"
+
+                    console.log(mushroom)
                     list = mushroom.name.toLowerCase().includes(this.search.toLowerCase())
 
                     if(this.odeur != "vide"){
                         list = list && mushroom.odeur.includes(this.odeur)
-                    }
+                    }                    
 
                     return list
                 })
-            }
+            },
+
+        
         },
 
     });
