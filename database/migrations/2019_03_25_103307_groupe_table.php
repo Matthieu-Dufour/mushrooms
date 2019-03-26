@@ -14,7 +14,7 @@ class GroupeTable extends Migration
     public function up()
     {
         Schema::create('Groupe', function (Blueprint $table) {
-            $table->uuid('id');
+            $table->increments('id');
             $table->string('nom', 50)->nullable(false);
         });
     }

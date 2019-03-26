@@ -2,7 +2,7 @@
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
-class CreateSmellTable extends Migration
+class MushroomOdeurTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,7 +12,7 @@ class CreateSmellTable extends Migration
     public function up()
     {
         Schema::create('Odeur', function (Blueprint $table) {
-            $table->incremeuuidnts('id');
+            $table->increments('id');
             $table->string('nom', 50)->nullable(false);
         });
     }

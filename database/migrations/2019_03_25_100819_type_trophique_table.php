@@ -14,7 +14,7 @@ class TypeTrophiqueTable extends Migration
     public function up()
     {
         Schema::create('Type_Trophique', function (Blueprint $table) {
-            $table->uuid('id');
+            $table->increments('id');
             $table->string('status', 50)->nullable(false);
         });
     }
