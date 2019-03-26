@@ -2,6 +2,7 @@
 
 @section('content')
 <div class="container">
+    <div class="row" style="margin-top:20px;margin-bottom:20px;"><h1>Votre liste</h1></div>
     @if(Session::has('cart'))
     <table class="table table-hover">
         <thead>
@@ -19,7 +20,7 @@
                 <td>{{ $mushroom['item']['name'] }}</td>
                 <td>{{ $mushroom['qty'] }}</td>
                 <td>
-                    <button type="button" class="btn btn-primary btn-xs dropdown-toggle listBtn" data-toggle="dropdown">Action <span class="caret"></span></button>
+                    <button type="button" class="btn btn-secondary btn-xs dropdown-toggle listBtn" data-toggle="dropdown">Action <span class="caret"></span></button>
                     <ul class="dropdown-menu">
                         <li><a href="{{route('GETreduce', ['id' => $mushroom['item']['id']])}}">Retirer une unité</a></li>
                         <li><a href="{{route('GETremove', ['id' => $mushroom['item']['id']])}}">Retirer tout</a></li>
@@ -31,10 +32,10 @@
     </table>
     <form action="{{route('POSTcheckout')}}" method="post">
         {{ csrf_field() }}
-        <input type="submit" name="upvote" class="btn btn-primary listBtn" value="Imprimer" />
+        <input type="submit" name="upvote" class="btn btn-secondary listBtn" value="Imprimer" />
         <form>
             @else
-            <p>Il n'y a pas de champignons dans votre liste d'impression</p>
+            <h2 style="margin-top:20px;">Il n'y a pas de champignons dans votre liste d'impression</h2>
             @endif
 </div>
 @endsection 

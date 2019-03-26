@@ -6,6 +6,9 @@
 
 @section('content')
 <div class="container">
+    <div class="row">
+        <h1>S'incrire</h1>
+    </div>
     <form action="{{route('POSTinscription')}}" method="post">
         {{ csrf_field() }}
 

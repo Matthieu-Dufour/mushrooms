@@ -2,6 +2,8 @@
 
 @section('content')
 <div class="container">
+    <div class="row" style="margin-top:20px;margin-bottom:20px;"><h1>Modification des droits</h1>
+    </div>
     <table class="table table-hover">
         <thead>
             <tr>
@@ -21,7 +23,7 @@
                     <td><input type="checkbox" {{ $user->hasRole('mycologist') ? 'checked' : '' }} name="role_mycologist"></td>
                     <td><input type="checkbox" {{ $user->hasRole('admin') ? 'checked' : '' }} name="role_admin"></td>
                     {{ csrf_field() }}
-                    <td><button type="submit">Changer les roles</button></td>
+                    <td><button class="btn btn-secondary" type="submit">Changer les roles</button></td>
                 </form>
             </tr>
             @endforeach

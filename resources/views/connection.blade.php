@@ -2,6 +2,9 @@
 
 @section('content')
 <div class="container">
+    <div class="row">
+        <h1>Se connecter</h1>
+    </div>
     <form action="{{route('POSTconnexion')}}" method="post">
         {{ csrf_field() }}
         <div class="form-group">
@@ -18,7 +21,7 @@
             <p>{{ $errors->first('password') }}</p>
             @endif
         </div>
-        <button type="submit" class="btn btn-primary connectionBtn">Se connecter</button>
+        <button type="submit" class="btn btn-secondary connectionBtn">Se connecter</button>
     </form>
 </div>
 @endsection 

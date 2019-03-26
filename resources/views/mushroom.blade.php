@@ -2,11 +2,30 @@
 
 @section('content')
 <div class="container">
-    <h1>{{ $mushroom->name }}</h1>
+    <div class="row">
+        <h1 style="margin-top:20px;margin-bottom:20px;">{{ $mushroom->name }}</h1>
+    </div>
+    <div class="col">
+        <div class="row">
+            <div class="col">{{ $mushroom->odeur }}</div>
+            <div class="col">{{ $mushroom->odeur }}</div>
+            <div class="col">{{ $mushroom->odeur }}</div>
+        </div>
+        <div class="row">
+            <div class="col">{{ $mushroom->odeur }}</div>
+            <div class="col">{{ $mushroom->odeur }}</div>
+            <div class="col">{{ $mushroom->odeur }}</div>
+        </div>
+        <div class="row">
+            <div class="col">{{ $mushroom->odeur }}</div>
+            <div class="col">{{ $mushroom->odeur }}</div>
+            <div class="col">{{ $mushroom->odeur }}</div>
+        </div>
+    </div>
 
     @auth
-    <a class="btn btn-primary mushroomBtn" href="{{route('GETeditMushroom', ['id' => $mushroom->id ])}}"   >Editer</a>
+    <a class="btn btn-secondary mushroomBtn" href="{{route('GETeditMushroom', ['id' => $mushroom->id ])}}" style="margin-top:20px;" >Editer</a>
     @endauth
-    <a class="btn btn-primary mushroomBtn" href="{{route('GETmushrooms')}}">Retour à la liste</a>
+    <a class="btn btn-secondary mushroomBtn" href="{{route('GETmushrooms')}}" style="margin-top:20px;">Retour à la liste</a>
 </div>
 @endsection 

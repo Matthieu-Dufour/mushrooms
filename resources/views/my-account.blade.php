@@ -31,7 +31,7 @@
                 @endif
             </div>
 
-            <button type="submit" class="btn btn-primary accountBtn">Modifier mon mot de passe</button>
+            <button type="submit" class="btn btn-secondary accountBtn">Modifier mon mot de passe</button>
 
         </form>
     </div>

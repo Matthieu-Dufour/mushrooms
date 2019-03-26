@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="container">
-    <h1>HISTORIQUE</h1>
+    <h1 style="margin-top:20px;margin-bottom:20px;">Historique</h1>
 
     
 
@@ -14,7 +14,7 @@
    @endphp
 
 
-    <table class="table table-hover">
+    <table class="table table-hover" style="margin-top:50px;margin-bottom:50px;">
         <thead class="thead-dark">
             <tr>
                 <th scope="col"></th>
