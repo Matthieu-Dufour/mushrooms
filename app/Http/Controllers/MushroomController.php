@@ -36,9 +36,19 @@ class MushroomController extends Controller
         $id = request('id');
 
         $mushroom = Mushroom::where('id', $id)->first();
+        $odeurs = DB::table('Odeur')->get();
+        $comestibilites = DB::table('Comestibilité')->get();
+        $ecologies = DB::table('Ecologie')->get();
+        $groupes = DB::table('Groupe')->get();
+        $trophiques = DB::table('Type_Trophique')->get();
 
         return view('editMushroom',[
             'mushroom' => $mushroom,
+            'odeurs' => $odeurs,
+            'comestibilites' => $comestibilites,
+            'ecologies' => $ecologies,
+            'trophiques' => $trophiques,
+            'groupes' => $groupes, 
         ]);
     }
 
@@ -49,6 +59,18 @@ class MushroomController extends Controller
         $mushroom = Mushroom::where('id', $id)->first();
 
         $mushroom->name = request('name');
+        $mushroom->nameLatin = request('nameLatin');
+        $mushroom->surnom = request('surnom');
+        $mushroom->odeur = request('odeur');
+        $mushroom->comestible = request('comestibilite');
+        $mushroom->ecologie = request('ecologie');
+        $mushroom->chapeau = request('chapeau');
+        $mushroom->lames = request('lames');
+        $mushroom->pied = request('pied');
+        $mushroom->chair = request('chair');
+        $mushroom->type_trophique = request('trophique');
+        $mushroom->groupe = request('groupe');
+        $mushroom->pied = image('image');
 
         $mushroom->save();
 
