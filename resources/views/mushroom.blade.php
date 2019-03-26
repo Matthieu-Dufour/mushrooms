@@ -28,7 +28,9 @@
     </div>
 
     @auth
-    <a class="btn btn-secondary mushroomBtn" href="{{route('GETeditMushroom', ['id' => $mushroom->id ])}}" style="margin-top:20px;" >Editer</a>
+        @if(Auth::user()->hasRole("mycologist"))
+            <a class="btn btn-secondary mushroomBtn" href="{{route('GETeditMushroom', ['id' => $mushroom->id ])}}" style="margin-top:20px;" >Editer</a>
+        @endif
     @endauth
     <a class="btn btn-secondary mushroomBtn" href="{{route('GETmushrooms')}}" style="margin-top:20px;">Retour à la liste</a>
 </div>

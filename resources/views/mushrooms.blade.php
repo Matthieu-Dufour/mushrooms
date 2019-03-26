@@ -101,8 +101,12 @@
                 <td>@{{ mushroom.name }}</td>
                 <td>
                     <a class="btn btn-secondary mushroomsBtn" :href="mushroom.routeVoir" >Voir</a>
-                    <a class="btn btn-secondary mushroomsBtn" :href="mushroom.routeEdit">Editer</a>
-                    <a class="btn btn-danger mushroomsBtn" :href="mushroom.routeSuppr" style="color: #FFF !important;">Supprimer</a>
+                    @auth
+                        @if(Auth::user()->hasRole("mycologist"))
+                            <a class="btn btn-secondary mushroomsBtn" :href="mushroom.routeEdit">Editer</a>
+                            <a class="btn btn-danger mushroomsBtn" :href="mushroom.routeSuppr" style="color: #FFF !important;">Supprimer</a>
+                        @endif
+                    @endauth
                 </td>
             </tr>
         </tbody>

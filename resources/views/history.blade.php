@@ -8,8 +8,6 @@
 <div class="container">
     <h1 style="margin-top:20px;margin-bottom:20px;">Historique</h1>
 
-    
-
    @foreach($orders as $order)
    @php
     $source = $order->created_at;
