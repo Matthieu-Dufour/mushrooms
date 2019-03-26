@@ -18,7 +18,6 @@
 
 <body >
 
-<!-- style="background-color: #655643" -->
 
     <nav class="navbar navbar-light navbar-expand-lg" >
         <a class="navbar-brand" href="{{ url('/') }}">Navbar</a>
@@ -54,52 +53,7 @@
     </nav>
 
 
-    <!-- <nav class=" navbar-default navbar-expand-lg navbar-light bg-light navbar test" style="margin-bottom: 30px;background-color: #e3f2fd;">
-
-            <a class="navbar-brand" href="{{route('GETaccueil')}}">Navbar</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggler" aria-controls="navbarToggler" aria-expanded="false" aria-label="Toggle navigation">
-              <span class="navbar-toggler-icon"></span>
-            </button>
-
-        <div class="collapse navbar-collapse" id="navbarToggler">
-            <ul class="navbar-nav mr-auto">
-                    @include('partials.nav-item',['link'=>'/', 'text' => 'Accueil'])
-                    @auth
-                        @if(Auth::user()->hasRole("mycologist"))
-                    @include('partials.nav-item',['link'=>'/my-list', 'text' => "Ma Liste<span class='badge'>{{ Session::has('cart') ? Session::get('cart')->totalQty : 'vide' }}</span>"])
-                        @endif 
-                    @endauth
-                <li class="nav-item {{ request()->is('/my-list') ? 'active' : '' }}">
-                    @auth
-                        @if(Auth::user()->hasRole("mycologist"))
-                            <a href="{{route('GETmaListe')}}" class="nav-link">Ma Liste<span class="badge">{{ Session::has('cart') ? Session::get('cart')->totalQty : 'vide' }}</span></a>
-                        @endif 
-                    @endauth
-                </li>
-
-            </ul>
-
-            <ul class="navbar-nav my-2 my-lg-0">
-                @auth
-
-                    @include('partials.nav-item',['link'=>'my-account', 'text' => 'Mon compte'])
-
-                    @include('partials.nav-item',['link'=>'disconnection', 'text' => 'Déconnexion'])
-
-                @else
-
-                    @include('partials.nav-item',['link'=>'connection', 'text' => 'Connexion'])
-
-                    @include('partials.nav-item',['link'=>'inscription', 'text' => 'Inscription'])
-
-                @endauth
-            </ul>
-
-        </div>
-    </nav> -->
-
     <div class="corpsPage" >
-        
         @yield('content')
     </div>
 

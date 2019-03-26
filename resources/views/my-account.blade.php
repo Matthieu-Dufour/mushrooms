@@ -7,12 +7,10 @@
 @section('content')
 <div class="container">
     <div class="row">
-        <div>
             <h1>Mon compte</h1>
 
-            
-        </div>
     </div>
+    <div class="container containerPrincipale " style="margin-top: 20px;margin-bottom: 20px;">@include('flash::message')</div>
     <div class="row">
         <h2>Modifier votre mot de passe :<h2>
     </div>

@@ -9,6 +9,8 @@
     <div class="row">
         <h1>S'incrire</h1>
     </div>
+    <div class="container containerPrincipale " style="margin-top: 20px;margin-bottom: 20px;">@include('flash::message')</div>
+
     <form action="{{route('POSTinscription')}}" method="post">
         {{ csrf_field() }}
 

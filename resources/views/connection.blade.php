@@ -9,6 +9,7 @@
     <div class="row">
         <h1>Se connecter</h1>
     </div>
+    <div class="container containerPrincipale " style="margin-top: 20px;margin-bottom: 20px;">@include('flash::message')</div>
     <form action="{{route('POSTconnexion')}}" method="post">
         {{ csrf_field() }}
         <div class="form-group">
