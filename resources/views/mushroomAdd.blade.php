@@ -4,6 +4,7 @@
 <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
 <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<script src="/js/preview.js"></script>
 @endsection
 
 @section('content')
@@ -103,19 +104,6 @@
                 </div>
                 <div class="col">
                     <div class="form-group">
-                        <label>Comestibilité</label>
-                        <select class="form-control mushroomAddInput" name="comestibilite" id="comestibilite">
-                            @foreach($comestibilites as $comestibilite)
-                            <option value="{{ $comestibilite->id }}">{{ $comestibilite->nom }}</option>
-                            @endforeach
-                        </select>
-                    </div>
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="col">
-                    <div class="form-group">
                         <label>Groupe</label>
                         <select class="form-control mushroomAddInput" name="groupe" id="groupe">
                             @foreach($groupes as $groupe)
@@ -124,6 +112,9 @@
                         </select>
                     </div>
                 </div>
+            </div>
+
+            <div class="row">
                 <div class="col">
                     <div class="form-group">
                         <label>Image</label>
@@ -138,12 +129,16 @@
                                 <div class="btn btn-default image-preview-input">
                                     <span class="glyphicon glyphicon-folder-open"></span>
                                     <span class="image-preview-input-title">Browse</span>
-                                    <input type="file" accept="image/png, image/jpeg, image/gif" name="input-file-preview"/> <!-- rename it -->
+                                    <input type="file" accept="image/png, image/jpeg, image/gif" name="input-file-preview" onchange="readURL(this);"/> <!-- rename it -->
                                 </div>
                             </span>
                         </div><!-- /input-group image-preview [TO HERE]--> 
                     </div>
                 </div>
+                <div class="col">
+                    <img id="preview" src="https://via.placeholder.com/300.png/" alt="your image" />
+                </div>
+
             </div>
         </div>
 

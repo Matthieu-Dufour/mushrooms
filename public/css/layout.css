@@ -81,3 +81,7 @@
 .image-preview-input-title {
     margin-left:2px;
 }
+
+img{
+    max-width:300px;
+  }
