@@ -20,8 +20,8 @@
     <div style="border: solid black; font-family: 'Gill Sans', sans-serif;">
         <div style="border-bottom: solid black; text-align: center"> <h1> {{ $ress['item']->name }} </h1> <br> <h3> {{ $ress['item']->nameLatin }} </h3> </div>
         <div style="font-size: 20px"> <b> Odeur : </b> {{ $ress['item']->odeur }} </div> <div style="font-size: 20px"> <b> Comestible : </b> {{ $ress['item']->comestible }} </div>
-        <div style="display: hidden"> {!!QrCode::size('500')->format('png')->errorCorrection('H')->generate(url('/mushroom/'.$ress['item']->id), 'qrcode/qrcode.png');!!} </div>
-        <div style="width: 100%; text-align: right;"> <img src="qrcode/qrcode.png" style="width: 100px; clear: right"/> </div>
+        <div style="display: hidden"> {!!QrCode::size('500')->format('png')->errorCorrection('H')->generate(url('/mushroom/'.$ress['item']->id), 'qrcode/qrcode'.$ress['item']->id.'.png');!!} </div>
+        <div style="width: 100%; text-align: right;"> <img src="qrcode/qrcode{{$ress['item']->id}}.png" style="width: 100px; clear: right"/> </div>
     </div>
     <div style="height: 155px"></div>
     @endfor
