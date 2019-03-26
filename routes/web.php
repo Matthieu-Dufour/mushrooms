@@ -32,7 +32,12 @@ Route::get('/mushrooms', 'MushroomController@showAllMushrooms')->name('GETmushro
 
 Route::get('/mushroom/{id}', 'MushroomController@showMushroom')->name('GETmushroom');
 
-
+Route::get('/lexique', 'LexiqueController@showLexique')->name('GETlexique');
+Route::get('/lexique/add', 'LexiqueController@addLexique')->name('GETaddLexique');
+Route::post('/lexique/add', 'LexiqueController@addLexiqueTraitement')->name('POSTaddLexique');
+Route::get('/lexique/{id}/edit', 'LexiqueController@editLexique')->name('GETeditLexique');
+Route::post('/lexique/{id}/edit', 'LexiqueController@editLexiqueTraitement')->name('POSTeditLexique');
+Route::get('/lexique/{id}/delete', 'LexiqueController@deleteLexique')->name('GETdeleteLexique');
 
 Route::group([
     'middleware' => 'App\Http\Middleware\Auth'

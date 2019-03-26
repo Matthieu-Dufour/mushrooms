@@ -45,6 +45,8 @@ class MushroomController extends Controller
 
         $mushroom->save();
 
+        flash('Modifications terminées.')->success();
+
         return redirect('mushroom/'.$mushroom->id);
     }
 
@@ -79,6 +81,8 @@ class MushroomController extends Controller
         $mushroom = Mushroom::where('id', $id)->first();
 
         $mushroom->delete();
+
+        flash('Champignon supprimé')->warning();
 
         return redirect(route('GETmushrooms'));
     }

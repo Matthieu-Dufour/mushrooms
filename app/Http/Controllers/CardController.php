@@ -36,6 +36,8 @@ class CardController extends Controller
 
         Session::put('cart', $cart);
 
+        flash('Champignon ajouté au panier.')->success();
+
         return back();
 
     }

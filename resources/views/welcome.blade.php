@@ -25,6 +25,7 @@
                 <p>La société lorraine de mycologie est ravie de vous proposer une solution numérique vous permettant de consulter toutes les informations disponibles sur les champignons répertoriés.</p>
                 <p>
                     <a class="btn btn-lg btn-secondary welcomeJumbotronBtn" href='{{route("GETmushrooms")}}' role="button">Accéder à la base de données &raquo;</a>
+                    <a class="btn btn-lg btn-secondary welcomeJumbotronBtn" href='{{route("GETlexique")}}' role="button">Accéder au lexique &raquo;</a>
                 </p>
             </div>
         </div>

@@ -6,6 +6,7 @@
 
 @section('content')
 <div class="container">
+<div class="container containerPrincipale " style="margin-top: 20px;margin-bottom: 20px;">@include('flash::message')</div>
     <div class="row" style="margin-top:20px;margin-bottom:20px;"><h1>Editer</h1></div>
 
     <form action="route('POSTeditMushroom', ['id' => $mushroom->id)]" method="post">
