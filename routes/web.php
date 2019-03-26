@@ -38,6 +38,7 @@ Route::post('/lexique/add', 'LexiqueController@addLexiqueTraitement')->name('POS
 Route::get('/lexique/{id}/edit', 'LexiqueController@editLexique')->name('GETeditLexique');
 Route::post('/lexique/{id}/edit', 'LexiqueController@editLexiqueTraitement')->name('POSTeditLexique');
 Route::get('/lexique/{id}/delete', 'LexiqueController@deleteLexique')->name('GETdeleteLexique');
+Route::get('/testpdf', function() { return view('pdf'); });
 
 Route::group([
     'middleware' => 'App\Http\Middleware\Auth'

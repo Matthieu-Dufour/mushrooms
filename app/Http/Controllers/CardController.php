@@ -9,6 +9,7 @@ use App\Order;
 use Auth;
 use PDF;
 use App;
+use QrCode;
 
 use Illuminate\Support\Facades\Session;
 
@@ -118,11 +119,10 @@ class CardController extends Controller
     }
 
     public function print($order){
-        dd($order);
-        
-        $pdf = App::make('dompdf.wrapper');
-        $pdf->loadHTML('<h1>Test</h1>');
-        return $pdf->stream();
+        $print = Order::where('id', $order)->first()->cart;
+        $res = unserialize($print);
+        $pdf = PDF::loadView('pdf', array('res' => $res->items));
+        return $pdf->download('fiches.pdf');
     }
 
 }
