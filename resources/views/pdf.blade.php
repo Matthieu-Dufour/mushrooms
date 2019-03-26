@@ -15,15 +15,17 @@
 
 @section('content')
 <div class="container">
-    <div style="border: solid black; font-family: Arial">
-        <div style="border-bottom: solid black; text-align: center"> <h1> {{ $res->name }} </h1> <br> <h3> {{ $res->nameLatin }} </h3> </div>
-        <div> <b> Pied : </b> {{ $res->pied }} </div> <div> <b> Chair : </b> {{ $res->chair }} </div>
-        <div> <b> Odeur : </b> {{ $res->odeur }} </div> <div> <b> Comestible : </b> {{ $res->comestible }} </div>
-        <div> <b> Ecologie : </b> {{ $res->ecologie }} </div> <div> <b> Chapeau : </b> {{ $res->chapeau }} </div>
-        <div> <b> Lames : </b> {{ $res->lames }} </div> <div> <b> Sporee : </b> {{ $res->sporee }}  </div>
-        <div style="display: hidden"> {!!QrCode::size(500)->format('png')->generate('Make me into a QrCode!', 'qrcode/qrcode.png');!!} </div>
-        <img src="qrcode/qrcode.png" style="width: 250px;"/>
+    @foreach($res as $ress)
+    @for ($i = 0; $i < $ress['qty']; $i++)
+    <div style="border: solid black; font-family: 'Gill Sans', sans-serif;">
+        <div style="border-bottom: solid black; text-align: center"> <h1> {{ $ress['item']->name }} </h1> <br> <h3> {{ $ress['item']->nameLatin }} </h3> </div>
+        <div style="font-size: 20px"> <b> Odeur : </b> {{ $ress['item']->odeur }} </div> <div style="font-size: 20px"> <b> Comestible : </b> {{ $ress['item']->comestible }} </div>
+        <div style="display: hidden"> {!!QrCode::size('500')->format('png')->errorCorrection('H')->generate(url('/mushroom/'.$ress['item']->id), 'qrcode/qrcode.png');!!} </div>
+        <div style="width: 100%; text-align: right;"> <img src="qrcode/qrcode.png" style="width: 100px; clear: right"/> </div>
     </div>
+    <div style="height: 155px"></div>
+    @endfor
+    @endforeach
 </div>
 @endsection
 

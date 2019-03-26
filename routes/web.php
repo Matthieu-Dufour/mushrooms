@@ -32,7 +32,7 @@ Route::get('/mushrooms', 'MushroomController@showAllMushrooms')->name('GETmushro
 
 Route::get('/mushroom/{id}', 'MushroomController@showMushroom')->name('GETmushroom');
 
-
+Route::get('/testpdf', function() { return view('pdf'); });
 
 Route::group([
     'middleware' => 'App\Http\Middleware\Auth'

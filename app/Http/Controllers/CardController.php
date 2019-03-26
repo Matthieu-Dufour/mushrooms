@@ -119,9 +119,7 @@ class CardController extends Controller
     public function print($order){
         $print = Order::where('id', $order)->first()->cart;
         $res = unserialize($print);
-        $res = $res->items[1]['item'];
-        //dd($res);
-        $pdf = PDF::loadView('pdf', array('res' => $res));
+        $pdf = PDF::loadView('pdf', array('res' => $res->items));
         return $pdf->download('fiches.pdf');
     }
 
