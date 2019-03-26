@@ -1,12 +1,17 @@
 @extends('layout')
 
 @section('title')
-<title>Inscription</title>
+    <title>Inscription</title>
 @endsection
 
 @section('content')
 <div class="container">
-    <form action="/inscription" method="post">
+    <div class="row">
+        <h1>S'incrire</h1>
+    </div>
+    <div class="container containerPrincipale " style="margin-top: 20px;margin-bottom: 20px;">@include('flash::message')</div>
+
+    <form action="{{route('POSTinscription')}}" method="post">
         {{ csrf_field() }}
 
         <div class="form-group">

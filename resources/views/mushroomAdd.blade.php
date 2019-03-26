@@ -5,11 +5,13 @@
 <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
 <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 <script src="/js/preview.js"></script>
+@section('title')
+    <title>Ajouts</title>
 @endsection
 
 @section('content')
 <div class="container">
-    <form action="/mushroomAdd" method="post">
+    <form action="{{route('POSTaddMushroom')}}" method="post">
         {{ csrf_field() }}
 
 

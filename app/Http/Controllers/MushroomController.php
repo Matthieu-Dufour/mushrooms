@@ -93,4 +93,14 @@ class MushroomController extends Controller
 
         return redirect('/');
     }
+
+    public function deleteMushroom(){
+        $id = request('id');
+
+        $mushroom = Mushroom::where('id', $id)->first();
+
+        $mushroom->delete();
+
+        return redirect(route('GETmushrooms'));
+    }
 }

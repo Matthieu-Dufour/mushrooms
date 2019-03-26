@@ -46,6 +46,12 @@ class CardController extends Controller
         $cart->reduceByOne($id);
 
         Session::put('cart',$cart);
+        
+        if(count($cart->items) > 0) {
+            Session::put('cart', $cart);
+        }else {
+            Session::forget('cart');
+        }
         return redirect('my-list');
     }
 
@@ -55,7 +61,7 @@ class CardController extends Controller
             $cart->removeItem($id);
 
         if(count($cart->items) > 0) {
-            Session::put('cart',$cart);
+            Session::put('cart', $cart);
         }else {
             Session::forget('cart');
         }

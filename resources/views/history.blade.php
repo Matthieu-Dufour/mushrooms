@@ -1,12 +1,14 @@
 @extends('layout')
 
+@section('title')
+    <title>Historique</title>
+@endsection
+
 @section('content')
 <div class="container">
-    <h1>HISTORIQUE</h1>
+    <h1 style="margin-top:20px;margin-bottom:20px;">Historique</h1>
 
-    
-
-    @foreach($orders as $order)
+   @foreach($orders as $order)
    @php
     $source = $order->created_at;
     $date = new DateTime($source);
@@ -14,12 +16,12 @@
    @endphp
 
 
-    <table class="table table-hover">
+    <table class="table table-hover" style="margin-top:50px;margin-bottom:50px;">
         <thead class="thead-dark">
             <tr>
                 <th scope="col"></th>
                 <th scope="col">Commande du : {{ $newdate }}</th>
-                <th scope="col"><a class="btn btn-secondary welcomeBtn" href='/print/{{$order}}'>Imprimer</a></th>
+                <th scope="col"><a class="btn btn-secondary welcomeBtn" href="{{ route('GETprint', ['order' => $order]) }}">Imprimer</a></th>
             </tr>
         </thead>
         <thead>
