@@ -11,7 +11,7 @@
 
 @section('content')
 <div class="container">
-    <form action="{{route('POSTaddMushroom')}}" method="post">
+    <form action="{{route('POSTaddMushroom')}}" method="post" enctype="multipart/form-data">
         {{ csrf_field() }}
 
 
@@ -67,7 +67,7 @@
                 </div>
                 <div class="col">
                     <label>Odeur</label>
-                    <select class="form-control mushroomAddInput" name="odeur" id="odeur">
+                    <select class="form-control mushroomAddInput" type="odeur" name="odeur" id="odeur">
                         @foreach($odeurs as $odeur)
                         <option value="{{ $odeur->id }}">{{ $odeur->nom }}</option>
                         @endforeach
@@ -76,7 +76,7 @@
                 <div class="col">
                     <div class="form-group">
                         <label>Comestibilité</label>
-                        <select class="form-control mushroomAddInput" name="comestibilite" id="comestibilite">
+                        <select class="form-control mushroomAddInput" type="comestibilite" name="comestibilite" id="comestibilite">
                             @foreach($comestibilites as $comestibilite)
                             <option value="{{ $comestibilite->id }}">{{ $comestibilite->nom }}</option>
                             @endforeach
@@ -89,7 +89,7 @@
                 <div class="col">
                     <div class="form-group">
                         <label>Environnement</label>
-                        <select class="form-control mushroomAddInput" name="ecologie" id="ecologie">
+                        <select class="form-control mushroomAddInput" type="ecologie" name="ecologie" id="ecologie">
                             @foreach($ecologies as $ecologie)
                             <option value="{{ $ecologie->id }}">{{ $ecologie->region }}</option>
                             @endforeach
@@ -98,7 +98,7 @@
                 </div>
                 <div class="col">
                     <label>Type Trophique</label>
-                    <select class="form-control mushroomAddInput" name="trophique" id="trophique">
+                    <select class="form-control mushroomAddInput" type="trophique" name="trophique" id="trophique">
                         @foreach($trophiques as $trophique)
                         <option value="{{ $trophique->id }}">{{ $trophique->status }}</option>
                         @endforeach
@@ -107,7 +107,7 @@
                 <div class="col">
                     <div class="form-group">
                         <label>Groupe</label>
-                        <select class="form-control mushroomAddInput" name="groupe" id="groupe">
+                        <select class="form-control mushroomAddInput" type="groupe" name="groupe" id="groupe">
                             @foreach($groupes as $groupe)
                             <option value="{{ $groupe->id }}">{{ $groupe->nom }}</option>
                             @endforeach
@@ -131,12 +131,13 @@
                                 <div class="btn btn-default image-preview-input">
                                     <span class="glyphicon glyphicon-folder-open"></span>
                                     <span class="image-preview-input-title">Browse</span>
-                                    <input type="file" accept="image/png, image/jpeg, image/gif" name="input-file-preview" onchange="readURL(this);"/> <!-- rename it -->
+                                    <input type="file" accept="image/png, image/jpeg, image/gif" name="image" onchange="readURL(this);"/> <!-- rename it -->
                                 </div>
                             </span>
                         </div><!-- /input-group image-preview [TO HERE]--> 
                     </div>
                 </div>
+                <div class="col"></div>
                 <div class="col">
                     <img id="preview" src="https://via.placeholder.com/300.png/" alt="your image" />
                 </div>

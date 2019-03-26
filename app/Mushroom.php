@@ -8,6 +8,7 @@ class Mushroom extends Model
 {
     protected $fillable = ['name',
                             'nameLatin',
+                            'surnom',
                             'odeur',
                             'comestible',
                             'ecologie',
@@ -15,7 +16,9 @@ class Mushroom extends Model
                             'lames',
                             'pied',
                             'chair',
-                            'sporee',];
+                            'type_trophique',
+                            'groupe',
+                            'image',];
 
     // public function comestibilte()
     // {

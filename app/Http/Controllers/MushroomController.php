@@ -13,6 +13,7 @@ use App\Groupe;
 
 class MushroomController extends Controller
 {
+
     public function showAllMushrooms(){
         $mushrooms = Mushroom::all();
 
@@ -71,8 +72,9 @@ class MushroomController extends Controller
         ]);
     }
 
-    public function addTraitement()
+    public function addTraitement(Request $request)
     {
+        $file = $request->file('image');
         $mushroom = Mushroom::create([
             'name' => request('name'),
             'nameLatin' => request('nameLatin'),
@@ -86,8 +88,9 @@ class MushroomController extends Controller
             'chair' => request('chair'),
             'type_trophique' => request('trophique'),
             'groupe' => request('groupe'),
-            'image' => request('image'),
+            'image' => $file->getClientOriginalName(),
         ]);
+        $file->move('./img',$file->getClientOriginalName());
     
         flash('Le champignon à été ajouté.')->success();
 
