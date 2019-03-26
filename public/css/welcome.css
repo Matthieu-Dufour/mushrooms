@@ -1,0 +1,114 @@
+nav, .navbar, .navbar-light, .navbar-expand-lg{
+    position:fixed;
+}
+.nav-link{
+    color: white;
+}
+h1{
+    color:#fff;
+}
+
+.navbar-brand, .navbar-nav, .nav-item, a {
+    color: #FFF;
+}
+
+.containerPrincipale{
+    background-color: #EEE;
+}
+
+.corpsPage{
+    margin:0;
+    padding:0;
+}
+
+.welcomeJumbotron h1{
+    background-color: #eee;
+    color: black;
+}
+
+.welcomeJumbotron{
+    background-color: #eee;
+}
+
+/* Image */
+
+.navbar-light .navbar-nav .nav-link {
+    color: #F6F7BD;
+}
+
+.navbar-light .navbar-nav .active>.nav-link, .navbar-light .navbar-nav .nav-link.active, .navbar-light .navbar-nav .nav-link.show, .navbar-light .navbar-nav .show>.nav-link {
+    color: #E6AC27;
+}
+
+.navbar-light .navbar-brand:focus, .navbar-light .navbar-brand:hover {
+    color: #E6AC27;
+}
+
+
+.navbar-light .navbar-brand, .navbar-light .navbar-brand {
+    color: #F6F7BD;
+}
+
+
+
+.bg-image {
+    height: 600px;
+    margin-bottom: 0;
+    border-radius: 0;
+}
+
+.bg-image-wedding {
+	background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0)), url('/img/bg.jpg');
+	background-position: center 70%;
+    background-size: cover;
+    margin-bottom: 0;
+}
+
+.bg-center-center {
+    background-position: center center; 
+    margin-bottom: 0;
+}
+
+.background {
+    height:0; 
+    background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0)), url('/img/bg.jpg');
+    background-position: center bottom;
+    background-size: cover;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+ 
+
+nav, .navbar, .navbar-light, .navbar-expand-lg, .nav-link, a {
+    background-color: transparent;
+}
+
+.corpsPage{
+    background-color: #EEE;
+}
+
+body{
+    background-color: #eee;
+}
+
+.btn-primary.focus, .btn-primary:focus {
+    box-shadow: 0 0 0 0.2rem rgba(128,188,163,.5);
+    background-color: #80BCA3;
+}
+
+.btn-secondary.focus, .btn-secondary:focus {
+    box-shadow: 0 0 0 0.2rem rgba(128,188,163,.5);
+    background-color: #80BCA3;
+}
+
+.btn-primary {
+    color: #fff;
+    background-color: #80BCA3;
+    border-color: #80BCA3;
+}
+
+.btn-secondary {
+    color: #fff;
+    background-color: #80BCA3;
+    border-color: #80BCA3;
+}

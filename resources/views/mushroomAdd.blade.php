@@ -1,5 +1,9 @@
 @extends('layout')
 
+@section('title')
+    <title>Ajouts</title>
+@endsection
+
 @section('content')
 <div class="container">
     <form action="{{route('POSTaddMushroom')}}" method="post">
