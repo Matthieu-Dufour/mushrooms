@@ -17,30 +17,30 @@ class Mushroom extends Model
                             'chair',
                             'sporee',];
 
-    public function comestibilte()
-    {
-        return $this->hasOne('App\Comestibilite');
-    }
+    // public function comestibilte()
+    // {
+    //     return $this->hasOne('App\Comestibilite');
+    // }
 
-    public function ecologie()
-    {
-        return $this->hasMany('App\Ecologie');
-    }
+    // public function ecologie()
+    // {
+    //     return $this->hasMany('App\Ecologie');
+    // }
 
-    public function odeur()
-    {
-        return $this->hasMany('App\Odeur');
-    }
+    // public function odeur()
+    // {
+    //     return $this->hasMany('App\Odeur');
+    // }
 
-    public function typeTrophique()
-    {
-        return $this->hasOne('App\TypeTrophique');
-    }
+    // public function typeTrophique()
+    // {
+    //     return $this->hasOne('App\TypeTrophique');
+    // }
 
-    public function groupe()
-    {
-        return $this->hasOne('App\Groupe');
-    }
+    // public function groupe()
+    // {
+    //     return $this->hasOne('App\Groupe');
+    // }
 }
 
 

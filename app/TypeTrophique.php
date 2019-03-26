@@ -8,7 +8,7 @@ class TypeTrophique extends Model
 {
     public function mushroom()
     {
-        return $this->belongsToMany('App\Mushroom');
+        // return $this->belongsToMany('App\Mushroom');
     }
 
 }

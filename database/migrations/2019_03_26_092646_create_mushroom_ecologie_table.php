@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class MushroomOdeurTable extends Migration
+class CreateMushroomEcologieTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,14 @@ class MushroomOdeurTable extends Migration
      */
     public function up()
     {
-        Schema::create('Odeur', function (Blueprint $table) {
+        Schema::create('mushroom_ecologie', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('nom', 50)->nullable(false);
+            $table->timestamps();
+            $table->string('mushroom_id');
+            $table->string('ecologie_id');
         });
     }
+
     /**
      * Reverse the migrations.
      *
@@ -25,6 +28,6 @@ class MushroomOdeurTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('Odeur');
+        Schema::dropIfExists('mushroom_ecologie');
     }
 }

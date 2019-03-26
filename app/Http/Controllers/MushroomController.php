@@ -3,7 +3,13 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use App\Mushroom;
+use App\Odeur;
+use App\Comestibilite;
+use App\Ecologie;
+use App\TypeTrophique;
+use App\Groupe;
 
 class MushroomController extends Controller
 {
@@ -50,7 +56,19 @@ class MushroomController extends Controller
 
     public function addFormulaire()
     {
-        return view('mushroomAdd');
+        $odeurs = DB::table('Odeur')->get();
+        $comestibilites = DB::table('Comestibilité')->get();
+        $ecologies = DB::table('Ecologie')->get();
+        $groupes = DB::table('Groupe')->get();
+        $trophiques = DB::table('Type_Trophique')->get();
+
+        return view('mushroomAdd', [
+            'odeurs' => $odeurs,
+            'comestibilites' => $comestibilites,
+            'ecologies' => $ecologies,
+            'trophiques' => $trophiques,
+            'groupes' => $groupes, 
+        ]);
     }
 
     public function addTraitement()
@@ -58,14 +76,17 @@ class MushroomController extends Controller
         $mushroom = Mushroom::create([
             'name' => request('name'),
             'nameLatin' => request('nameLatin'),
+            'surnom' => request('surnom'),
             'odeur' => request('odeur'),
-            'comestible' => request('comestible'),
+            'comestible' => request('comestibilite'),
             'ecologie' => request('ecologie'),
             'chapeau' => request('chapeau'),
             'lames' => request('lames'),
             'pied' => request('pied'),
             'chair' => request('chair'),
-            'sporee' => request('sporee'),
+            'type_trophique' => request('trophique'),
+            'groupe' => request('groupe'),
+            'image' => request('image'),
         ]);
     
         flash('Le champignon à été ajouté.')->success();
