@@ -56,6 +56,8 @@ Route::group([
         Route::get('/mushroom/{id}/edit', 'MushroomController@editFormulaire')->name('GETeditMushroom');
         Route::post('/mushroom/{id}/edit', 'MushroomController@editTraitement')->name('POSTeditMushroom');
 
+        Route::get('/mushroom/{id}/delete', 'MushroomController@deleteMushroom')->name('GETdeleteMushroom');
+
         Route::get('/cards', 'CardController@showAll')->name('GETcards');
         Route::get('/addToCart/{id}', 'CardController@addToCart')->name('GETaddToCart');
 

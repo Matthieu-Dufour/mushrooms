@@ -102,6 +102,7 @@
                 <td>
                     <a class="btn btn-secondary mushroomsBtn" :href="mushroom.routeVoir" >Voir</a>
                     <a class="btn btn-secondary mushroomsBtn" :href="mushroom.routeEdit">Editer</a>
+                    <a class="btn btn-danger mushroomsBtn" :href="mushroom.routeSuppr" style="color: #FFF !important;">Supprimer</a>
                 </td>
             </tr>
         </tbody>
@@ -145,8 +146,8 @@
 
                     mushroom.routeVoir = this.url + "/" + mushroom.id
                     mushroom.routeEdit = this.url + "/" + mushroom.id + "/edit"
+                    mushroom.routeSuppr = this.url + "/" + mushroom.id + "/delete"
 
-                    console.log(mushroom)
                     list = mushroom.name.toLowerCase().includes(this.search.toLowerCase())
 
                     if(this.odeur != "vide"){
