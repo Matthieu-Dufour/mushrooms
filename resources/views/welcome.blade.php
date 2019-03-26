@@ -1,5 +1,9 @@
 @extends('layout')
 
+@section('title')
+    <title>Accueil</title>
+@endsection
+
 @section('link')
 <link rel="stylesheet" href="{{ asset('css/welcome.css') }}">
 @endsection
@@ -8,7 +12,7 @@
 
 <div class="jumbotron bg-image bg-image-wedding bg-center-bottom" id="fondimage">
     <div class="container">
-        <h1 class="display-4" style="margin:100px">Société Lorraine de mycologie</h1>
+        <h1 class="display-4 d-flex justify-content-center" style="margin-top:100px;">Société Lorraine de mycologie</h1>
     </div>
 </div>
 

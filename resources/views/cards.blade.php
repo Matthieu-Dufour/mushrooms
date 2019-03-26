@@ -1,5 +1,9 @@
 @extends('layout')
 
+@section('title')
+    <title>Imprimer</title>
+@endsection
+
 @section('content')
 <div class="container">
     <h1 style="margin-top:20px;margin-bottom:20px">Ajoutez des champignons dans votre liste</h1>

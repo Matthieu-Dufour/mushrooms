@@ -1,5 +1,9 @@
 @extends('layout')
 
+@section('title')
+    <title>Mon compte</title>
+@endsection
+
 @section('content')
 <div class="container">
     <div class="row">

@@ -7,7 +7,6 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
     @yield('title')
-    <title>Document</title>
 
 
     <link rel="stylesheet" href="{{ asset('css/reset.css') }}">
@@ -22,7 +21,7 @@
 <!-- style="background-color: #655643" -->
 
     <nav class="navbar navbar-light navbar-expand-lg" >
-        <a class="navbar-brand" href="#">Navbar</a>
+        <a class="navbar-brand" href="{{ url('/') }}">Navbar</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>

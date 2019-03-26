@@ -1,5 +1,9 @@
 @extends('layout')
 
+@section('title')
+    <title>Liste</title>
+@endsection
+
 @section('content')
 <div class="container">
     <div class="row" style="margin-top:20px;margin-bottom:20px;"><h1>Votre liste</h1></div>

@@ -1,7 +1,7 @@
 @extends('layout')
 
 @section('title')
-<title>Inscription</title>
+    <title>Inscription</title>
 @endsection
 
 @section('content')
