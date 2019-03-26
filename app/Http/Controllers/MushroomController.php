@@ -70,7 +70,7 @@ class MushroomController extends Controller
         $mushroom->chair = request('chair');
         $mushroom->type_trophique = request('trophique');
         $mushroom->groupe = request('groupe');
-        $mushroom->pied = image('image');
+        //$mushroom->image = image('image');
 
         $mushroom->save();
 
