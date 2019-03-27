@@ -6,6 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Mushroom extends Model
 {
+
+
     protected $fillable = ['name',
                             'nameLatin',
                             'odeur',
@@ -16,6 +18,9 @@ class Mushroom extends Model
                             'pied',
                             'chair',
                             'sporee',];
+
+
+    
 }
 
 
