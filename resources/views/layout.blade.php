@@ -35,6 +35,8 @@
                     @endif
                     @endauth
                 </li>
+                @include('partials.nav-item',['link'=>'/mushrooms', 'text' => 'Liste'])
+                
                 @auth
 
                 @include('partials.nav-item',['link'=>'my-account', 'text' => 'Mon compte'])
@@ -43,7 +45,6 @@
 
                 @else
 
-                @include('partials.nav-item',['link'=>'/mushrooms', 'text' => 'Liste'])
 
                 @include('partials.nav-item',['link'=>'connection', 'text' => 'Connexion'])
 
