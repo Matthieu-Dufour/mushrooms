@@ -7,23 +7,60 @@
 @section('content')
 <div class="container">
     <div class="row">
-        <h1 style="margin-top:20px;margin-bottom:20px;">{{ $mushroom->name }}</h1>
+        <h1 style="margin-top:20px;margin-bottom:20px;">{{ $mushroom->name }} ({{$mushroom->nameLatin}})</h1>
     </div>
     <div class="col">
         <div class="row">
-            <div class="col">{{ $mushroom->odeur }}</div>
-            <div class="col">{{ $mushroom->odeur }}</div>
-            <div class="col">{{ $mushroom->odeur }}</div>
+            <div class="col">
+                <label>Surnom: </label><br>{{ $mushroom->surnom }}</div>
+            <div class="col">
+                <label>Odeur: </label><br>
+                @foreach($odeurs as $odeur)
+                    @if($odeur->id == $mushroom->odeur)
+                        {{ $odeur->nom }}
+                        @endif
+                @endforeach
+            </div>
+            <div class="col">
+                <label>Comestibilité: </label><br>
+                @foreach($comestibilites as $comestibilite)
+                    @if($comestibilite->id == $mushroom->comestible)
+                        {{ $comestibilite->nom }}
+                        @endif
+                @endforeach
+            </div>
         </div>
+        <br>
         <div class="row">
-            <div class="col">{{ $mushroom->odeur }}</div>
-            <div class="col">{{ $mushroom->odeur }}</div>
-            <div class="col">{{ $mushroom->odeur }}</div>
+            
+            <div class="col">
+                <label>Ecologie: </label><br>
+                @foreach($ecologies as $ecologie)
+                    @if($ecologie->id == $mushroom->ecologie)
+                        {{ $ecologie->region }}
+                        @endif
+                @endforeach
+            </div>
+            <div class="col"><label>Chapeau: </label><br>{{ $mushroom->chapeau }}</div>
+            <div class="col"><label>Lames: </label><br>{{ $mushroom->lames }}</div>
         </div>
+        <br>
+        <div class="row">   
+            <div class="col"><label>Pied: </label><br>{{ $mushroom->pied }}</div>
+            <div class="col"><label>Chair: </label><br>{{ $mushroom->chair }}</div>
+            <div class="col">
+                <label>Type Trophique: </label><br>
+                    @foreach($trophiques as $trophique)
+                        @if($trophique->id == $mushroom->type_trophique)
+                            {{ $trophique->status }}
+                            @endif
+                    @endforeach
+            </div>
+        </div>
+        <br>
         <div class="row">
-            <div class="col">{{ $mushroom->odeur }}</div>
-            <div class="col">{{ $mushroom->odeur }}</div>
-            <div class="col">{{ $mushroom->odeur }}</div>
+            <div class="col"><label>Groupe: </label><br>{{ $mushroom->groupe }}</div>
+            <div class="col"><img src="/img/{{ $mushroom->image }}"/></div>
         </div>
     </div>
 

@@ -133,7 +133,7 @@
                                 <div class="btn btn-default image-preview-input">
                                     <span class="glyphicon glyphicon-folder-open"></span>
                                     <span class="image-preview-input-title">Browse</span>
-                                    <input type="file" accept="image/png, image/jpeg, image/gif" name="image" value="{{ $mushroom->image }}" onchange="readURL(this);"/> <!-- rename it -->
+                                    <input type="file" accept="image/png, image/jpeg, image/gif" name="image" value="/img/{{ $mushroom->image }}" onchange="readURL(this);"/> <!-- rename it -->
                                 </div>
                             </span>
                         </div><!-- /input-group image-preview [TO HERE]--> 
@@ -141,7 +141,11 @@
                 </div>
                 <div class="col"></div>
                 <div class="col">
-                    <img id="preview" src="https://via.placeholder.com/300.png/" alt="your image" />
+                    @if($mushroom->image == null)
+                        <img id="preview" src="https://via.placeholder.com/300.png/" alt="your image" />
+                    @else
+                        <img id="preview" src="/img/{{ $mushroom->image }}" />
+                    @endif
                 </div>
 
             </div>

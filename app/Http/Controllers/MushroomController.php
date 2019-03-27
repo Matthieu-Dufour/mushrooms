@@ -27,8 +27,19 @@ class MushroomController extends Controller
 
         $mushroom = Mushroom::where('id', $id)->first();
 
+        $odeurs = DB::table('Odeur')->get();
+        $comestibilites = DB::table('Comestibilité')->get();
+        $ecologies = DB::table('Ecologie')->get();
+        $groupes = DB::table('Groupe')->get();
+        $trophiques = DB::table('Type_Trophique')->get();
+
         return view('mushroom',[
             'mushroom' => $mushroom,
+            'odeurs' => $odeurs,
+            'comestibilites' => $comestibilites,
+            'ecologies' => $ecologies,
+            'trophiques' => $trophiques,
+            'groupes' => $groupes, 
         ]);
     }
 
@@ -52,10 +63,10 @@ class MushroomController extends Controller
         ]);
     }
 
-    public function editTraitement(){
+    public function editTraitement(Request $request){
 
+        $file = $request->file('image');
         $id = request('id');
-
         $mushroom = Mushroom::where('id', $id)->first();
 
         $mushroom->name = request('name');
@@ -70,10 +81,12 @@ class MushroomController extends Controller
         $mushroom->chair = request('chair');
         $mushroom->type_trophique = request('trophique');
         $mushroom->groupe = request('groupe');
-        //$mushroom->image = image('image');
-
+        if($file != null){
+            $mushroom->image = $file->getClientOriginalName();
+            $file->move('./img',$file->getClientOriginalName());
+        }
         $mushroom->save();
-
+        //dd($mushroom->image);
         return redirect('mushroom/'.$mushroom->id);
     }
 
@@ -97,22 +110,43 @@ class MushroomController extends Controller
     public function addTraitement(Request $request)
     {
         $file = $request->file('image');
-        $mushroom = Mushroom::create([
-            'name' => request('name'),
-            'nameLatin' => request('nameLatin'),
-            'surnom' => request('surnom'),
-            'odeur' => request('odeur'),
-            'comestible' => request('comestibilite'),
-            'ecologie' => request('ecologie'),
-            'chapeau' => request('chapeau'),
-            'lames' => request('lames'),
-            'pied' => request('pied'),
-            'chair' => request('chair'),
-            'type_trophique' => request('trophique'),
-            'groupe' => request('groupe'),
-            'image' => $file->getClientOriginalName(),
-        ]);
-        $file->move('./img',$file->getClientOriginalName());
+        if($file != null){
+            $mushroom = Mushroom::create([
+                'name' => request('name'),
+                'nameLatin' => request('nameLatin'),
+                'surnom' => request('surnom'),
+                'odeur' => request('odeur'),
+                'comestible' => request('comestibilite'),
+                'ecologie' => request('ecologie'),
+                'chapeau' => request('chapeau'),
+                'lames' => request('lames'),
+                'pied' => request('pied'),
+                'chair' => request('chair'),
+                'type_trophique' => request('trophique'),
+                'groupe' => request('groupe'),
+                'image' => $file->getClientOriginalName(),
+            ]);
+    
+            $file->move('./img',$file->getClientOriginalName());
+        }
+        else{
+            $mushroom = Mushroom::create([
+                'name' => request('name'),
+                'nameLatin' => request('nameLatin'),
+                'surnom' => request('surnom'),
+                'odeur' => request('odeur'),
+                'comestible' => request('comestibilite'),
+                'ecologie' => request('ecologie'),
+                'chapeau' => request('chapeau'),
+                'lames' => request('lames'),
+                'pied' => request('pied'),
+                'chair' => request('chair'),
+                'type_trophique' => request('trophique'),
+                'groupe' => request('groupe'),
+            ]);
+
+        }
+
     
         flash('Le champignon à été ajouté.')->success();
 
