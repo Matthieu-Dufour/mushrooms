@@ -43,6 +43,8 @@
 
                 @else
 
+                @include('partials.nav-item',['link'=>'/mushrooms', 'text' => 'Liste'])
+
                 @include('partials.nav-item',['link'=>'connection', 'text' => 'Connexion'])
 
                 @include('partials.nav-item',['link'=>'inscription', 'text' => 'Inscription'])
