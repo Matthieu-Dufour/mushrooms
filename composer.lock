@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "6ae0a805f10fca9f143c1af603bcec6d",
-    "content-hash": "a029e9257c32fe633cc09579d95360e3",
+    "hash": "187e7aeeb671f8b6ba8ad64efd838f71",
+    "content-hash": "ef79c7a6f166efe1e2e97cf54efd12c6",
     "packages": [
         {
             "name": "bacon/bacon-qr-code",
@@ -479,11 +479,7 @@
                 "markdown",
                 "parser"
             ],
-<<<<<<< HEAD
             "time": "2019-03-17 17:19:46"
-=======
-            "time": "2018-03-08 01:11:30"
->>>>>>> master
         },
         {
             "name": "fideloper/proxy",
@@ -1327,11 +1323,7 @@
                 "sftp",
                 "storage"
             ],
-<<<<<<< HEAD
             "time": "2019-02-01 08:50:36"
-=======
-            "time": "2018-08-22 07:45:22"
->>>>>>> master
         },
         {
             "name": "monolog/monolog",
@@ -1515,11 +1507,7 @@
                 }
             ],
             "description": "PHP Client for using Nexmo's API.",
-<<<<<<< HEAD
             "time": "2019-03-15 11:47:11"
-=======
-            "time": "2019-02-07 11:14:34"
->>>>>>> master
         },
         {
             "name": "nikic/php-parser",
@@ -2354,8 +2342,6 @@
                 "stylesheet"
             ],
             "time": "2016-07-19 19:14:21"
-<<<<<<< HEAD
-=======
         },
         {
             "name": "simplesoftwareio/simple-qrcode",
@@ -2417,7 +2403,6 @@
                 "wrapper"
             ],
             "time": "2017-11-26 15:27:12"
->>>>>>> master
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -3042,11 +3027,7 @@
                 "polyfill",
                 "portable"
             ],
-<<<<<<< HEAD
             "time": "2019-02-06 07:57:58"
-=======
-            "time": "2018-08-06 14:22:27"
->>>>>>> master
         },
         {
             "name": "symfony/polyfill-iconv",
@@ -3105,11 +3086,7 @@
                 "portable",
                 "shim"
             ],
-<<<<<<< HEAD
             "time": "2019-02-06 07:57:58"
-=======
-            "time": "2018-09-21 06:26:08"
->>>>>>> master
         },
         {
             "name": "symfony/polyfill-intl-idn",
@@ -3171,11 +3148,7 @@
                 "portable",
                 "shim"
             ],
-<<<<<<< HEAD
             "time": "2019-03-04 13:44:35"
-=======
-            "time": "2018-09-30 16:36:12"
->>>>>>> master
         },
         {
             "name": "symfony/polyfill-mbstring",
@@ -3234,11 +3207,7 @@
                 "portable",
                 "shim"
             ],
-<<<<<<< HEAD
             "time": "2019-02-06 07:57:58"
-=======
-            "time": "2018-09-21 13:07:52"
->>>>>>> master
         },
         {
             "name": "symfony/polyfill-php72",
@@ -3293,11 +3262,7 @@
                 "portable",
                 "shim"
             ],
-<<<<<<< HEAD
             "time": "2019-02-06 07:57:58"
-=======
-            "time": "2018-09-21 13:07:52"
->>>>>>> master
         },
         {
             "name": "symfony/process",
@@ -3907,11 +3872,7 @@
                 "constructor",
                 "instantiate"
             ],
-<<<<<<< HEAD
             "time": "2019-03-17 17:37:11"
-=======
-            "time": "2017-07-22 11:58:36"
->>>>>>> master
         },
         {
             "name": "filp/whoops",
@@ -4820,16 +4781,16 @@
         },
         {
             "name": "phpunit/phpunit",
-            "version": "7.5.7",
+            "version": "7.5.8",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "eb343b86753d26de07ecba7868fa983104361948"
+                "reference": "c29c0525cf4572c11efe1db49a8b8aee9dfac58a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/eb343b86753d26de07ecba7868fa983104361948",
-                "reference": "eb343b86753d26de07ecba7868fa983104361948",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/c29c0525cf4572c11efe1db49a8b8aee9dfac58a",
+                "reference": "c29c0525cf4572c11efe1db49a8b8aee9dfac58a",
                 "shasum": ""
             },
             "require": {
@@ -4900,11 +4861,7 @@
                 "testing",
                 "xunit"
             ],
-<<<<<<< HEAD
-            "time": "2019-03-16 07:31:17"
-=======
-            "time": "2019-02-18 09:24:50"
->>>>>>> master
+            "time": "2019-03-26 13:23:54"
         },
         {
             "name": "sebastian/code-unit-reverse-lookup",

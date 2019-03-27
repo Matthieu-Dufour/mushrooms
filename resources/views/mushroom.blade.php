@@ -61,7 +61,9 @@
         <br>
         <div class="row">
             <div class="col"><label>Groupe: </label><br>{{ $mushroom->groupe }}</div>
+            @if($mushroom->image != null)
             <div class="col"><img src="/img/{{ $mushroom->image }}"/></div>
+            @endif
         </div>
     </div>
 

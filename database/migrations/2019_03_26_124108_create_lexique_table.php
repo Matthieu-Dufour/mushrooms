@@ -28,6 +28,6 @@ class CreateLexiqueTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('lexique');
+        Schema::dropIfExists('lexiques');
     }
 }
