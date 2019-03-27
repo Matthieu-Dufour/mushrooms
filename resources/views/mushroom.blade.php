@@ -6,6 +6,7 @@
 
 @section('content')
 <div class="container">
+<div class="container containerPrincipale " style="margin-top: 20px;margin-bottom: 20px;">@include('flash::message')</div>
     <div class="row">
         <h1 style="margin-top:20px;margin-bottom:20px;">{{ $mushroom->name }} ({{$mushroom->nameLatin}})</h1>
     </div>

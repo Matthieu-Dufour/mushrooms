@@ -86,7 +86,9 @@ class MushroomController extends Controller
             $file->move('./img',$file->getClientOriginalName());
         }
         $mushroom->save();
-        //dd($mushroom->image);
+
+        flash('Modifications terminées.')->success();
+
         return redirect('mushroom/'.$mushroom->id);
     }
 
@@ -159,6 +161,8 @@ class MushroomController extends Controller
         $mushroom = Mushroom::where('id', $id)->first();
 
         $mushroom->delete();
+
+        flash('Champignon supprimé')->warning();
 
         return redirect(route('GETmushrooms'));
     }

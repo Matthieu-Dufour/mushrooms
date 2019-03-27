@@ -18,5 +18,6 @@ class DatabaseSeeder extends Seeder
         $this->call(OdeurTableSeeder::class);
         $this->call(TypeTrophiqueTableSeeder::class);
         $this->call(MushroomsTableSeeder::class);
+        $this->call(LexiqueSeeder::class);
     }
 }

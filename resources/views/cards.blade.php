@@ -6,6 +6,7 @@
 
 @section('content')
 <div class="container">
+<div class="container containerPrincipale " style="margin-top: 20px;margin-bottom: 20px;">@include('flash::message')</div>
     <h1 style="margin-top:20px;margin-bottom:20px">Ajoutez des champignons dans votre liste</h1>
 
    

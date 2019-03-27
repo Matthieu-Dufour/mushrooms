@@ -20,7 +20,7 @@
 
 
     <nav class="navbar navbar-light navbar-expand-lg" >
-        <a class="navbar-brand" href="{{ url('/') }}">Navbar</a>
+        <a class="navbar-brand" href="{{ url('/') }}">SLM</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -42,6 +42,8 @@
                 @include('partials.nav-item',['link'=>'disconnection', 'text' => 'Déconnexion'])
 
                 @else
+
+                @include('partials.nav-item',['link'=>'/mushrooms', 'text' => 'Liste'])
 
                 @include('partials.nav-item',['link'=>'connection', 'text' => 'Connexion'])
 

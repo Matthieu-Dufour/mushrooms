@@ -11,7 +11,7 @@
 
 @section('content')
 <div id='application' class="container" >
-    
+<div class="container containerPrincipale " style="margin-top: 20px;margin-bottom: 20px;">@include('flash::message')</div>
     <div class="col" style="margin-bottom:20px;">
         <div class="row" style="margin-top: 20px;margin-bottom: 20px;">
             <h1>Liste des champignons</h1>
