@@ -60,7 +60,13 @@
         </div>
         <br>
         <div class="row">
-            <div class="col"><label>Groupe: </label><br>{{ $mushroom->groupe }}</div>
+            <div class="col"><label>Groupe: </label><br>
+            @foreach($groupes as $groupe)
+                        @if($groupe->id == $mushroom->groupe)
+                            {{ $groupe->nom }}
+                            @endif
+                    @endforeach
+            </div>
             <div class="col">
                 <label>Confusions possibles: </label><br>
                     @foreach($confusions as $confusion)

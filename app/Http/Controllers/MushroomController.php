@@ -54,6 +54,7 @@ class MushroomController extends Controller
         $ecologies = DB::table('Ecologie')->get();
         $groupes = DB::table('Groupe')->get();
         $trophiques = DB::table('Type_Trophique')->get();
+        $confusions = DB::table('confusions')->where('mushroom1_id', $id)->get();
 
         return view('editMushroom',[
             'mushroom' => $mushroom,
@@ -63,6 +64,7 @@ class MushroomController extends Controller
             'trophiques' => $trophiques,
             'groupes' => $groupes, 
             'liste' => $liste,
+            'confusions' =>$confusions,
         ]);
     }
 

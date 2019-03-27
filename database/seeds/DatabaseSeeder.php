@@ -17,6 +17,7 @@ class DatabaseSeeder extends Seeder
         $this->call(EcologieTableSeeder::class);
         $this->call(OdeurTableSeeder::class);
         $this->call(TypeTrophiqueTableSeeder::class);
+        $this->call(GroupeTableSeeder::class);
         $this->call(MushroomsTableSeeder::class);
         $this->call(LexiqueSeeder::class);
         $this->call(ConfusionsTableSeeder::class);
