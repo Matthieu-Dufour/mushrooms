@@ -70,6 +70,11 @@
         <div class="row d-flex justify-content-center mushroomsBtn">
             <input type="text" name="name" placeholder="Rechercher" v-model="search">
             <a class="btn btn-secondary">Rechercher</a>
+            @auth
+                @if(Auth::user()->hasRole("mycologist"))
+            <a class="btn btn-secondary" href='{{route("GETaddMushroom")}}'>Créer un champignon</a>
+            @endif
+                @endauth
         </div>
         <div class="row d-flex justify-content-center mushroomsLink">
             <a data-toggle="collapse" data-target="#demo" style="margin-top:20px;">Recherche avancée ▼</a>
