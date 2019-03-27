@@ -14,15 +14,28 @@ use App\Groupe;
 class MushroomController extends Controller
 {
 
-    public function showAllMushrooms(){
+    public function showAllMushrooms()
+    {
         $mushrooms = Mushroom::all();
+        $odeurs = DB::table('Odeur')->get();
+        $comestibilites = DB::table('Comestibilité')->get();
+        $ecologies = DB::table('Ecologie')->get();
+        $groupes = DB::table('Groupe')->get();
+        $trophiques = DB::table('Type_Trophique')->get();
+
 
         return view('mushrooms', [
             'mushrooms' => $mushrooms,
+            'odeurs' => $odeurs,
+            'comestibilites' => $comestibilites,
+            'ecologies' => $ecologies,
+            'trophiques' => $trophiques,
+            'groupes' => $groupes,
         ]);
     }
 
-    public function showMushroom(){
+    public function showMushroom()
+    {
         $id = request('id');
 
         $mushroom = Mushroom::where('id', $id)->first();
@@ -33,17 +46,18 @@ class MushroomController extends Controller
         $groupes = DB::table('Groupe')->get();
         $trophiques = DB::table('Type_Trophique')->get();
 
-        return view('mushroom',[
+        return view('mushroom', [
             'mushroom' => $mushroom,
             'odeurs' => $odeurs,
             'comestibilites' => $comestibilites,
             'ecologies' => $ecologies,
             'trophiques' => $trophiques,
-            'groupes' => $groupes, 
+            'groupes' => $groupes,
         ]);
     }
 
-    public function editFormulaire(){
+    public function editFormulaire()
+    {
         $id = request('id');
 
         $mushroom = Mushroom::where('id', $id)->first();
@@ -53,17 +67,18 @@ class MushroomController extends Controller
         $groupes = DB::table('Groupe')->get();
         $trophiques = DB::table('Type_Trophique')->get();
 
-        return view('editMushroom',[
+        return view('editMushroom', [
             'mushroom' => $mushroom,
             'odeurs' => $odeurs,
             'comestibilites' => $comestibilites,
             'ecologies' => $ecologies,
             'trophiques' => $trophiques,
-            'groupes' => $groupes, 
+            'groupes' => $groupes,
         ]);
     }
 
-    public function editTraitement(Request $request){
+    public function editTraitement(Request $request)
+    {
 
         $file = $request->file('image');
         $id = request('id');
@@ -81,15 +96,15 @@ class MushroomController extends Controller
         $mushroom->chair = request('chair');
         $mushroom->type_trophique = request('trophique');
         $mushroom->groupe = request('groupe');
-        if($file != null){
+        if ($file != null) {
             $mushroom->image = $file->getClientOriginalName();
-            $file->move('./img',$file->getClientOriginalName());
+            $file->move('./img', $file->getClientOriginalName());
         }
         $mushroom->save();
 
         flash('Modifications terminées.')->success();
 
-        return redirect('mushroom/'.$mushroom->id);
+        return redirect('mushroom/' . $mushroom->id);
     }
 
     public function addFormulaire()
@@ -105,14 +120,14 @@ class MushroomController extends Controller
             'comestibilites' => $comestibilites,
             'ecologies' => $ecologies,
             'trophiques' => $trophiques,
-            'groupes' => $groupes, 
+            'groupes' => $groupes,
         ]);
     }
 
     public function addTraitement(Request $request)
     {
         $file = $request->file('image');
-        if($file != null){
+        if ($file != null) {
             $mushroom = Mushroom::create([
                 'name' => request('name'),
                 'nameLatin' => request('nameLatin'),
@@ -128,10 +143,9 @@ class MushroomController extends Controller
                 'groupe' => request('groupe'),
                 'image' => $file->getClientOriginalName(),
             ]);
-    
-            $file->move('./img',$file->getClientOriginalName());
-        }
-        else{
+
+            $file->move('./img', $file->getClientOriginalName());
+        } else {
             $mushroom = Mushroom::create([
                 'name' => request('name'),
                 'nameLatin' => request('nameLatin'),
@@ -146,16 +160,16 @@ class MushroomController extends Controller
                 'type_trophique' => request('trophique'),
                 'groupe' => request('groupe'),
             ]);
-
         }
 
-    
+
         flash('Le champignon à été ajouté.')->success();
 
         return redirect('/');
     }
 
-    public function deleteMushroom(){
+    public function deleteMushroom()
+    {
         $id = request('id');
 
         $mushroom = Mushroom::where('id', $id)->first();

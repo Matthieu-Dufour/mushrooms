@@ -1,0 +1,13 @@
+pastille pour comestibilité (bien cuit)
+nom 
+nom latin
+
+
+bleu = bon
+orange = toxique
+rouge = mortel 
+
+confusion possible (dangereuse)
+
+le milieu
+
