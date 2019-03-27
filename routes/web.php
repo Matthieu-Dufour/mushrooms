@@ -87,4 +87,6 @@ Route::group([
         Route::get('/users', 'UsersController@index')->name('GETusers');
         Route::post('/assignroles', 'UsersController@assignRoles')->name('POSTassignRoles');
     });
+
+
 });
