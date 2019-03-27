@@ -61,6 +61,18 @@
         <br>
         <div class="row">
             <div class="col"><label>Groupe: </label><br>{{ $mushroom->groupe }}</div>
+            <div class="col">
+                <label>Confusions possibles: </label><br>
+                    @foreach($confusions as $confusion)
+                        @foreach($liste as $mushConf)
+                            @if($confusion->mushroom1_id == $mushroom->id)
+                                @if($confusion->mushroom2_id == $mushConf->id)
+                                    <a href="{{$mushConf->id}}">{{ $mushConf->name }}</a>
+                                @endif
+                            @endif
+                        @endforeach
+                    @endforeach
+            </div>
             @if($mushroom->image != null)
             <div class="col"><img src="/img/{{ $mushroom->image }}"/></div>
             @endif

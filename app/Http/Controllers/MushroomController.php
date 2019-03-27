@@ -24,9 +24,9 @@ class MushroomController extends Controller
 
     public function showMushroom(){
         $id = request('id');
-
         $mushroom = Mushroom::where('id', $id)->first();
-
+        $liste = DB::table('mushrooms')->get();
+        $confusions = DB::table('confusions')->where('mushroom1_id', $id)->get();
         $odeurs = DB::table('Odeur')->get();
         $comestibilites = DB::table('Comestibilité')->get();
         $ecologies = DB::table('Ecologie')->get();
@@ -40,12 +40,14 @@ class MushroomController extends Controller
             'ecologies' => $ecologies,
             'trophiques' => $trophiques,
             'groupes' => $groupes, 
+            'confusions' => $confusions,
+            'liste' => $liste,
         ]);
     }
 
     public function editFormulaire(){
         $id = request('id');
-
+        $liste = DB::table('mushrooms')->get();
         $mushroom = Mushroom::where('id', $id)->first();
         $odeurs = DB::table('Odeur')->get();
         $comestibilites = DB::table('Comestibilité')->get();
@@ -60,6 +62,7 @@ class MushroomController extends Controller
             'ecologies' => $ecologies,
             'trophiques' => $trophiques,
             'groupes' => $groupes, 
+            'liste' => $liste,
         ]);
     }
 
@@ -87,6 +90,10 @@ class MushroomController extends Controller
         }
         $mushroom->save();
 
+        DB::table('confusions')
+            ->where('mushroom1_id', $id)
+            ->update(['mushroom2_id' => request('confusion')]);
+
         flash('Modifications terminées.')->success();
 
         return redirect('mushroom/'.$mushroom->id);
@@ -99,13 +106,14 @@ class MushroomController extends Controller
         $ecologies = DB::table('Ecologie')->get();
         $groupes = DB::table('Groupe')->get();
         $trophiques = DB::table('Type_Trophique')->get();
-
+        $liste = DB::table('mushrooms')->get();
         return view('mushroomAdd', [
             'odeurs' => $odeurs,
             'comestibilites' => $comestibilites,
             'ecologies' => $ecologies,
             'trophiques' => $trophiques,
             'groupes' => $groupes, 
+            'liste' => $liste,
         ]);
     }
 
@@ -148,7 +156,10 @@ class MushroomController extends Controller
             ]);
 
         }
-
+        $confusion = DB::table('confusions')->insert([
+            'mushroom1_id' => $mushroom->id,
+            'mushroom2_id' => request('confusion'),
+        ]);
     
         flash('Le champignon à été ajouté.')->success();
 

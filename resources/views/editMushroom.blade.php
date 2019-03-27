@@ -123,6 +123,16 @@
             <div class="row">
                 <div class="col">
                     <div class="form-group">
+                        <label>Confusion possible</label>
+                        <select class="form-control mushroomAddInput" type="confusion" name="confusion" id="confusion">
+                            @foreach($liste as $confusion)
+                            <option value="{{ $confusion->id }}">{{ $confusion->name }}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="form-group">
                         <label>Image</label>
                         <div class="input-group image-preview">
                         <input type="text" class="form-control image-preview-filename" disabled="disabled"> <!-- don't give a name === doesn't send on POST/GET -->
@@ -141,7 +151,6 @@
                         </div><!-- /input-group image-preview [TO HERE]--> 
                     </div>
                 </div>
-                <div class="col"></div>
                 <div class="col">
                     @if($mushroom->image == null)
                         <img id="preview" src="https://via.placeholder.com/300.png/" alt="your image" />
