@@ -19,9 +19,9 @@ class MushroomsTableSeeder extends Seeder
             'pied' => 'Blanc, chiné ou zébré de gros olivâtre, anneau blanc membraneux, volve blanche en sac blanc pur, cylindrique [5-10(15) x 1-2(3) cm]',
             'chair' => 'Blanche, sans odeur (ou odeur de rose en vieillisant), goût agréable',
             'surnom' => '',
-            'odeur' => 93,
-            'comestible' => 4,
-            'ecologie' => 15,
+            'odeur' => '93',
+            'comestible' => '4',
+            'ecologie' => '15',
             'groupe' => '',
             'image' => 'Amanita-phalloides-(YD)-6516.jpg'
         ]);
@@ -39,6 +39,5 @@ class MushroomsTableSeeder extends Seeder
             'groupe' => '1',
             'image' => '333_1_112527.jpg'
         ]);
-    
     }
 }

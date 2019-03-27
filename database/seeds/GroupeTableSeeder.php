@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Seeder;
 
-class MushroomsTableSeeder extends Seeder
+class GroupeTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
