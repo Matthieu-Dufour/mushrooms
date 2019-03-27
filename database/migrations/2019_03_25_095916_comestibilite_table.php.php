@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateLexiqueTable extends Migration
+class ComestibiliteTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,10 @@ class CreateLexiqueTable extends Migration
      */
     public function up()
     {
-        Schema::create('lexiques', function (Blueprint $table) {
+        Schema::create('Comestibilité', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('mot');
-            $table->string('definition');
-            $table->timestamps();
-        });
-    }
+            $table->string('nom', 50)->nullable(false);
+        });    }
 
     /**
      * Reverse the migrations.
@@ -28,6 +25,6 @@ class CreateLexiqueTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('lexiques');
+        Schema::dropIfExists('Comestibilité');  
     }
 }

@@ -1,7 +1,7 @@
 @extends('layout')
 
 @section('title')
-    <title>Accueil</title>
+<title>Accueil</title>
 @endsection
 
 @section('link')
@@ -12,7 +12,15 @@
 
 <div class="jumbotron bg-image bg-image-wedding bg-center-bottom" id="fondimage">
     <div class="container">
-        <h1 class="display-4 d-flex justify-content-center" style="margin-top:100px;">Société Lorraine de mycologie</h1>
+        <div class="row">
+            <div class="col"></div>
+            <div class="col"></div>
+            <div class="col">
+                <h1 class="display-4" style="margin-top:100px;text-align:center;">Société <br> Lorraine <br> de mycologie</h1>
+            </div>
+
+        </div>
+
     </div>
 </div>
 
