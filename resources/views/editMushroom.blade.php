@@ -13,7 +13,7 @@
 
 @section('content')
 <div class="container">
-    <form action="route('POSTeditMushroom', ['id' => $mushroom->id)]" method="post" enctype="multipart/form-data">
+    <form action="{{route('POSTeditMushroom', ['id' => $mushroom->id])}}" method="post" enctype="multipart/form-data">
         {{ csrf_field() }}
 
 
