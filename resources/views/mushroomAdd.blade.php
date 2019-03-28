@@ -156,8 +156,10 @@
             </div>
         </div>
 
-        <button type="submit" class="btn btn-primary mushroomAddBtn">Ajouter le champignon</button>
+        <button type="submit" class="btn btn-secondary mushroomAddBtn">Ajouter le champignon</button>
+        
     </form>
+    <a href="{{ route('GETaddCaracteristique') }}" ><button class="btn btn-primary" style="margin-top:20px;">Ajouter une caractéristique</button></a>
 
 </div>
 @endsection 

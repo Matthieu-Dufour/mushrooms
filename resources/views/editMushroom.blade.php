@@ -182,16 +182,13 @@
 
             </div>
         </div>
-
         @auth
-        @if(Auth::user()->hasRole("mycologist"))
-        <button type="submit" class="btn btn-secondary" style="margin-bottom:20px;">Editer</button>
-        @endif
+            @if(Auth::user()->hasRole("mycologist"))
+                <button type="submit" class="btn btn-secondary" style="margin-bottom:20px;">Editer</button>
+            @endif
         @endauth
     </form>
     <a href="{{ route('GETmushroom', ['id' => $mushroom->id]) }}" ><button class="btn btn-danger mushroomAddBtn"  >Annuler</button></a>
-</div>
-    </form>
-
+    <a href="{{ route('GETaddCaracteristique') }}" ><button class="btn btn-primary" >Ajouter une caractéristique</button></a>
 </div>
 @endsection 

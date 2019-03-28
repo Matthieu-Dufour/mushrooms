@@ -88,5 +88,7 @@ Route::group([
         Route::post('/assignroles', 'UsersController@assignRoles')->name('POSTassignRoles');
     });
 
+    Route::post('/caracteristiqueAdd', 'CaracteristiqueController@addTraitement')->name('POSTaddCaracteristique');
+    Route::get('/caracteristiqueAdd', 'CaracteristiqueController@addFormulaire')->name('GETaddCaracteristique');
 
 });
