@@ -29,9 +29,9 @@ class MushroomsTableSeeder extends Seeder
         DB::table('mushrooms')->insert([
             'name' => 'Trompette de la Mort',
             'nameLatin' => 'Craterellus Cornucopioide',
-            'chapeau' => "Jeune, il s'apparente à un tube, puis il s'ouvre en formant un pavillon creusé jusqu'à la base du pied",
+            'chapeau' => "carpophore creux de 2 à 7/8 cm, tubulaire puis évasé, en trompette; revêtement gris-brun à noir, parcouru de fibrilles foncées; marge enroulée assez régulière puis très vite ondulée, dentelée ou déchirée",
             'lames' => 'Hym. sublisse gris a noir (jaune pour la var. flavicans Sacc.).',
-            'pied' => '',
+            'pied' => "noirâtre, de 4 à 6 cm pour 1,5 cm de diamètre environ, creux comme tout le champignon, sans marque nette avec l'hyménium",
             'chair' => 'légèrement pelucheuse, gris cendrée à gris bleuté, couverte de quelques rides plus ou moins saillantes',
             'surnom' => 'Chanterelle Noire',
             'type_trophique' => 1,

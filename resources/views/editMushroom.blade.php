@@ -144,21 +144,12 @@
                 <div class="col">
                     <div class="form-group">
                         <label>Confusion possible</label>
-
-                        <!-- @foreach($confusions as $conf)
-                            @foreach($liste as $mushConf)
-                                @if($conf->mushroom1_id == $mushroom->id)
-                                    @if($conf->mushroom2_id == $mushConf->id) -->
-                                        <select class="form-control mushroomAddInput" type="confusion" name="confusion" id="confusion" >
-                                        @foreach($liste as $confusion)
-                                            <option value="{{ $confusion->id }}">{{ $confusion->name }}</option>
-                                        @endforeach
-
-                            <!-- @endif
-                                @endif
+                        <select class="form-control mushroomAddInput" type="confusion" name="confusion" id="confusion" >
+                            @foreach($liste as $confusion)
+                                <option value="{{ $confusion->id }}">{{ $confusion->name }}</option>
                             @endforeach
-                        @endforeach -->
                         </select>
+                        <button type="button" class="btn btn-primary">Plus</button>
                     </div>
                 </div>
                 <div class="col">

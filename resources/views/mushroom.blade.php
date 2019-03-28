@@ -73,7 +73,9 @@
                         @foreach($liste as $mushConf)
                             @if($confusion->mushroom1_id == $mushroom->id)
                                 @if($confusion->mushroom2_id == $mushConf->id)
-                                    <a href="{{$mushConf->id}}">{{ $mushConf->name }}</a>
+                                    <ul>
+                                        <li><a href="{{$mushConf->id}}">{{ $mushConf->name }}</a></li>
+                                    </ul>
                                 @endif
                             @endif
                         @endforeach

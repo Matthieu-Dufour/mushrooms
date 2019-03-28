@@ -175,6 +175,10 @@ class MushroomController extends Controller
             'mushroom1_id' => $mushroom->id,
             'mushroom2_id' => request('confusion'),
         ]);
+        $confusion = DB::table('confusions')->insert([
+            'mushroom1_id' => request('confusion'),
+            'mushroom2_id' => $mushroom->id,
+        ]);
     
         flash('Le champignon à été ajouté.')->success();
 
