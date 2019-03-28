@@ -40,6 +40,11 @@
         <form>
             @else
             <h2 style="margin-top:20px;">Il n'y a pas de champignons dans votre liste d'impression</h2>
+            <div class="row" style="margin-bottom: 40px">
+                <div class="col"></div>
+                <div class="col"><a class="btn btn-secondary welcomeBtn" href='{{route("GETcards")}}'>Imprimer des cartes</a></div>
+                <div class="col"></div>
+            </div>
             @endif
 </div>
 @endsection 

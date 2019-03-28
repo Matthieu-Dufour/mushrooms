@@ -8,9 +8,14 @@
 <div class="container">
     <div class="row">
             <h1>Mon compte</h1>
-
     </div>
     <div class="container containerPrincipale " style="margin-top: 20px;margin-bottom: 20px;">@include('flash::message')</div>
+    <div class="row" style="margin-bottom: 40px">
+        <div class="col"></div>
+        <div class="col"><a class="btn btn-secondary welcomeBtn" href='{{route("GETlistFavorite")}}'>Mes favoris</a></div>
+        <div class="col"></div>
+    </div>
+
     <div class="row">
         <h2>Modifier votre mot de passe :<h2>
     </div>

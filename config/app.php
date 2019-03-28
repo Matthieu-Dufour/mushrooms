@@ -178,6 +178,7 @@ return [
         Barryvdh\DomPDF\ServiceProvider::class,
         SimpleSoftwareIO\QrCode\QrCodeServiceProvider::class,
 
+        ChristianKuri\LaravelFavorite\FavoriteServiceProvider::class,
     ],
 
     /*
