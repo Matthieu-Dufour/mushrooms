@@ -148,7 +148,7 @@
                                 <option value="{{ $confusion->id }}">{{ $confusion->name }}</option>
                             @endforeach
                         </select>
-                        <button type="button" class="btn btn-primary">Plus</button>
+                        <button type="button" class="btn btn-primary"><i class="fa fa-plus-circle"></i></button>
                     </div>
                 </div>
                 <div class="col">
