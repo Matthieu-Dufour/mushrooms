@@ -177,6 +177,7 @@ return [
         App\Providers\RouteServiceProvider::class,
         SimpleSoftwareIO\QrCode\QrCodeServiceProvider::class,
 
+        ChristianKuri\LaravelFavorite\FavoriteServiceProvider::class,
     ],
 
     /*

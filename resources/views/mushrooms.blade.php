@@ -71,10 +71,10 @@
             <input type="text" name="name" placeholder="Rechercher" v-model="search">
             <a class="btn btn-secondary">Rechercher</a>
             @auth
-                @if(Auth::user()->hasRole("mycologist"))
+            @if(Auth::user()->hasRole("mycologist"))
             <a class="btn btn-secondary" href='{{route("GETaddMushroom")}}'>Créer un champignon</a>
             @endif
-                @endauth
+            @endauth
         </div>
         <div class="row d-flex justify-content-center mushroomsLink">
             <a data-toggle="collapse" data-target="#demo" style="margin-top:20px;">Recherche avancée ▼</a>
@@ -92,22 +92,21 @@
         </thead>
         <tbody>
             <tr v-for="mushroom in filteredList">
-                    <th scope="row">@{{ mushroom.id }}</th>
-                    <td>@{{ mushroom.name }}</td>
+                <th scope="row">
+                    @{{ mushroom.id }}
+                </th>
+                <td>@{{ mushroom.name }}</td>
                 <td>
-                <a class="btn btn-secondary mushroomsBtn" :href="mushroom.routeVoir">Voir</a>
-                @auth
-                @if(Auth::user()->hasRole("mycologist"))
-                
-                    <a class="btn btn-secondary mushroomsBtn" :href="mushroom.routeEdit">Editer</a>
-                    <a class="btn btn-danger mushroomsBtn"  style="color: #FFF !important;" data-toggle="confirmation"
-                        data-btn-ok-label="Supprimer" data-btn-ok-class="btn-danger"
-                        data-btn-cancel-label="Annuler" data-btn-cancel-class="btn-dark"
-                        data-title="Êtes vous sûr ?" data-content="Cette action est irréversible" :href="mushroom.routeSuppr">Supprimer</a>
-                
+                    <a class="btn btn-secondary mushroomsBtn" :href="mushroom.routeVoir">Voir</a>
+                    @auth
+                    @if(Auth::user()->hasRole("mycologist"))
 
-                @endif
-                @endauth
+                    <a class="btn btn-secondary mushroomsBtn" :href="mushroom.routeEdit">Editer</a>
+                    <a class="btn btn-danger mushroomsBtn" style="color: #FFF !important;" data-toggle="confirmation" data-btn-ok-label="Supprimer" data-btn-ok-class="btn-danger" data-btn-cancel-label="Annuler" data-btn-cancel-class="btn-dark" data-title="Êtes vous sûr ?" data-content="Cette action est irréversible" :href="mushroom.routeSuppr">Supprimer</a>
+
+
+                    @endif
+                    @endauth
                 </td>
             </tr>
 
@@ -134,35 +133,7 @@
         },
 
         methods: {
-            rechercher() {
-                return this.mushrooms.filter(mushroom => {
-                    let list;
-
-                    list = mushroom.name.toLowerCase().includes(this.search.toLowerCase())
-                    
-                    if (this.comestibilite != "vide") {
-                        list = list && mushroom.comestible.includes(this.comestibilite)
-                    }
-
-                    if (this.odeur != "vide") {
-                        list = list && mushroom.odeur.includes(this.odeur)
-                    }
-
-                    if (this.ecologie != "vide") {
-                        list = list && mushroom.ecologie.includes(this.ecologie)
-                    }
-
-                    if (this.groupe != "vide") {
-                        list = list && mushroom.groupe.includes(this.groupe)
-                    }
-
-                    if (this.trophique != "vide") {
-                        list = list && mushroom.type_trophique.includes(this.trophique)
-                    }
-
-                    return list
-                })
-            },
+        
         },
 
         computed: {

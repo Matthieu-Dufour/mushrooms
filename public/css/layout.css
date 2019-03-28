@@ -1,3 +1,17 @@
+
+.fa, .fa-star {
+    color: #a6a6a6;
+}
+
+.fa:hover, .fa-star:hover {
+    text-decoration: none;
+    color: #E88A25;
+}
+
+.checked {
+    color: #F9E14B;
+  }
+
 .welcomeBtn{
     border-radius: 0;
     width: 100%;
