@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Mushroom;
 use App\Cart;
 use App\Order;
+use App\Comestibilite;
+use DB;
 use Auth;
 use PDF;
 use App;
@@ -121,12 +123,16 @@ class CardController extends Controller
     public function print($order){
         $print = Order::where('id', $order)->first()->cart;
         $res = unserialize($print);
-        $pdf = PDF::loadView('pdf', array('res' => $res->items));
-        $pdf->setPaper('a4', 'landscape');
         foreach ($res->items as $ress) {
             QrCode::format('png')->size(500)->errorCorrection('H')->generate(url('/mushroom/'.$ress['item']->id), 'qrcode/qrcode'.$ress['item']->id.'.png');
+            $comestibleid = $ress['item']->comestible;
+            $ress['item']->comestible = DB::table('Comestibilité')->where('id', $comestibleid)->first()->nom;
         }
-        return $pdf->download('fiches.pdf');
+        $view = view('pdf', array('res' => $res->items))->render();
+        $pdf = resolve('dompdf.wrapper');
+        $pdf->setPaper('a4', 'landscape');
+        $pdf->loadHTML($view);
+        return $pdf->stream('fiches');
     }
 
 }
