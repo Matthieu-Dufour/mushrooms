@@ -12,8 +12,10 @@ class GroupeTableSeeder extends Seeder
     public function run()
     {
         DB::table('Groupe')->insert([
+            'nom' => '',
+        ]);
+        DB::table('Groupe')->insert([
             'nom' => 'Cantharellaceae',
         ]);
-    
     }
 }

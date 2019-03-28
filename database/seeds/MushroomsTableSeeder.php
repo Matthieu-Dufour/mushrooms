@@ -19,10 +19,11 @@ class MushroomsTableSeeder extends Seeder
             'pied' => 'Blanc, chiné ou zébré de gros olivâtre, anneau blanc membraneux, volve blanche en sac blanc pur, cylindrique [5-10(15) x 1-2(3) cm]',
             'chair' => 'Blanche, sans odeur (ou odeur de rose en vieillisant), goût agréable',
             'surnom' => '',
+            'type_trophique' => 1,
             'odeur' => 93,
-            'comestible' => 4,
-            'ecologie' => 15,
-            'groupe' => '',
+            'comestible' => 5,
+            'ecologie' => 16,
+            'groupe' => 1,
             'image' => 'Amanita-phalloides-(YD)-6516.jpg'
         ]);
         DB::table('mushrooms')->insert([
@@ -33,10 +34,11 @@ class MushroomsTableSeeder extends Seeder
             'pied' => '',
             'chair' => 'légèrement pelucheuse, gris cendrée à gris bleuté, couverte de quelques rides plus ou moins saillantes',
             'surnom' => 'Chanterelle Noire',
-            'odeur' => 50,
-            'comestible' => 1,
-            'ecologie' => 14,
-            'groupe' => '1',
+            'type_trophique' => 1,
+            'odeur' => 51,
+            'comestible' => 2,
+            'ecologie' => 15,
+            'groupe' => 2,
             'image' => '333_1_112527.jpg'
         ]);
     }

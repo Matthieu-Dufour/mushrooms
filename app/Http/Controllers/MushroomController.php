@@ -76,13 +76,9 @@ class MushroomController extends Controller
             'comestibilites' => $comestibilites,
             'ecologies' => $ecologies,
             'trophiques' => $trophiques,
-<<<<<<< HEAD
             'groupes' => $groupes, 
             'liste' => $liste,
             'confusions' =>$confusions,
-=======
-            'groupes' => $groupes,
->>>>>>> master
         ]);
     }
 
@@ -133,12 +129,8 @@ class MushroomController extends Controller
             'comestibilites' => $comestibilites,
             'ecologies' => $ecologies,
             'trophiques' => $trophiques,
-<<<<<<< HEAD
             'groupes' => $groupes, 
             'liste' => $liste,
-=======
-            'groupes' => $groupes,
->>>>>>> master
         ]);
     }
 
@@ -179,16 +171,11 @@ class MushroomController extends Controller
                 'groupe' => request('groupe'),
             ]);
         }
-<<<<<<< HEAD
         $confusion = DB::table('confusions')->insert([
             'mushroom1_id' => $mushroom->id,
             'mushroom2_id' => request('confusion'),
         ]);
     
-=======
-
-
->>>>>>> master
         flash('Le champignon à été ajouté.')->success();
 
         return redirect('/');

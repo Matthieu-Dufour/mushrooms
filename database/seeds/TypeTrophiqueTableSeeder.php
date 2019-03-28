@@ -13,6 +13,9 @@ class TypeTrophiqueTableSeeder extends Seeder
     public function run()
     {
         DB::table('Type_Trophique')->insert([
+            'status' => '',
+        ]);
+        DB::table('Type_Trophique')->insert([
             'status' => 'Photoorganohétérotrophe',
         ]);
         DB::table('Type_Trophique')->insert([

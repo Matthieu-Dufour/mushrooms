@@ -71,18 +71,26 @@
                 </div>
                 <div class="col">
                     <label>Odeur</label>
-                    <select class="form-control mushroomAddInput" type="odeur" name="odeur" id="odeur" value="{{ $mushroom->odeur }}">
+                    <select class="form-control mushroomAddInput" type="odeur" name="odeur" id="odeur" >
                         @foreach($odeurs as $odeur)
-                        <option value="{{ $odeur->id }}">{{ $odeur->nom }}</option>
+                            @if($mushroom->odeur == $odeur->id)
+                                <option value="{{ $mushroom->odeur }}" selected="selected" >{{ $odeur->nom }}</option>
+                            @else
+                                <option value="{{ $odeur->id }}">{{ $odeur->nom }}</option>
+                            @endif 
                         @endforeach
                     </select>
                 </div>
                 <div class="col">
                     <div class="form-group">
                         <label>Comestibilité</label>
-                        <select class="form-control mushroomAddInput" type="comestibilite" name="comestibilite" id="comestibilite" value="{{ $mushroom->comestible }}">
+                        <select class="form-control mushroomAddInput" type="comestibilite" name="comestibilite" id="comestibilite" >
                             @foreach($comestibilites as $comestibilite)
-                            <option value="{{ $comestibilite->id }}">{{ $comestibilite->nom }}</option>
+                                @if($mushroom->comestible == $comestibilite->id)
+                                    <option value="{{ $mushroom->comestible }}" selected="selected" >{{ $comestibilite->nom }}</option>
+                                @else
+                                    <option value="{{ $comestibilite->id }}">{{ $comestibilite->nom }}</option>
+                                @endif 
                             @endforeach
                         </select>
                     </div>
@@ -93,27 +101,39 @@
                 <div class="col">
                     <div class="form-group">
                         <label>Environnement</label>
-                        <select class="form-control mushroomAddInput" type="ecologie" name="ecologie" id="ecologie" value="{{ $mushroom->ecologie }}">
-                            @foreach($ecologies as $ecologie)
-                            <option value="{{ $ecologie->id }}">{{ $ecologie->region }}</option>
+                        <select class="form-control mushroomAddInput" type="ecologie" name="ecologie" id="ecologie" >
+                            @foreach($ecologies as $eco)
+                                @if($mushroom->ecologie == $eco->id)
+                                    <option value="{{ $eco->id }}" selected="selected">{{ $eco->region }}</option>
+                                @else
+                                    <option value="{{ $eco->id }}">{{ $eco->region }}</option>
+                                @endif
                             @endforeach
                         </select>
                     </div>
                 </div>
                 <div class="col">
                     <label>Type Trophique</label>
-                    <select class="form-control mushroomAddInput" type="trophique" name="trophique" id="trophique" value="{{ $mushroom->type_trophique }}">
+                    <select class="form-control mushroomAddInput" type="trophique" name="trophique" id="trophique" >
                         @foreach($trophiques as $trophique)
-                        <option value="{{ $trophique->id }}">{{ $trophique->status }}</option>
+                            @if($mushroom->type_trophique == $trophique->id)
+                                <option value="{{ $mushroom->type_trophique }}" selected="selected">{{ $trophique->status }}</option>
+                            @else
+                                <option value="{{ $trophique->id }}">{{ $trophique->status }}</option>
+                            @endif
                         @endforeach
                     </select>
                 </div>
                 <div class="col">
                     <div class="form-group">
                         <label>Groupe</label>
-                        <select class="form-control mushroomAddInput" type="groupe" name="groupe" id="groupe" value="{{ $mushroom->groupe }}">
+                        <select class="form-control mushroomAddInput" type="groupe" name="groupe" id="groupe">
                             @foreach($groupes as $groupe)
-                            <option value="{{ $groupe->id }}">{{ $groupe->nom }}</option>
+                                @if($mushroom->groupe == $groupe->id)
+                                    <option value="{{ $mushroom->comestible }}" selected="selected">{{ $groupe->nom }}</option>
+                                @else
+                                    <option value="{{ $groupe->id }}">{{ $groupe->nom }}</option>
+                                @endif
                             @endforeach
                         </select>
                     </div>
