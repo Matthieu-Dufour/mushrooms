@@ -37,7 +37,7 @@
                     @endif
                     @endauth
                 </li>
-                @include('partials.nav-item',['link'=>'/mushrooms', 'text' => 'Liste'])
+                @include('partials.nav-item',['link'=>'mushrooms', 'text' => 'Liste'])
                 
                 @auth
 
