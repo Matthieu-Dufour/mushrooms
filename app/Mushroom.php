@@ -23,30 +23,35 @@ class Mushroom extends Model
                             'groupe',
                             'image',];
 
-    // public function comestibilte()
-    // {
-    //     return $this->hasOne('App\Comestibilite');
-    // }
+    public function confusions(){
+        return $this->belongsToMany('App\Mushroom', 'confusions', 'mushroom1_id', 'mushroom2_id');
+    }
+    
+    public function hasAnyConfusion($confusions)
+    {
+        if (is_array($confusions)) {
+            foreach ($confusions as $confusion) {
+                if ($this->hasConfusion($confusion)) {
+                    return true;
+                }
+            }
+        } else {
+            if ($this->hasConfusion($confusion)) {
+                return true;
+            }
+        }
+        return false;
+    }
+    
+    public function hasConfusion($confusion)
+    {
+        if($this->confusions()->whereNotNull('mushroom2_id')->first()){
+            return true;
+        }
+        return false;
+    }
 
-    // public function ecologie()
-    // {
-    //     return $this->hasMany('App\Ecologie');
-    // }
 
-    // public function odeur()
-    // {
-    //     return $this->hasMany('App\Odeur');
-    // }
-
-    // public function typeTrophique()
-    // {
-    //     return $this->hasOne('App\TypeTrophique');
-    // }
-
-    // public function groupe()
-    // {
-    //     return $this->hasOne('App\Groupe');
-    // }
 }
 
 

@@ -2,9 +2,8 @@
 
 @section('link')
 <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
-<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 <script src="/js/preview.js"></script>
+<link href="{{ asset('css/correctionNav.css') }}" rel="stylesheet">
 @endsection
 
 @section('title')
@@ -15,7 +14,6 @@
 <div class="container">
     <form action="{{route('POSTaddMushroom')}}" method="post" enctype="multipart/form-data">
         {{ csrf_field() }}
-
 
         <div class="col">
             <div class="row">
@@ -119,6 +117,16 @@
             </div>
 
             <div class="row">
+            <div class="col">
+                    <div class="form-group">
+                        <label>Confusion possible</label>
+                        <select class="form-control mushroomAddInput" type="confusion" name="confusion" id="confusion" >
+                            @foreach($liste as $confusion)
+                                <option value="{{ $confusion->id }}">{{ $confusion->name }}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                </div>
                 <div class="col">
                     <div class="form-group">
                         <label>Image</label>
@@ -139,7 +147,6 @@
                         </div><!-- /input-group image-preview [TO HERE]--> 
                     </div>
                 </div>
-                <div class="col"></div>
                 <div class="col">
                     <img id="preview" src="https://via.placeholder.com/300.png/" alt="your image" />
                 </div>
@@ -147,8 +154,10 @@
             </div>
         </div>
 
-        <button type="submit" class="btn btn-primary mushroomAddBtn">Ajouter le champignon</button>
+        <button type="submit" class="btn btn-secondary mushroomAddBtn">Ajouter le champignon</button>
+        
     </form>
+    <a href="{{ route('GETaddCaracteristique') }}" ><button class="btn btn-primary" style="margin-top:20px;">Ajouter une caractéristique</button></a>
 
 </div>
 @endsection 

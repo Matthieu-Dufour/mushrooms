@@ -13,6 +13,9 @@ class OdeurTableSeeder extends Seeder
     public function run()
     {
         DB::table('Odeur')->insert([
+                'nom' => '',
+                ]);
+        DB::table('Odeur')->insert([
                 'nom' => 'Abricot',
                 ]);
         DB::table('Odeur')->insert([
@@ -212,9 +215,6 @@ class OdeurTableSeeder extends Seeder
                 ]);
         DB::table('Odeur')->insert([
                 'nom' => 'Moutarde',
-                ]);
-        DB::table('Odeur')->insert([
-                'nom' => '',
                 ]);
         DB::table('Odeur')->insert([
                 'nom' => 'Naphtaline',
