@@ -122,6 +122,10 @@ class CardController extends Controller
         $print = Order::where('id', $order)->first()->cart;
         $res = unserialize($print);
         $pdf = PDF::loadView('pdf', array('res' => $res->items));
+        $pdf->setPaper('a4', 'landscape');
+        foreach ($res->items as $ress) {
+            QrCode::format('png')->size(500)->errorCorrection('H')->generate(url('/mushroom/'.$ress['item']->id), 'qrcode/qrcode'.$ress['item']->id.'.png');
+        }
         return $pdf->download('fiches.pdf');
     }
 
