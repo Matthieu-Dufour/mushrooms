@@ -7,7 +7,9 @@
 @section('content')
 <div class="container">
     <h1 style="margin-top:20px;margin-bottom:20px;">Historique</h1>
-
+    @if($orders == "[]")
+        <h5>Votre historique est vide</h5>
+    @endif
    @foreach($orders as $order)
    @php
     $source = $order->created_at;
