@@ -8,7 +8,7 @@ use App\Lexique;
 class LexiqueController extends Controller
 {
     public function showLexique(){
-        $lexique = Lexique::all();
+        $lexique = Lexique::all()->sortBy('mot');
 
         return view('lexique', [
             'lexique' => $lexique,
