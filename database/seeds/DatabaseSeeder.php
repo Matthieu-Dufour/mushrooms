@@ -20,6 +20,7 @@ class DatabaseSeeder extends Seeder
         $this->call(GroupeTableSeeder::class);
         $this->call(MushroomsTableSeeder::class);
         $this->call(LexiqueSeeder::class);
-        $this->call(ConfusionsTableSeeder::class);
+        //$this->call(ConfusionsTableSeeder::class);
+        $this->call(FavoriteSeeder::class);
     }
 }

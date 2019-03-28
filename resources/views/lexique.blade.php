@@ -27,12 +27,12 @@
         <div class="container collapse" id="{{ $mot->mot }}">
             <div class="row">
                 @auth
-                @if(Auth::user()->hasRole("mycologist"))
-                <div class="col-2"><a class="btn btn-secondary welcomeBtn" href='{{route("GETeditLexique", ["id" => $mot->id])}}'>Editer</a><a class="btn btn-danger welcomeBtn" href='{{route("GETdeleteLexique", ["id" => $mot->id])}}' data-toggle="confirmation"
-                        data-btn-ok-label="Supprimer" data-btn-ok-class="btn-danger"
-                        data-btn-cancel-label="Annuler" data-btn-cancel-class="btn-dark"
-                        data-title="Êtes vous sûr ?" data-content="Cette action est irréversible">Supprimer</a></div>
-                @endif
+                    @if(Auth::user()->hasRole("mycologist"))
+                    <div class="col-2"><a class="btn btn-secondary welcomeBtn" href='{{route("GETeditLexique", ["id" => $mot->id])}}'>Editer</a><a class="btn btn-danger welcomeBtn" href='{{route("GETdeleteLexique", ["id" => $mot->id])}}' data-toggle="confirmation"
+                            data-btn-ok-label="Supprimer" data-btn-ok-class="btn-danger"
+                            data-btn-cancel-label="Annuler" data-btn-cancel-class="btn-dark"
+                            data-title="Êtes vous sûr ?" data-content="Cette action est irréversible">Supprimer</a></div>
+                    @endif
                 @endauth
                 <div class="col">{{ $mot->definition }}</div>
             </div>

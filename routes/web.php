@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\FavoriteController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -33,23 +35,26 @@ Route::get('/mushrooms', 'MushroomController@showAllMushrooms')->name('GETmushro
 Route::get('/mushroom/{id}', 'MushroomController@showMushroom')->name('GETmushroom');
 
 Route::get('/lexique', 'LexiqueController@showLexique')->name('GETlexique');
-Route::get('/lexique/add', 'LexiqueController@addLexique')->name('GETaddLexique');
-Route::post('/lexique/add', 'LexiqueController@addLexiqueTraitement')->name('POSTaddLexique');
-Route::get('/lexique/{id}/edit', 'LexiqueController@editLexique')->name('GETeditLexique');
-Route::post('/lexique/{id}/edit', 'LexiqueController@editLexiqueTraitement')->name('POSTeditLexique');
-Route::get('/lexique/{id}/delete', 'LexiqueController@deleteLexique')->name('GETdeleteLexique');
-Route::get('/testpdf', function() { return view('pdf'); });
+
+
+Route::get('/testpdf', function () {
+    return view('pdf');
+});
+
+
 
 Route::group([
     'middleware' => 'App\Http\Middleware\Auth'
 ], function () {
+    
+    Route::get('/favorite/{id}', 'FavoriteController@toggleFavorite')->name('GETtoggleFavorite');
+    Route::get('/favorites', 'FavoriteController@showListFavorite')->name('GETlistFavorite');
 
- 
-        Route::get('/my-account', 'AccountController@home')->name('GETmonCompte');
+    Route::get('/my-account', 'AccountController@home')->name('GETmonCompte');
 
-        Route::get('/disconnection', 'AccountController@disconnection')->name('GETdeconnexion');
+    Route::get('/disconnection', 'AccountController@disconnection')->name('GETdeconnexion');
 
-        Route::post('/password-change', 'AccountController@passwordChange')->name('POSTpassword');
+    Route::post('/password-change', 'AccountController@passwordChange')->name('POSTpassword');
 
 
     Route::group([
@@ -77,6 +82,15 @@ Route::group([
 
         Route::get('remove/{id}', 'CardController@getRemoveItem')->name('GETremove');
         Route::get('/print/{order}', 'CardController@print')->name('GETprint');
+
+        Route::get('/lexique/add', 'LexiqueController@addLexique')->name('GETaddLexique');
+        Route::post('/lexique/add', 'LexiqueController@addLexiqueTraitement')->name('POSTaddLexique');
+        Route::get('/lexique/{id}/edit', 'LexiqueController@editLexique')->name('GETeditLexique');
+        Route::post('/lexique/{id}/edit', 'LexiqueController@editLexiqueTraitement')->name('POSTeditLexique');
+        Route::get('/lexique/{id}/delete', 'LexiqueController@deleteLexique')->name('GETdeleteLexique');
+    
+        Route::post('/caracteristiqueAdd', 'CaracteristiqueController@addTraitement')->name('POSTaddCaracteristique');
+        Route::get('/caracteristiqueAdd', 'CaracteristiqueController@addFormulaire')->name('GETaddCaracteristique');
     });
 
 
@@ -88,7 +102,6 @@ Route::group([
         Route::post('/assignroles', 'UsersController@assignRoles')->name('POSTassignRoles');
     });
 
-    Route::post('/caracteristiqueAdd', 'CaracteristiqueController@addTraitement')->name('POSTaddCaracteristique');
-    Route::get('/caracteristiqueAdd', 'CaracteristiqueController@addFormulaire')->name('GETaddCaracteristique');
+
 
 });

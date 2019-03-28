@@ -5,10 +5,12 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Contracts\Auth\Authenticatable;
 use Illuminate\Auth\Authenticatable as BasicAuthenticatable;
+use ChristianKuri\LaravelFavorite\Traits\Favoriteability;
 
 class User extends Model implements Authenticatable
 {
     use BasicAuthenticatable;
+    use Favoriteability;
 
     protected $fillable = ['email','password'];
 
@@ -18,6 +20,7 @@ class User extends Model implements Authenticatable
      *
      * @return string
      */
+
 
     public function getRememberTokenName()
     {
