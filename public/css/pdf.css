@@ -2,29 +2,16 @@
 .page-break {
     page-break-after: always;
 }
-body {
-    max-width: 1020px;
-    max-height: 670px;
-    max-width: 1020px;
-    max-height: 670px;
-    margin-top: 9px;
-    border: solid black;
-}
 .fiche {
-    width: 45%; 
-    height: 42%;    
+    width: 535px; 
+    height: 348px;    
     font-family: 'Gill Sans', sans-serif;
-    display: inline-block;
-    margin-right: 10px;
-    border: solid black;
-    margin-top: 10px;
 }
-
 /* Mise en page élément fiches */
 .imgslm {
     display: inline-block;
-    margin-top: 12px;
     width: 15%;
+    margin-top: 10px;
 }
 .imgcercle {
     display: inline-block;
@@ -33,20 +20,25 @@ body {
 }
 .SLMC {
     display: inline-block;  
-    width: 85%; 
+    width: 82%;     
 }
 .SLM {
     text-align: center;
     border-bottom: solid black; 
     padding-bottom: 15px;
-    font-size: 20px; 
+    margin-bottom: 15px;
+    font-size: 20px;
 }
 .comestibilite {
     text-align: right; 
     font-size: 20px;
+    display: inline-block;
+    width: 92%;
 }
 .champignon {
     text-align: center;
+    margin-bottom: 40px;
+    margin-top: 20px;
 }
 .qrcode {
     width: 17%;
@@ -57,17 +49,11 @@ body {
 .nomlatin {
     font-size: 22px;
 }
-
 .container {
-    height: 75px;
+    height: 95px;
     line-height: 50px;
-    padding-left: 30px;
-    padding-right: 30px;
-    background-color: yellow;
-}
-.container span {
-    background-color: white;
-    vertical-align: middle;
+    padding-left: 10px;
+    padding-right: 10px;
 }
 .sub-container {
     float: right;
@@ -76,4 +62,42 @@ body {
 .sub-container::after {
     content: '';
     clear: both;
+}
+
+/* Tout les cercles pour les comestibles*/
+.cercleblue {
+    width: 40px;
+    height: 40px;
+    border-radius: 20px;
+    background: darkblue;
+    margin-right: 2px;
+    display: inline-block;
+}
+.cerclegrey {
+    width: 40px;
+    height: 40px;
+    border-radius: 20px;
+    background: grey;
+    margin-right: 2px;
+    display: inline-block;
+}
+.cercleorange {
+    width: 40px;
+    height: 40px;
+    border-radius: 20px;
+    background: orange;
+    margin-right: 2px;
+    display: inline-block;
+}
+.cerclered {
+    width: 30px;
+    height: 30px;
+    border-radius: 15px;
+    background: red;
+    margin-right: 2px;
+    display: inline-block;
+}
+
+table, th, td {
+    width: 100%;
 }
