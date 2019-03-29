@@ -146,6 +146,7 @@
                         <div class="field_wrapper">
                             <div>           
                             @foreach($confusions as $conf)
+                            <div>
                                 <select class="form-control mushroomAddInput" type="confusion" name="confusion[]" id="confusion" >
                                 @foreach($liste as $champi)
                                     @if($champi->id == $conf->mushroom2_id)
@@ -154,9 +155,12 @@
                                         <option value="{{ $champi->id }}">{{ $champi->name }}</option>
                                     @endif
                                 @endforeach
-                                </select>      
+                                </select>
+                                <a href='javascript:void(0);' class='remove_button'><button type='button' class='btn btn-danger'><i class='fa fa-minus' style='color:white'></i></button></a>
+                            </div>
                             @endforeach
                             <a href="javascript:void(0);" class="add_button" title="Add field"><button type="button" class="btn btn-primary"><i class="fa fa-plus" style="color:white"></i></button></a>
+                            
                             </div>
                         </div>
                     </div>
@@ -216,8 +220,6 @@ $(document).ready(function () {
 $.each(liste, function(k,champi){
     console.log(champi.name);
 })
-
-
 
     var fieldHTML = "<div><select class='form-control mushroomAddInput' type='confusion' name='confusion[]' id='confusion' >";
         $.each(liste, function(k,champi){

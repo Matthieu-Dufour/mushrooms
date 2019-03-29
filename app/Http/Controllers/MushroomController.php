@@ -185,15 +185,17 @@ class MushroomController extends Controller
                 'groupe' => request('groupe'),
             ]);
         }
-        DB::table('confusions')->insert([
-            'mushroom1_id' => $mushroom->id,
-            'mushroom2_id' => request('confusion'),
-        ]);
-        DB::table('confusions')->insert([
-            'mushroom1_id' => request('confusion'),
-            'mushroom2_id' => $mushroom->id,
-        ]);
-    
+        $field_values_array = $_POST['confusion'];
+        foreach($field_values_array as $value){
+            DB::table('confusions')->insert([
+                'mushroom1_id' => $mushroom->id,
+                'mushroom2_id' => $value,
+            ]);
+            DB::table('confusions')->insert([
+                'mushroom1_id' => $value,
+                'mushroom2_id' => $mushroom->id,
+            ]);
+        }
         flash('Le champignon à été ajouté.')->success();
 
         return redirect('/');

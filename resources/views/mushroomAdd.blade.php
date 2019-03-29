@@ -117,14 +117,22 @@
             </div>
 
             <div class="row">
-            <div class="col">
+                <div class="col">
                     <div class="form-group">
                         <label>Confusion possible</label>
-                        <select class="form-control mushroomAddInput" type="confusion" name="confusion" id="confusion" >
-                            @foreach($liste as $confusion)
-                                <option value="{{ $confusion->id }}">{{ $confusion->name }}</option>
-                            @endforeach
-                        </select>
+                            <div class="field_wrapper">
+                                <div> 
+                                    <div>
+                                        <select class="form-control mushroomAddInput" type="confusion" name="confusion[]" id="confusion" >
+                                            @foreach($liste as $champi)
+                                                <option value="{{ $champi->id }}">{{ $champi->name }}</option>
+                                            @endforeach
+                                        </select>
+                                        <a href='javascript:void(0);' class='remove_button'><button type='button' class='btn btn-danger'><i class='fa fa-minus' style='color:white'></i></button></a>
+                                    </div>
+                                    <a href="javascript:void(0);" class="add_button" title="Add field"><button type="button" class="btn btn-primary"><i class="fa fa-plus" style="color:white"></i></button></a>
+                                </div>
+                            </div>
                     </div>
                 </div>
                 <div class="col">
@@ -160,4 +168,45 @@
     <a href="{{ route('GETaddCaracteristique') }}" ><button class="btn btn-primary" style="margin-top:20px;">Ajouter une caractéristique</button></a>
 
 </div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function () {
+
+    let liste = {!!json_encode($liste) !!};
+     console.log(liste);
+    var maxField = 10; //Input fields increment limitation
+    console.log(maxField);
+    var addButton = $('.add_button'); //Add button selector
+    var wrapper = $('.field_wrapper'); //Input field wrapper
+
+$.each(liste, function(k,champi){
+    console.log(champi.name);
+})
+
+    var fieldHTML = "<div><select class='form-control mushroomAddInput' type='confusion' name='confusion[]' id='confusion' >";
+        $.each(liste, function(k,champi){
+            fieldHTML = fieldHTML + "<option value='"+champi.id+"'>"+ champi.name +"</option>"
+        })
+        fieldHTML = fieldHTML + "</select><a href='javascript:void(0);' class='remove_button'><button type='button' class='btn btn-danger'><i class='fa fa-minus' style='color:white'></i></button></a></div>"; //New input field html 
+    var x = 1; //Initial field counter is 1
+
+    //Once add button is clicked
+    $(addButton).click(function () {
+        //Check maximum number of input fields
+        if (x < maxField) {
+            x++; //Increment field counter
+            $(wrapper).append(fieldHTML); //Add field html
+        }
+    });
+
+    //Once remove button is clicked
+    $(wrapper).on('click', '.remove_button', function (e) {
+        e.preventDefault();
+        $(this).parent('div').remove(); //Remove field html
+        x--; //Decrement field counter
+    });
+});
+
+</script>
 @endsection 
