@@ -13,6 +13,9 @@ class ComestibiliteTableSeeder extends Seeder
     public function run()
     {
         DB::table('Comestibilité')->insert([
+            'nom' => '',
+        ]);
+        DB::table('Comestibilité')->insert([
             'nom' => 'Comestible',
         ]);
         DB::table('Comestibilité')->insert([

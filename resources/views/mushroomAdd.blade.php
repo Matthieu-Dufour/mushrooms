@@ -2,9 +2,8 @@
 
 @section('link')
 <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
-<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 <script src="/js/preview.js"></script>
+<link href="{{ asset('css/correctionNav.css') }}" rel="stylesheet">
 @endsection
 
 @section('title')
@@ -15,7 +14,6 @@
 <div class="container">
     <form action="{{route('POSTaddMushroom')}}" method="post" enctype="multipart/form-data">
         {{ csrf_field() }}
-
 
         <div class="col">
             <div class="row">
@@ -121,6 +119,25 @@
             <div class="row">
                 <div class="col">
                     <div class="form-group">
+                        <label>Confusions possibles</label>
+                            <div class="field_wrapper">
+                                <div> 
+                                    <div>
+                                        <select class="form-control mushroomAddInput" type="confusion" name="confusion[]" id="confusion" >
+                                            <option></option>
+                                            @foreach($liste as $champi)
+                                                <option value="{{ $champi->id }}">{{ $champi->name }}</option>
+                                            @endforeach
+                                        </select>
+                                        <a href='javascript:void(0);' class='remove_button'><button type='button' class='btn btn-danger'><i class='fa fa-minus' style='color:white'></i></button></a>
+                                    </div>
+                                    <a href="javascript:void(0);" class="add_button" title="Add field"><button type="button" class="btn btn-primary"><i class="fa fa-plus" style="color:white"></i></button></a>
+                                </div>
+                            </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="form-group">
                         <label>Image</label>
                         <div class="input-group image-preview">
                         <input type="text" class="form-control image-preview-filename" disabled="disabled"> <!-- don't give a name === doesn't send on POST/GET -->
@@ -139,7 +156,6 @@
                         </div><!-- /input-group image-preview [TO HERE]--> 
                     </div>
                 </div>
-                <div class="col"></div>
                 <div class="col">
                     <img id="preview" src="https://via.placeholder.com/300.png/" alt="your image" />
                 </div>
@@ -147,8 +163,51 @@
             </div>
         </div>
 
-        <button type="submit" class="btn btn-primary mushroomAddBtn">Ajouter le champignon</button>
+        <button type="submit" class="btn btn-secondary mushroomAddBtn">Ajouter le champignon</button>
+        
     </form>
+    <a href="{{ route('GETaddCaracteristique') }}" ><button class="btn btn-primary" style="margin-top:20px;">Ajouter une caractéristique</button></a>
 
 </div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function () {
+
+    let liste = {!!json_encode($liste) !!};
+     console.log(liste);
+    var maxField = 10; //Input fields increment limitation
+    console.log(maxField);
+    var addButton = $('.add_button'); //Add button selector
+    var wrapper = $('.field_wrapper'); //Input field wrapper
+
+$.each(liste, function(k,champi){
+    console.log(champi.name);
+})
+
+    var fieldHTML = "<div><select class='form-control mushroomAddInput' type='confusion' name='confusion[]' id='confusion' >";
+        $.each(liste, function(k,champi){
+            fieldHTML = fieldHTML + "<option value='"+champi.id+"'>"+ champi.name +"</option>"
+        })
+        fieldHTML = fieldHTML + "</select><a href='javascript:void(0);' class='remove_button'><button type='button' class='btn btn-danger'><i class='fa fa-minus' style='color:white'></i></button></a></div>"; //New input field html 
+    var x = 1; //Initial field counter is 1
+
+    //Once add button is clicked
+    $(addButton).click(function () {
+        //Check maximum number of input fields
+        if (x < maxField) {
+            x++; //Increment field counter
+            $(wrapper).append(fieldHTML); //Add field html
+        }
+    });
+
+    //Once remove button is clicked
+    $(wrapper).on('click', '.remove_button', function (e) {
+        e.preventDefault();
+        $(this).parent('div').remove(); //Remove field html
+        x--; //Decrement field counter
+    });
+});
+
+</script>
 @endsection 

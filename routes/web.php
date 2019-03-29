@@ -36,8 +36,6 @@ Route::get('/mushroom/{id}', 'MushroomController@showMushroom')->name('GETmushro
 
 Route::get('/lexique', 'LexiqueController@showLexique')->name('GETlexique');
 
-Route::get('/favorite/{id}', 'FavoriteController@toggleFavorite')->name('GETtoggleFavorite');
-Route::get('/favorites', 'FavoriteController@showListFavorite')->name('GETlistFavorite');
 
 Route::get('/testpdf', function () {
     return view('pdf');
@@ -48,7 +46,9 @@ Route::get('/testpdf', function () {
 Route::group([
     'middleware' => 'App\Http\Middleware\Auth'
 ], function () {
-
+    
+    Route::get('/favorite/{id}', 'FavoriteController@toggleFavorite')->name('GETtoggleFavorite');
+    Route::get('/favorites', 'FavoriteController@showListFavorite')->name('GETlistFavorite');
 
     Route::get('/my-account', 'AccountController@home')->name('GETmonCompte');
 
@@ -88,6 +88,9 @@ Route::group([
         Route::get('/lexique/{id}/edit', 'LexiqueController@editLexique')->name('GETeditLexique');
         Route::post('/lexique/{id}/edit', 'LexiqueController@editLexiqueTraitement')->name('POSTeditLexique');
         Route::get('/lexique/{id}/delete', 'LexiqueController@deleteLexique')->name('GETdeleteLexique');
+    
+        Route::post('/caracteristiqueAdd', 'CaracteristiqueController@addTraitement')->name('POSTaddCaracteristique');
+        Route::get('/caracteristiqueAdd', 'CaracteristiqueController@addFormulaire')->name('GETaddCaracteristique');
     });
 
 
@@ -98,4 +101,7 @@ Route::group([
         Route::get('/users', 'UsersController@index')->name('GETusers');
         Route::post('/assignroles', 'UsersController@assignRoles')->name('POSTassignRoles');
     });
+
+
+
 });

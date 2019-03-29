@@ -37,9 +37,9 @@ class MushroomController extends Controller
     public function showMushroom()
     {
         $id = request('id');
-
         $mushroom = Mushroom::where('id', $id)->first();
-
+        $liste = DB::table('mushrooms')->get();
+        $confusions = DB::table('confusions')->where('mushroom1_id', $id)->get();
         $odeurs = DB::table('Odeur')->get();
         $comestibilites = DB::table('Comestibilité')->get();
         $ecologies = DB::table('Ecologie')->get();
@@ -52,20 +52,23 @@ class MushroomController extends Controller
             'comestibilites' => $comestibilites,
             'ecologies' => $ecologies,
             'trophiques' => $trophiques,
-            'groupes' => $groupes,
+            'groupes' => $groupes, 
+            'confusions' => $confusions,
+            'liste' => $liste,
         ]);
     }
 
     public function editFormulaire()
     {
         $id = request('id');
-
+        $liste = DB::table('mushrooms')->get();
         $mushroom = Mushroom::where('id', $id)->first();
         $odeurs = DB::table('Odeur')->get();
         $comestibilites = DB::table('Comestibilité')->get();
         $ecologies = DB::table('Ecologie')->get();
         $groupes = DB::table('Groupe')->get();
         $trophiques = DB::table('Type_Trophique')->get();
+        $confusions = DB::table('confusions')->where('mushroom1_id', $id)->get();
 
         return view('editMushroom', [
             'mushroom' => $mushroom,
@@ -73,7 +76,9 @@ class MushroomController extends Controller
             'comestibilites' => $comestibilites,
             'ecologies' => $ecologies,
             'trophiques' => $trophiques,
-            'groupes' => $groupes,
+            'groupes' => $groupes, 
+            'liste' => $liste,
+            'confusions' =>$confusions,
         ]);
     }
 
@@ -102,8 +107,36 @@ class MushroomController extends Controller
         }
         $mushroom->save();
 
+        // Get multiple input field's value 
+        if(isset($_POST['confusion'])){
+            $field_values_array = $_POST['confusion'];
+            DB::table('confusions')
+            ->where('mushroom1_id', $id)
+            ->delete();
+            DB::table('confusions')
+            ->where('mushroom2_id', $id)
+            ->delete();
+            foreach($field_values_array as $value){
+                // Your database query goes here
+                DB::table('confusions')->insert([
+                    'mushroom1_id' => $id,
+                    'mushroom2_id' => $value,
+                ]);
+                DB::table('confusions')->insert([
+                    'mushroom1_id' => $value,
+                    'mushroom2_id' => $id,
+                ]);
+            }
+        }
+        else{
+            DB::table('confusions')
+            ->where('mushroom1_id', $id)
+            ->delete();
+            DB::table('confusions')
+            ->where('mushroom2_id', $id)
+            ->delete();
+        }
         flash('Modifications terminées.')->success();
-
         return redirect('mushroom/' . $mushroom->id);
     }
 
@@ -114,13 +147,14 @@ class MushroomController extends Controller
         $ecologies = DB::table('Ecologie')->get();
         $groupes = DB::table('Groupe')->get();
         $trophiques = DB::table('Type_Trophique')->get();
-
+        $liste = DB::table('mushrooms')->get();
         return view('mushroomAdd', [
             'odeurs' => $odeurs,
             'comestibilites' => $comestibilites,
             'ecologies' => $ecologies,
             'trophiques' => $trophiques,
-            'groupes' => $groupes,
+            'groupes' => $groupes, 
+            'liste' => $liste,
         ]);
     }
 
@@ -161,8 +195,17 @@ class MushroomController extends Controller
                 'groupe' => request('groupe'),
             ]);
         }
-
-
+        $field_values_array = $_POST['confusion'];
+        foreach($field_values_array as $value){
+            DB::table('confusions')->insert([
+                'mushroom1_id' => $mushroom->id,
+                'mushroom2_id' => $value,
+            ]);
+            DB::table('confusions')->insert([
+                'mushroom1_id' => $value,
+                'mushroom2_id' => $mushroom->id,
+            ]);
+        }
         flash('Le champignon à été ajouté.')->success();
 
         return redirect('/');

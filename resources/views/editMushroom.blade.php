@@ -2,8 +2,7 @@
 
 @section('link')
 <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
-<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<link href="{{ asset('css/correctionNav.css') }}" rel="stylesheet">
 <script src="/js/preview.js"></script>
 @endsection
 
@@ -71,18 +70,26 @@
                 </div>
                 <div class="col">
                     <label>Odeur</label>
-                    <select class="form-control mushroomAddInput" type="odeur" name="odeur" id="odeur" value="{{ $mushroom->odeur }}">
+                    <select class="form-control mushroomAddInput" type="odeur" name="odeur" id="odeur" >
                         @foreach($odeurs as $odeur)
-                        <option value="{{ $odeur->id }}">{{ $odeur->nom }}</option>
+                            @if($mushroom->odeur == $odeur->id)
+                                <option value="{{ $mushroom->odeur }}" selected="selected" >{{ $odeur->nom }}</option>
+                            @else
+                                <option value="{{ $odeur->id }}">{{ $odeur->nom }}</option>
+                            @endif 
                         @endforeach
                     </select>
                 </div>
                 <div class="col">
                     <div class="form-group">
                         <label>Comestibilité</label>
-                        <select class="form-control mushroomAddInput" type="comestibilite" name="comestibilite" id="comestibilite" value="{{ $mushroom->comestible }}">
+                        <select class="form-control mushroomAddInput" type="comestibilite" name="comestibilite" id="comestibilite" >
                             @foreach($comestibilites as $comestibilite)
-                            <option value="{{ $comestibilite->id }}">{{ $comestibilite->nom }}</option>
+                                @if($mushroom->comestible == $comestibilite->id)
+                                    <option value="{{ $mushroom->comestible }}" selected="selected" >{{ $comestibilite->nom }}</option>
+                                @else
+                                    <option value="{{ $comestibilite->id }}">{{ $comestibilite->nom }}</option>
+                                @endif 
                             @endforeach
                         </select>
                     </div>
@@ -93,27 +100,39 @@
                 <div class="col">
                     <div class="form-group">
                         <label>Environnement</label>
-                        <select class="form-control mushroomAddInput" type="ecologie" name="ecologie" id="ecologie" value="{{ $mushroom->ecologie }}">
-                            @foreach($ecologies as $ecologie)
-                            <option value="{{ $ecologie->id }}">{{ $ecologie->region }}</option>
+                        <select class="form-control mushroomAddInput" type="ecologie" name="ecologie" id="ecologie" >
+                            @foreach($ecologies as $eco)
+                                @if($mushroom->ecologie == $eco->id)
+                                    <option value="{{ $eco->id }}" selected="selected">{{ $eco->region }}</option>
+                                @else
+                                    <option value="{{ $eco->id }}">{{ $eco->region }}</option>
+                                @endif
                             @endforeach
                         </select>
                     </div>
                 </div>
                 <div class="col">
                     <label>Type Trophique</label>
-                    <select class="form-control mushroomAddInput" type="trophique" name="trophique" id="trophique" value="{{ $mushroom->type_trophique }}">
+                    <select class="form-control mushroomAddInput" type="trophique" name="trophique" id="trophique" >
                         @foreach($trophiques as $trophique)
-                        <option value="{{ $trophique->id }}">{{ $trophique->status }}</option>
+                            @if($mushroom->type_trophique == $trophique->id)
+                                <option value="{{ $mushroom->type_trophique }}" selected="selected">{{ $trophique->status }}</option>
+                            @else
+                                <option value="{{ $trophique->id }}">{{ $trophique->status }}</option>
+                            @endif
                         @endforeach
                     </select>
                 </div>
                 <div class="col">
                     <div class="form-group">
                         <label>Groupe</label>
-                        <select class="form-control mushroomAddInput" type="groupe" name="groupe" id="groupe" value="{{ $mushroom->groupe }}">
+                        <select class="form-control mushroomAddInput" type="groupe" name="groupe" id="groupe">
                             @foreach($groupes as $groupe)
-                            <option value="{{ $groupe->id }}">{{ $groupe->nom }}</option>
+                                @if($mushroom->groupe == $groupe->id)
+                                    <option value="{{ $mushroom->comestible }}" selected="selected">{{ $groupe->nom }}</option>
+                                @else
+                                    <option value="{{ $groupe->id }}">{{ $groupe->nom }}</option>
+                                @endif
                             @endforeach
                         </select>
                     </div>
@@ -121,6 +140,31 @@
             </div>
 
             <div class="row">
+                <div class="col">
+                    <div class="form-group">
+                            <label>Confusion possible</label>
+                        <div class="field_wrapper">
+                            <div>           
+                            @foreach($confusions as $conf)
+                            <div>
+                                <select class="form-control mushroomAddInput" type="confusion" name="confusion[]" id="confusion" >
+                                @foreach($liste as $champi)
+                                    @if($champi->id == $conf->mushroom2_id)
+                                        <option value="{{ $champi->id }}" selected="selected">{{ $champi->name }}</option>
+                                    @else
+                                        <option value="{{ $champi->id }}">{{ $champi->name }}</option>
+                                    @endif
+                                @endforeach
+                                </select>
+                                <a href='javascript:void(0);' class='remove_button'><button type='button' class='btn btn-danger'><i class='fa fa-minus' style='color:white'></i></button></a>
+                            </div>
+                            @endforeach
+                            <a href="javascript:void(0);" class="add_button" title="Add field"><button type="button" class="btn btn-primary"><i class="fa fa-plus" style="color:white"></i></button></a>
+                            
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 <div class="col">
                     <div class="form-group">
                         <label>Image</label>
@@ -141,7 +185,6 @@
                         </div><!-- /input-group image-preview [TO HERE]--> 
                     </div>
                 </div>
-                <div class="col"></div>
                 <div class="col">
                     @if($mushroom->image == null)
                         <img id="preview" src="https://via.placeholder.com/300.png/" alt="your image" />
@@ -152,16 +195,55 @@
 
             </div>
         </div>
-
         @auth
-        @if(Auth::user()->hasRole("mycologist"))
-        <button type="submit" class="btn btn-secondary" style="margin-bottom:20px;">Editer</button>
-        @endif
+            @if(Auth::user()->hasRole("mycologist"))
+                <button type="submit" class="btn btn-secondary" style="margin-bottom:20px;">Editer</button>
+            @endif
         @endauth
     </form>
     <a href="{{ route('GETmushroom', ['id' => $mushroom->id]) }}" ><button class="btn btn-danger mushroomAddBtn"  >Annuler</button></a>
+    <a href="{{ route('GETaddCaracteristique') }}" ><button class="btn btn-primary" >Ajouter une caractéristique</button></a>
 </div>
-    </form>
 
-</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function () {
+
+    let liste = {!!json_encode($liste) !!};
+     console.log(liste);
+    var maxField = 10; //Input fields increment limitation
+    console.log(maxField);
+    var addButton = $('.add_button'); //Add button selector
+    var wrapper = $('.field_wrapper'); //Input field wrapper
+
+$.each(liste, function(k,champi){
+    console.log(champi.name);
+})
+
+    var fieldHTML = "<div><select class='form-control mushroomAddInput' type='confusion' name='confusion[]' id='confusion' >";
+        $.each(liste, function(k,champi){
+            fieldHTML = fieldHTML + "<option value='"+champi.id+"'>"+ champi.name +"</option>"
+        })
+        fieldHTML = fieldHTML + "</select><a href='javascript:void(0);' class='remove_button'><button type='button' class='btn btn-danger'><i class='fa fa-minus' style='color:white'></i></button></a></div>"; //New input field html 
+    var x = 1; //Initial field counter is 1
+
+    //Once add button is clicked
+    $(addButton).click(function () {
+        //Check maximum number of input fields
+        if (x < maxField) {
+            x++; //Increment field counter
+            $(wrapper).append(fieldHTML); //Add field html
+        }
+    });
+
+    //Once remove button is clicked
+    $(wrapper).on('click', '.remove_button', function (e) {
+        e.preventDefault();
+        $(this).parent('div').remove(); //Remove field html
+        x--; //Decrement field counter
+    });
+});
+
+</script>
 @endsection 
