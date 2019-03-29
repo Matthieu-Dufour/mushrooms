@@ -12,6 +12,9 @@ class EcologieTableSeeder extends Seeder
     public function run()
     {
         DB::table('Ecologie')->insert([
+            'region' => ''
+        ]);
+        DB::table('Ecologie')->insert([
             'region' => 'Sous châtaigniers'
         ]);
         DB::table('Ecologie')->insert([
