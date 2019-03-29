@@ -119,11 +119,12 @@
             <div class="row">
                 <div class="col">
                     <div class="form-group">
-                        <label>Confusion possible</label>
+                        <label>Confusions possibles</label>
                             <div class="field_wrapper">
                                 <div> 
                                     <div>
                                         <select class="form-control mushroomAddInput" type="confusion" name="confusion[]" id="confusion" >
+                                            <option></option>
                                             @foreach($liste as $champi)
                                                 <option value="{{ $champi->id }}">{{ $champi->name }}</option>
                                             @endforeach

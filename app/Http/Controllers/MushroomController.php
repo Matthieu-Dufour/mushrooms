@@ -108,23 +108,33 @@ class MushroomController extends Controller
         $mushroom->save();
 
         // Get multiple input field's value 
-        $field_values_array = $_POST['confusion'];
-        DB::table('confusions')
-        ->where('mushroom1_id', $id)
-        ->delete();
-        DB::table('confusions')
-        ->where('mushroom2_id', $id)
-        ->delete();
-        foreach($field_values_array as $value){
-            // Your database query goes here
-            DB::table('confusions')->insert([
-                'mushroom1_id' => $id,
-                'mushroom2_id' => $value,
-            ]);
-            DB::table('confusions')->insert([
-                'mushroom1_id' => $value,
-                'mushroom2_id' => $id,
-            ]);
+        if(isset($_POST['confusion'])){
+            $field_values_array = $_POST['confusion'];
+            DB::table('confusions')
+            ->where('mushroom1_id', $id)
+            ->delete();
+            DB::table('confusions')
+            ->where('mushroom2_id', $id)
+            ->delete();
+            foreach($field_values_array as $value){
+                // Your database query goes here
+                DB::table('confusions')->insert([
+                    'mushroom1_id' => $id,
+                    'mushroom2_id' => $value,
+                ]);
+                DB::table('confusions')->insert([
+                    'mushroom1_id' => $value,
+                    'mushroom2_id' => $id,
+                ]);
+            }
+        }
+        else{
+            DB::table('confusions')
+            ->where('mushroom1_id', $id)
+            ->delete();
+            DB::table('confusions')
+            ->where('mushroom2_id', $id)
+            ->delete();
         }
         flash('Modifications terminées.')->success();
         return redirect('mushroom/' . $mushroom->id);
