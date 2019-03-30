@@ -27,7 +27,7 @@ class MushroomsTableSeeder extends Seeder
             'groupe' => 1,
             'image' => 'Amanita-phalloides-(YD)-6516.jpg'
         ]);
-        
+
         DB::table('mushrooms')->insert([
             'name' => 'Trompette de la Mort',
             'nameLatin' => 'Craterellus Cornucopioide',
@@ -54,7 +54,7 @@ class MushroomsTableSeeder extends Seeder
             'chair' => 'Sans odeur particulière, à goût de noisette',
             'surnom' => '',
             'odeur' => 49,
-            'comestible' => 1,
+            'comestible' => 2,
             'ecologie' => 15,
             'groupe' => '',
             'image' => ''
@@ -105,7 +105,7 @@ class MushroomsTableSeeder extends Seeder
             'chair' => 'Blanche, puis jaunissante à odeur anisée.',
             'surnom' => '',
             'odeur' => 5,
-            'comestible' => 1,
+            'comestible' => 2,
             'ecologie' => 15,
             'groupe' => '',
             'image' => ''
@@ -137,7 +137,7 @@ class MushroomsTableSeeder extends Seeder
             'chair' => 'Blanchâtre un peu rosissante, odeur et saveur agréables.',
             'surnom' => '',
             'odeur' => 38,
-            'comestible' => 1,
+            'comestible' => 2,
             'ecologie' => 12,
             'groupe' => '',
             'image' => ''
