@@ -79,7 +79,7 @@ Route::group([
         Route::get('/history', 'CardController@historyIndex')->name('GEThistory');
 
         Route::get('/reduce/{id}', 'CardController@getReduceByOne')->name('GETreduce');
-
+        Route::get('/addItem/{id}', 'CardController@getAddByOne')->name('GETaddItem');
         Route::get('remove/{id}', 'CardController@getRemoveItem')->name('GETremove');
         Route::get('/print/{order}', 'CardController@print')->name('GETprint');
 

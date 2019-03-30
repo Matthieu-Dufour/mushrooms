@@ -27,6 +27,11 @@ class Cart
         $this->totalQty++;
     }
 
+    public function addByOne($id){
+        $this->items[$id]['qty']++;
+        $this->totalQty++;
+    }
+
     public function reduceByOne($id) {
         $this->items[$id]['qty']--;
         $this->totalQty--;

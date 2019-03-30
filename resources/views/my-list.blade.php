@@ -1,12 +1,14 @@
 @extends('layout')
 
 @section('title')
-    <title>Liste</title>
+<title>Liste</title>
 @endsection
 
 @section('content')
 <div class="container">
-    <div class="row" style="margin-top:20px;margin-bottom:20px;"><h1>Votre liste</h1></div>
+    <div class="row" style="margin-top:20px;margin-bottom:20px;">
+        <h1>Votre liste</h1>
+    </div>
     @if(Session::has('cart'))
     <table class="table table-hover">
         <thead>
@@ -22,7 +24,7 @@
             <tr>
                 <th scope="row">{{ $mushroom['item']['id'] }}</th>
                 <td>{{ $mushroom['item']['name'] }}</td>
-                <td>{{ $mushroom['qty'] }}</td>
+                <td><a class="fa fa-minus" href="{{route('GETreduce', ['id' => $mushroom['item']['id']])}}" style="color:black;margin-right:5px;"></a>{{ $mushroom['qty'] }}<a class="fa fa-plus" style="color:black;margin-left:5px;" href="{{route('GETaddItem', ['id' => $mushroom['item']['id']])}}"></a></td>
                 <td>
                     <button type="button" class="btn btn-secondary btn-xs dropdown-toggle listBtn" data-toggle="dropdown">Action <span class="caret"></span></button>
                     <ul class="dropdown-menu">
