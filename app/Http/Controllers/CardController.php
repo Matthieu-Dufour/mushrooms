@@ -132,6 +132,7 @@ class CardController extends Controller
         $pdf = resolve('dompdf.wrapper');
         $pdf->setPaper('a4', 'landscape');
         $pdf->loadHTML($view);
+        $pdf->setOptions(['dpi' => 100]);
         return $pdf->stream('fiches');
     }
 
