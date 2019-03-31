@@ -26,17 +26,26 @@
 
 <div class="containerPrincipale">
     <div class="container">
-        <div class="container containerPrincipale " style="margin-top: 20px;margin-bottom: 20px;">@include('flash::message')</div>
+      <!--   <div class="container containerPrincipale " style="margin-top: 20px;margin-bottom: 20px;">@include('flash::message')</div>
         <div class="row ">
             <div class="jumbotron welcomeJumbotron ">
                 <h1>Bienvenue !</h1>
                 <p>La société lorraine de mycologie est ravie de vous proposer une solution numérique vous permettant de consulter toutes les informations disponibles sur les champignons répertoriés.</p>
                 <p>
-                    <a class="btn btn-lg btn-secondary welcomeJumbotronBtn" href='{{route("GETmushrooms")}}' role="button">Accéder à la base de données &raquo;</a>
-                    <a class="btn btn-lg btn-secondary welcomeJumbotronBtn" href='{{route("GETlexique")}}' role="button">Accéder au lexique &raquo;</a>
+                    <a class="btn btn-lg btn-secondary welcomeJumbotronBtn" href='{{route("GETmushrooms")}}' role="button">Accéder à la base de données</a>
+                    <a class="btn btn-lg btn-secondary welcomeJumbotronBtn" href='{{route("GETlexique")}}' role="button">Accéder au lexique</a>
                 </p>
             </div>
-        </div>
+        </div> -->
+        
+            <div class="row">
+                <h2 style="color:black;">Bienvenue</h2>
+            </div>
+            <div class="row" style="margin-bottom: 40px;">
+                <div class="col"><a class="btn btn-secondary welcomeBtn" href='{{route("GETmushrooms")}}' role="button">Accéder à la base de données</a></div>
+                <div class="col"><a class="btn btn-secondary welcomeBtn" href='{{route("GETlexique")}}' role="button">Accéder au lexique</a></div>
+            </div>
+
         @auth
         @if(Auth::user()->hasRole("mycologist"))
         <div class="row" style="margin-top: 0">

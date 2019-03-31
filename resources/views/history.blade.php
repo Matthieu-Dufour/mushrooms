@@ -1,21 +1,21 @@
 @extends('layout')
 
 @section('title')
-    <title>Historique</title>
+<title>Historique</title>
 @endsection
 
 @section('content')
 <div class="container">
     <h1 style="margin-top:20px;margin-bottom:20px;">Historique</h1>
     @if($orders == "[]")
-        <h5>Votre historique est vide</h5>
+    <h5>Votre historique est vide</h5>
     @endif
-   @foreach($orders as $order)
-   @php
-    $source = $order->created_at;
-    $date = new DateTime($source);
-    $newdate = $date->format('d.m.Y');
-   @endphp
+    @foreach($orders as $order)
+    @php
+        $source = $order->created_at;
+        $date = new DateTime($source);
+        $newdate = $date->format('d.m.Y');
+    @endphp
 
 
     <table class="table table-hover" style="margin-top:50px;margin-bottom:50px;">
