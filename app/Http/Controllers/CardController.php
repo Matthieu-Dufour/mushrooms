@@ -139,11 +139,11 @@ class CardController extends Controller
         $print = Order::where('id', $order)->first()->cart;
         $res = unserialize($print);
         foreach ($res->items as $ress) {
-            QrCode::format('png')->size(500)->errorCorrection('H')->generate(url('/mushroom/'.$ress['item']->id), 'qrcode/qrcode'.$ress['item']->id.'.png');
+            QrCode::format('png')->size(500)->errorCorrection('L')->generate(url('/mushroom/'.$ress['item']->id), 'qrcode/qrcode'.$ress['item']->id.'.png');
             $comestibleid = $ress['item']->comestible;
             $ress['item']->comestible = DB::table('Comestibilité')->where('id', $comestibleid)->first()->nom;
         }
-        $view = view('pdf', array('res' => $res->items))->render();
+        $view = view('pdf', array('res' => $res))->render();
         $pdf = resolve('dompdf.wrapper');
         $pdf->setPaper('a4', 'landscape');
         $pdf->loadHTML($view);
