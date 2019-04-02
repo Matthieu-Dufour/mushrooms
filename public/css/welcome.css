@@ -112,3 +112,7 @@ body{
     background-color: #80BCA3;
     border-color: #80BCA3;
 }
+
+.navbar-toggler, .collapsed{
+    float: right;
+}

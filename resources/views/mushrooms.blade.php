@@ -21,7 +21,6 @@
                 <div class="col">
                     <label>Comestibilite</label>
                     <select class="form-control" v-model="comestibilite">
-                        <option value="vide">vide</option>
                         @foreach ($comestibilites as $comestibilite)
                         <option value="{{ $comestibilite->id }}">{{ $comestibilite->nom }}</option>
                         @endforeach
@@ -30,7 +29,6 @@
                 <div class="col">
                     <label>Odeur</label>
                     <select class="form-control" v-model="odeur">
-                        <option value="vide">vide</option>
                         @foreach ($odeurs as $odeur)
                         <option value="{{ $odeur->id }}">{{ $odeur->nom }}</option>
                         @endforeach
@@ -39,7 +37,6 @@
                 <div class="col">
                     <label>Ecologie</label>
                     <select class="form-control" v-model="ecologie">
-                        <option value="vide">vide</option>
                         @foreach ($ecologies as $ecologie)
                         <option value="{{ $ecologie->id }}">{{ $ecologie->region }}</option>
                         @endforeach
@@ -50,7 +47,6 @@
                 <div class="col">
                     <label>Trophique</label>
                     <select class="form-control" v-model="trophique">
-                        <option value="vide">vide</option>
                         @foreach ($trophiques as $trophique)
                         <option value="{{ $trophique->id }}">{{ $trophique->status }}</option>
                         @endforeach
@@ -59,7 +55,6 @@
                 <div class="col">
                     <label>Groupe</label>
                     <select class="form-control" v-model="groupe">
-                        <option value="vide">vide</option>
                         @foreach ($groupes as $groupe)
                         <option value="{{ $groupe->id }}">{{ $groupe->nom }}</option>
                         @endforeach
@@ -124,12 +119,12 @@
         data: {
             mushrooms: {!!json_encode($mushrooms) !!},
             search: "",
-            odeur: "vide",
+            odeur: "",
             url: {!!json_encode($url) !!},
-            groupe: "vide",
-            trophique: "vide",
-            ecologie: "vide",
-            comestibilite: "vide",
+            groupe: "",
+            trophique: "",
+            ecologie: "",
+            comestibilite: "",
         },
 
         methods: {
@@ -147,23 +142,23 @@
 
                     list = mushroom.name.toLowerCase().includes(this.search.toLowerCase())
 
-                    if (this.odeur != "vide") {
+                    if (this.odeur != "") {
                         list = list && mushroom.odeur.includes(this.odeur)
                     }
 
-                    if (this.comestibilite != "vide") {
+                    if (this.comestibilite != "") {
                         list = list && mushroom.comestible.includes(this.comestibilite)
                     }
 
-                    if (this.ecologie != "vide") {
+                    if (this.ecologie != "") {
                         list = list && mushroom.ecologie.includes(this.ecologie)
                     }
 
-                    if (this.groupe != "vide") {
+                    if (this.groupe != "") {
                         list = list && mushroom.groupe.includes(this.groupe)
                     }
 
-                    if (this.trophique != "vide") {
+                    if (this.trophique != "") {
                         list = list && mushroom.type_trophique.includes(this.trophique)
                     }
 
