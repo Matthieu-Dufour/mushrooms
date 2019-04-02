@@ -38,10 +38,7 @@
                     @if(Auth::user()->hasRole("mycologist"))
 
                     <a class="btn btn-secondary mushroomsBtn" href="{{route('GETeditMushroom', ['id' => $mushroom->id])}}">Editer</a>
-                    <a class="btn btn-danger mushroomsBtn" style="color: #FFF !important;" 
-                    data-toggle="confirmation" data-btn-ok-label="Supprimer" data-btn-ok-class="btn-danger" 
-                    data-btn-cancel-label="Annuler" data-btn-cancel-class="btn-dark" data-title="Êtes vous sûr ?" 
-                    data-content="Cette action est irréversible" href=" {{route('GETdeleteMushroom', ['id' => $mushroom->id]) }}">Supprimer</a>
+                    <a class="btn btn-danger mushroomsBtn" style="color: #FFF !important;" data-toggle="confirmation" data-btn-ok-label="Supprimer" data-btn-ok-class="btn-danger" data-btn-cancel-label="Annuler" data-btn-cancel-class="btn-dark" data-title="Êtes vous sûr ?" data-content="Cette action est irréversible" href=" {{route('GETdeleteMushroom', ['id' => $mushroom->id]) }}">Supprimer</a>
 
                     @endif
                     @endauth</td>

@@ -6,6 +6,7 @@
 
 @section('content')
 <div class="container">
+@include('flash::message')
     <div class="row" style="margin-top:20px;margin-bottom:20px;"><h1>Modification des droits</h1>
     </div>
     <table class="table table-hover">

@@ -10,7 +10,7 @@
     @if($orders == "[]")
     <h5>Votre historique est vide</h5>
     @endif
-    @foreach($orders as $order)
+    @foreach($orders->sortByDesc('created_at') as $order)
     @php
         $source = $order->created_at;
         $date = new DateTime($source);

@@ -53,7 +53,6 @@
         </div>
         <div class="row" style="margin-bottom: 40px">
             <div class="col"><a class="btn btn-secondary welcomeBtn" href='{{route("GETaddMushroom")}}'>Ajouter un champignon</a></div>
-            <div class="col"><a class="btn btn-secondary welcomeBtn" href='{{route("GETcards")}}'>Imprimer des cartes</a></div>
             <div class="col"><a class="btn btn-secondary welcomeBtn" href='{{route("GEThistory")}}'>Historique des impression de cartes</a></div>
         </div>
         @endif

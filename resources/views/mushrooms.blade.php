@@ -10,7 +10,9 @@
 @endsection
 
 @section('content')
+
 <div id='application' class="container">
+@include('flash::message')
     <div class="container containerPrincipale " style="margin-top: 20px;margin-bottom: 20px;">@include('flash::message')</div>
     <div class="col" style="margin-bottom:20px;">
         <div class="row" style="margin-top: 20px;margin-bottom: 20px;">
@@ -21,7 +23,6 @@
                 <div class="col">
                     <label>Comestibilite</label>
                     <select class="form-control" v-model="comestibilite">
-                        <option value="vide">vide</option>
                         @foreach ($comestibilites as $comestibilite)
                         <option value="{{ $comestibilite->id }}">{{ $comestibilite->nom }}</option>
                         @endforeach
@@ -30,7 +31,6 @@
                 <div class="col">
                     <label>Odeur</label>
                     <select class="form-control" v-model="odeur">
-                        <option value="vide">vide</option>
                         @foreach ($odeurs as $odeur)
                         <option value="{{ $odeur->id }}">{{ $odeur->nom }}</option>
                         @endforeach
@@ -39,7 +39,6 @@
                 <div class="col">
                     <label>Ecologie</label>
                     <select class="form-control" v-model="ecologie">
-                        <option value="vide">vide</option>
                         @foreach ($ecologies as $ecologie)
                         <option value="{{ $ecologie->id }}">{{ $ecologie->region }}</option>
                         @endforeach
@@ -50,7 +49,6 @@
                 <div class="col">
                     <label>Trophique</label>
                     <select class="form-control" v-model="trophique">
-                        <option value="vide">vide</option>
                         @foreach ($trophiques as $trophique)
                         <option value="{{ $trophique->id }}">{{ $trophique->status }}</option>
                         @endforeach
@@ -59,7 +57,6 @@
                 <div class="col">
                     <label>Groupe</label>
                     <select class="form-control" v-model="groupe">
-                        <option value="vide">vide</option>
                         @foreach ($groupes as $groupe)
                             <option value="{{ $groupe->id }}">{{ $groupe->nom }}</option>
                         @endforeach
@@ -87,22 +84,26 @@
             <tr>
                 <th scope="col">Id</th>
                 <th scope="col">Nom</th>
-                <th scope="col">Action</th>
+                <th scope="col">Actions</th>
             </tr>
         </thead>
         <tbody>
             <tr v-for="mushroom in filteredList">
-                <th scope="row">
+                <td>
                     @{{ mushroom.id }}
-                </th>
-                <td>@{{ mushroom.nameLatin }}</td>
+                </td>
+                <td>@{{ mushroom.name }}</td>
                 <td>
                     <a class="btn btn-secondary mushroomsBtn" :href="mushroom.routeVoir">Voir</a>
                     @auth
-                        @if(Auth::user()->hasRole("mycologist"))
-                            <a class="btn btn-secondary mushroomsBtn" :href="mushroom.routeEdit">Editer</a>
-                            <a class="btn btn-danger mushroomsBtn" style="color: #FFF !important;" data-toggle="confirmation" data-btn-ok-label="Supprimer" data-btn-ok-class="btn-danger" data-btn-cancel-label="Annuler" data-btn-cancel-class="btn-dark" data-title="Êtes vous sûr ?" data-content="Cette action est irréversible" :href="mushroom.routeSuppr">Supprimer</a>
-                        @endif
+                    @if(Auth::user()->hasRole("mycologist"))
+
+                    <a class="btn btn-secondary mushroomsBtn" :href="mushroom.routeEdit">Editer</a>
+                    <a class="btn btn-secondary mushroomsBtn" :href="mushroom.addToCart">Ajouter au panier</a>
+                    <a class="btn btn-danger mushroomsBtn" style="color: #FFF !important;" data-toggle="confirmation" data-btn-ok-label="Supprimer" data-btn-ok-class="btn-danger" data-btn-cancel-label="Annuler" data-btn-cancel-class="btn-dark" data-title="Êtes vous sûr ?" data-content="Cette action est irréversible" :href="mushroom.routeSuppr">Supprimer</a>
+
+
+                    @endif
                     @endauth
                 </td>
             </tr>
@@ -121,12 +122,12 @@
         data: {
             mushrooms: {!!json_encode($mushrooms) !!},
             search: "",
-            odeur: "vide",
+            odeur: "",
             url: {!!json_encode($url) !!},
-            groupe: "vide",
-            trophique: "vide",
-            ecologie: "vide",
-            comestibilite: "vide",
+            groupe: "",
+            trophique: "",
+            ecologie: "",
+            comestibilite: "",
         },
 
         methods: {
@@ -141,26 +142,27 @@
                     mushroom.routeVoir = this.url + "/" + mushroom.id
                     mushroom.routeEdit = this.url + "/" + mushroom.id + "/edit"
                     mushroom.routeSuppr = this.url + "/" + mushroom.id + "/delete"
+                    mushroom.addToCart = this.url + "/addToCart/" + mushroom.id
 
                     list = mushroom.name.toLowerCase().includes(this.search.toLowerCase())
 
-                    if (this.odeur != "vide") {
+                    if (this.odeur != "") {
                         list = list && mushroom.odeur.includes(this.odeur)
                     }
 
-                    if (this.comestibilite != "vide") {
+                    if (this.comestibilite != "") {
                         list = list && mushroom.comestible.includes(this.comestibilite)
                     }
 
-                    if (this.ecologie != "vide") {
+                    if (this.ecologie != "") {
                         list = list && mushroom.ecologie.includes(this.ecologie)
                     }
 
-                    if (this.groupe != "vide") {
+                    if (this.groupe != "") {
                         list = list && mushroom.groupe.includes(this.groupe)
                     }
 
-                    if (this.trophique != "vide") {
+                    if (this.trophique != "") {
                         list = list && mushroom.type_trophique.includes(this.trophique)
                     }
 
