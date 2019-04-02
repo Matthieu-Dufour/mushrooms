@@ -120,18 +120,18 @@
                 <div class="col">
                     <div class="form-group">
                         <label>Confusions possibles</label>
-                            <div class="field_wrapper">
+                            <div class="field_wrapper form-inline">
                                 <div> 
-                                    <div>
+                                    <div style="margin-bottom:5px;">
                                         <select class="form-control mushroomAddInput" type="confusion" name="confusion[]" id="confusion" >
                                             <option></option>
                                             @foreach($liste as $champi)
                                                 <option value="{{ $champi->id }}">{{ $champi->name }}</option>
                                             @endforeach
                                         </select>
-                                        <a href='javascript:void(0);' class='remove_button'><button type='button' class='btn btn-danger'><i class='fa fa-minus' style='color:white'></i></button></a>
-                                    </div>
+                                        <!-- <a href='javascript:void(0);' class='remove_button'><button type='button' class='btn btn-danger'><i class='fa fa-minus' style='color:white'></i></button></a> -->
                                     <a href="javascript:void(0);" class="add_button" title="Add field"><button type="button" class="btn btn-primary"><i class="fa fa-plus" style="color:white"></i></button></a>
+                                    </div>
                                 </div>
                             </div>
                     </div>
@@ -163,10 +163,11 @@
             </div>
         </div>
 
-        <button type="submit" class="btn btn-secondary mushroomAddBtn">Ajouter le champignon</button>
+        <button type="submit" class="btn btn-secondary mushroomAddBtn" style="margin-bottom:5px;">Ajouter le champignon</button>
         
     </form>
-    <a href="{{ route('GETaddCaracteristique') }}" ><button class="btn btn-primary" style="margin-top:20px;">Ajouter une caractéristique</button></a>
+    <a href="{{ route('GETmushrooms') }}" ><button class="btn btn-danger mushroomAddBtn"  >Annuler</button></a>
+    <a href="{{ route('GETaddCaracteristique') }}" ><button class="btn btn-primary" >Ajouter une caractéristique</button></a>
 
 </div>
 
@@ -185,7 +186,7 @@ $.each(liste, function(k,champi){
     console.log(champi.name);
 })
 
-    var fieldHTML = "<div><select class='form-control mushroomAddInput' type='confusion' name='confusion[]' id='confusion' >";
+    var fieldHTML = "<div style='margin-bottom:5px;'><select class='form-control mushroomAddInput' type='confusion' name='confusion[]' id='confusion'  style='margin-right: 5px;'>";
         $.each(liste, function(k,champi){
             fieldHTML = fieldHTML + "<option value='"+champi.id+"'>"+ champi.name +"</option>"
         })

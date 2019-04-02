@@ -143,10 +143,10 @@
                 <div class="col">
                     <div class="form-group">
                             <label>Confusion possible</label>
-                        <div class="field_wrapper">
+                        <div class="field_wrapper form-inline">
                             <div>           
                             @foreach($confusions as $conf)
-                            <div>
+                            <div style="margin-bottom:5px;">
                                 <select class="form-control mushroomAddInput" type="confusion" name="confusion[]" id="confusion" >
                                 @foreach($liste as $champi)
                                     @if($champi->id == $conf->mushroom2_id)
@@ -221,7 +221,7 @@ $.each(liste, function(k,champi){
     console.log(champi.name);
 })
 
-    var fieldHTML = "<div><select class='form-control mushroomAddInput' type='confusion' name='confusion[]' id='confusion' >";
+    var fieldHTML = "<div style='margin-bottom:5px;><select class='form-control mushroomAddInput' type='confusion' name='confusion[]' id='confusion' style='margin-right: 5px;'>";
         $.each(liste, function(k,champi){
             fieldHTML = fieldHTML + "<option value='"+champi.id+"'>"+ champi.name +"</option>"
         })
