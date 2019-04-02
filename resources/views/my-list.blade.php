@@ -21,7 +21,7 @@
             @foreach($mushrooms as $mushroom)
             <tr>
                 <th scope="row">{{ $mushroom['item']['id'] }}</th>
-                <td>{{ $mushroom['item']['name'] }}</td>
+                <td>{{ $mushroom['item']['nameLatin'] }}</td>
                 <td>{{ $mushroom['qty'] }}</td>
                 <td>
                     <button type="button" class="btn btn-secondary btn-xs dropdown-toggle listBtn" data-toggle="dropdown">Action <span class="caret"></span></button>

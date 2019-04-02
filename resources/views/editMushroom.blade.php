@@ -44,19 +44,19 @@
                 <div class="col">
                     <div class="form-group">
                         <label>Chapeau</label>
-                        <input class="form-control mushroomAddInput" type="chapeau" name="chapeau" placeholder="Chapeau" value="{{ $mushroom->chapeau }}">
+                        <textarea class="form-control mushroomAddInput" type="chapeau" name="chapeau" placeholder="Chapeau" value="{{ $mushroom->chapeau }}"></textarea>
                     </div>
                 </div>
                 <div class="col">
                     <div class="form-group">
                         <label>Lames</label>
-                        <input class="form-control mushroomAddInput" type="lames" name="lames" placeholder="Lames" value="{{ $mushroom->lames }}">
+                        <textarea class="form-control mushroomAddInput" type="lames" name="lames" placeholder="Lames" value="{{ $mushroom->lames }}"></textarea>
                     </div>
                 </div>
                 <div class="col">
                     <div class="form-group">
                         <label>Pied</label>
-                        <input class="form-control mushroomAddInput" type="pied" name="pied" placeholder="Pied" value="{{ $mushroom->pied }}">
+                        <textarea class="form-control mushroomAddInput" type="pied" name="pied" placeholder="Pied" value="{{ $mushroom->pied }}"></textarea>
                     </div>
                 </div>
             </div>
@@ -65,7 +65,7 @@
                 <div class="col">
                     <div class="form-group">
                         <label>Chair</label>
-                        <input class="form-control mushroomAddInput" type="chair" name="chair" placeholder="Chair" value="{{ $mushroom->chair }}">
+                        <textarea class="form-control mushroomAddInput" type="chair" name="chair" placeholder="Chair" value="{{ $mushroom->chair }}"></textarea>
                     </div>
                 </div>
                 <div class="col">
@@ -99,7 +99,7 @@
             <div class="row">
                 <div class="col">
                     <div class="form-group">
-                        <label>Environnement</label>
+                        <label>Biotope</label>
                         <select class="form-control mushroomAddInput" type="ecologie" name="ecologie" id="ecologie" >
                             @foreach($ecologies as $eco)
                                 @if($mushroom->ecologie == $eco->id)

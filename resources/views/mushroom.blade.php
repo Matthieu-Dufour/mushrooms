@@ -9,8 +9,8 @@
 <div class="container">
     <div class="container containerPrincipale " style="margin-top: 20px;margin-bottom: 20px;">@include('flash::message')</div>
     <div class="row">
-        <h1 style="margin-top:20px;margin-bottom:20px;">{{ $mushroom->name }}
-            ({{$mushroom->nameLatin}})
+        <h1 style="margin-top:20px;margin-bottom:20px;"><span style="font-variant: small-caps;">{{ $mushroom->nameLatin }}</span>
+            ({{$mushroom->name}})
             @auth
                 @if($mushroom->isFavorited())
                     <a class="fa fa-star checked" href="{{route('GETtoggleFavorite', [ 'id' => $mushroom->id ])}}"></a>
@@ -45,7 +45,7 @@
         <div class="row">
 
             <div class="col">
-                <label>Ecologie: </label><br>
+                <label>Biotope: </label><br>
                 @foreach($ecologies as $ecologie)
                     @if($ecologie->id == $mushroom->ecologie)
                         {{ $ecologie->region }}

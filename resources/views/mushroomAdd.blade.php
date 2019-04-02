@@ -41,19 +41,19 @@
                 <div class="col">
                     <div class="form-group">
                         <label>Chapeau</label>
-                        <input class="form-control mushroomAddInput" type="chapeau" name="chapeau" placeholder="Chapeau">
+                        <textarea class="form-control mushroomAddInput" type="chapeau" name="chapeau" placeholder="Chapeau"></textarea>
                     </div>
                 </div>
                 <div class="col">
                     <div class="form-group">
                         <label>Lames</label>
-                        <input class="form-control mushroomAddInput" type="lames" name="lames" placeholder="Lames">
+                        <textarea class="form-control mushroomAddInput" type="lames" name="lames" placeholder="Lames"></textarea>
                     </div>
                 </div>
                 <div class="col">
                     <div class="form-group">
                         <label>Pied</label>
-                        <input class="form-control mushroomAddInput" type="pied" name="pied" placeholder="Pied">
+                        <textarea class="form-control mushroomAddInput" type="pied" name="pied" placeholder="Pied"></textarea>
                     </div>
                 </div>
             </div>
@@ -62,7 +62,7 @@
                 <div class="col">
                     <div class="form-group">
                         <label>Chair</label>
-                        <input class="form-control mushroomAddInput" type="chair" name="chair" placeholder="Chair">
+                        <textarea class="form-control mushroomAddInput" type="chair" name="chair" placeholder="Chair"></textarea>
                     </div>
                 </div>
                 <div class="col">
@@ -88,7 +88,7 @@
             <div class="row">
                 <div class="col">
                     <div class="form-group">
-                        <label>Environnement</label>
+                        <label>Biotope</label>
                         <select class="form-control mushroomAddInput" type="ecologie" name="ecologie" id="ecologie">
                             @foreach($ecologies as $ecologie)
                             <option value="{{ $ecologie->id }}">{{ $ecologie->region }}</option>

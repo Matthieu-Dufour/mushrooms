@@ -16,7 +16,7 @@ class CreateMushroomsTable extends Migration
     {
         Schema::create('mushrooms', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name')->nullable(false);
+            $table->string('name')->nullable(true);
             $table->string('nameLatin')->nullable(false);
             $table->string('surnom')->nullable(true);
             $table->string('odeur')->nullable(true)->unsigned();

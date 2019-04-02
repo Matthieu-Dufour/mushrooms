@@ -31,7 +31,7 @@
                     @endauth
                     {{ $mushroom->id }}
                 </th>
-                <td>{{ $mushroom->name }}</td>
+                <td>{{ $mushroom->nameLatin }}</td>
                 <td>
                     <a class="btn btn-secondary mushroomsBtn" href="{{route('GETmushroom', ['id' => $mushroom->id])}}">Voir</a>
                     @auth
