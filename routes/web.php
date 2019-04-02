@@ -70,7 +70,7 @@ Route::group([
         Route::get('/mushroom/{id}/delete', 'MushroomController@deleteMushroom')->name('GETdeleteMushroom');
 
         Route::get('/cards', 'CardController@showAll')->name('GETcards');
-        Route::get('/addToCart/{id}', 'CardController@addToCart')->name('GETaddToCart');
+        Route::get('mushroom/addToCart/{id}', 'CardController@addToCart')->name('GETaddToCart');
 
         Route::get('/my-list', 'CardController@getList')->name('GETmaListe');
 

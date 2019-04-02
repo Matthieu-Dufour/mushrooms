@@ -10,8 +10,9 @@
 @endsection
 
 @section('content')
-@include('flash::message')
+
 <div id='application' class="container">
+@include('flash::message')
     <div class="container containerPrincipale " style="margin-top: 20px;margin-bottom: 20px;">@include('flash::message')</div>
     <div class="col" style="margin-bottom:20px;">
         <div class="row" style="margin-top: 20px;margin-bottom: 20px;">
@@ -83,14 +84,14 @@
             <tr>
                 <th scope="col">Id</th>
                 <th scope="col">Nom</th>
-                <th scope="col">Action</th>
+                <th scope="col">Actions</th>
             </tr>
         </thead>
         <tbody>
             <tr v-for="mushroom in filteredList">
-                <th>
+                <td>
                     @{{ mushroom.id }}
-                </th>
+                </td>
                 <td>@{{ mushroom.name }}</td>
                 <td>
                     <a class="btn btn-secondary mushroomsBtn" :href="mushroom.routeVoir">Voir</a>
