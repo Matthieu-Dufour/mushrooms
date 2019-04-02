@@ -10,6 +10,7 @@
 @endsection
 
 @section('content')
+@include('flash::message')
 <div id='application' class="container">
     <div class="container containerPrincipale " style="margin-top: 20px;margin-bottom: 20px;">@include('flash::message')</div>
     <div class="col" style="margin-bottom:20px;">
@@ -87,7 +88,7 @@
         </thead>
         <tbody>
             <tr v-for="mushroom in filteredList">
-                <th scope="row">
+                <th>
                     @{{ mushroom.id }}
                 </th>
                 <td>@{{ mushroom.name }}</td>
@@ -97,6 +98,7 @@
                     @if(Auth::user()->hasRole("mycologist"))
 
                     <a class="btn btn-secondary mushroomsBtn" :href="mushroom.routeEdit">Editer</a>
+                    <a class="btn btn-secondary mushroomsBtn" :href="mushroom.addToCart">Ajouter au panier</a>
                     <a class="btn btn-danger mushroomsBtn" style="color: #FFF !important;" data-toggle="confirmation" data-btn-ok-label="Supprimer" data-btn-ok-class="btn-danger" data-btn-cancel-label="Annuler" data-btn-cancel-class="btn-dark" data-title="Êtes vous sûr ?" data-content="Cette action est irréversible" :href="mushroom.routeSuppr">Supprimer</a>
 
 
@@ -139,6 +141,7 @@
                     mushroom.routeVoir = this.url + "/" + mushroom.id
                     mushroom.routeEdit = this.url + "/" + mushroom.id + "/edit"
                     mushroom.routeSuppr = this.url + "/" + mushroom.id + "/delete"
+                    mushroom.addToCart = this.url + "/addToCart/" + mushroom.id
 
                     list = mushroom.name.toLowerCase().includes(this.search.toLowerCase())
 
