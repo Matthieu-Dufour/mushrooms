@@ -92,7 +92,7 @@
                 <td>
                     @{{ mushroom.id }}
                 </td>
-                <td>@{{ mushroom.name }}</td>
+                <td>@{{ mushroom.nameLatin }}</td>
                 <td>
                     <a class="btn btn-secondary mushroomsBtn" :href="mushroom.routeVoir">Voir</a>
                     @auth
