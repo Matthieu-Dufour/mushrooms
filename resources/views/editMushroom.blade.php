@@ -197,7 +197,7 @@
         </div>
         @auth
             @if(Auth::user()->hasRole("mycologist"))
-                <button type="submit" class="btn btn-secondary" style="margin-bottom:20px;">Editer</button>
+                <button type="submit" class="btn btn-secondary" style="margin-bottom:5px;">Editer</button>
             @endif
         @endauth
     </form>

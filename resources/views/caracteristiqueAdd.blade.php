@@ -46,7 +46,7 @@
             @endif
         @endauth
     </form>
-    <a href="{{route('GETmushrooms')}}" ><button class="btn btn-danger mushroomAddBtn"  >Annuler</button></a>
+    <a href="{{URL::previous()}}" ><button class="btn btn-danger mushroomAddBtn"  >Annuler</button></a>
 </div>
 
 @endsection 
