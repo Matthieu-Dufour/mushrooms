@@ -12,7 +12,8 @@
 </head>
 
 <body>
-@php($index = 1)
+@php($keys = array_keys($res->items))
+@php($index = 0)
 @for($i = 0; $i < $res->totalQty; $i++)
     @if($i%4 == 0)
     <table>
@@ -20,34 +21,34 @@
         @if($i%2 == 0)
         <tr>
         @endif
-        @if($res->items[$index]['qty'])
+        @if($res->items[$keys[$index]]['qty'])
             <td class="fiche">
                 <div> 
                     <img src="img/pdf/SLM.jpg" class="imgslm"/>
                     <div class="SLMC">
                         <div class="SLM"> Société Lorraine de Mycologie <br> </div>
-                        @if($res->items[$index]['item']->comestible == "Comestible") <div class ="comestibilite"> {{ $res->items[$index]['item']->comestible }} </div> <div class="cercleblue"></div> @endif
-                        @if($res->items[$index]['item']->comestible == "Sans valeur") <div class ="comestibilite"> {{ $res->items[$index]['item']->comestible }} </div> <div class="cerclegrey"></div> @endif
-                        @if($res->items[$index]['item']->comestible == "Comestible bien cuit") <div class ="comestibilite" style="width: 81%"> {{ $res->items[$index]['item']->comestible }} </div> <div class="cercleblue"></div> <div class="cercleorange"></div> @endif
-                        @if($res->items[$index]['item']->comestible == "Mortel") <div class ="comestibilite"> {{ $res->items[$index]['item']->comestible }} </div> <div class="cerclered"></div> @endif
-                        @if($res->items[$index]['item']->comestible == "Toxique/comestible avec recommandation") <div class ="comestibilite" style="width: 81%"> {{ $res->items[$index]['item']->comestible }} </div> <div class="cercleblue"></div> <div class="cercleorange"></div> @endif
-                        @if($res->items[$index]['item']->comestible == "Suspect") <div class ="comestibilite"> {{ $res->items[$index]['item']->comestible }} </div> <div class="cerclegrey"></div> @endif
-                        @if($res->items[$index]['item']->comestible == "Toxique") <div class ="comestibilite"> {{ $res->items[$index]['item']->comestible }} </div> <div class="cercleorange"></div> @endif
+                        @if($res->items[$keys[$index]]['item']->comestible == "Comestible") <div class ="comestibilite"> {{ $res->items[$keys[$index]]['item']->comestible }} </div> <div class="cercleblue"></div> @endif
+                        @if($res->items[$keys[$index]]['item']->comestible == "Sans valeur") <div class ="comestibilite"> {{ $res->items[$keys[$index]]['item']->comestible }} </div> <div class="cerclegrey"></div> @endif
+                        @if($res->items[$keys[$index]]['item']->comestible == "Comestible bien cuit") <div class ="comestibilite" style="width: 81%"> {{ $res->items[$keys[$index]]['item']->comestible }} </div> <div class="cercleblue"></div> <div class="cercleorange"></div> @endif
+                        @if($res->items[$keys[$index]]['item']->comestible == "Mortel") <div class ="comestibilite"> {{ $res->items[$keys[$index]]['item']->comestible }} </div> <div class="cerclered"></div> @endif
+                        @if($res->items[$keys[$index]]['item']->comestible == "Toxique/comestible avec recommandation") <div class ="comestibilite" style="width: 81%"> {{ $res->items[$keys[$index]]['item']->comestible }} </div> <div class="cercleblue"></div> <div class="cercleorange"></div> @endif
+                        @if($res->items[$keys[$index]]['item']->comestible == "Suspect") <div class ="comestibilite"> {{ $res->items[$keys[$index]]['item']->comestible }} </div> <div class="cerclegrey"></div> @endif
+                        @if($res->items[$keys[$index]]['item']->comestible == "Toxique") <div class ="comestibilite"> {{ $res->items[$keys[$index]]['item']->comestible }} </div> <div class="cercleorange"></div> @endif
                     </div>
                 </div>
                 <div class="champignon"> 
-                    <div class="nom"> {{ $res->items[$index]['item']->name }} </div> 
-                    <div class="nomlatin"><i> {{ $res->items[$index]['item']->name }} </i></div> 
+                    <div class="nom"> {{ $res->items[$keys[$index]]['item']->name }} </div> 
+                    <div class="nomlatin"><i> {{ $res->items[$keys[$index]]['item']->name }} </i></div> 
                 </div>
                 <div class="container">
                     <span>Texte</span>
                     <div class="sub-container">
-                    <img src="qrcode/qrcode{{ $res->items[$index]['item']->id }}.png" class="qrcode"/>
+                    <img src="data:image/png;base64, {{ base64_encode(QrCode::format('png')->size(100)->generate(url('/mushroom/'.$res->items[$keys[$index]]['item']->id))) }}" class="qrcode"/>
                     </div>
                 </div>
             </td>
-            @php($res->items[$index]['qty'] = $res->items[$index]['qty'] - 1)
-            @if($res->items[$index]['qty'] == 0)
+            @php($res->items[$keys[$index]]['qty'] = $res->items[$keys[$index]]['qty'] - 1)
+            @if($res->items[$keys[$index]]['qty'] == 0)
                 @php($index = $index + 1)
             @endif
         @endif
