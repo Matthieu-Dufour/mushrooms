@@ -4,8 +4,11 @@
 }
 .fiche {
     width: 535px; 
-    height: 348px;    
+    height: 348px;
+    max-width: 535px;
+    max-height: 348px; 
     font-family: 'Gill Sans', sans-serif;
+    overflow: hidden;
 }
 /* Mise en page élément fiches */
 .imgslm {

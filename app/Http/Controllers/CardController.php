@@ -140,7 +140,12 @@ class CardController extends Controller
         $res = unserialize($print);
         foreach ($res->items as $ress) {
             $comestibleid = $ress['item']->comestible;
+            $trophiqueid = $ress['item']->type_trophique;
+            $ecologieid = $ress['item']->ecologie;
             $ress['item']->comestible = DB::table('Comestibilité')->where('id', $comestibleid)->first()->nom;
+            $ress['item']->ecologie = DB::table('Ecologie')->where('id', $ecologieid)->first()->region;
+            //dd(DB::table('Type_Trophique')->where('id', $trophiqueid)->first());
+            $ress['item']->type_trophique = DB::table('Type_Trophique')->where('id', $trophiqueid)->first()->status;
         }
         $view = view('pdf', array('res' => $res))->render();
         $pdf = resolve('dompdf.wrapper');

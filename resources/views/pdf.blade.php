@@ -37,11 +37,11 @@
                     </div>
                 </div>
                 <div class="champignon"> 
-                    <div class="nom"> {{ $res->items[$keys[$index]]['item']->name }} </div> 
-                    <div class="nomlatin"><i> {{ $res->items[$keys[$index]]['item']->name }} </i></div> 
+                    <div class="nom"><i> {{ $res->items[$keys[$index]]['item']->nameLatin }} </i></div> 
+                    <div class="nomlatin"> {{ $res->items[$keys[$index]]['item']->name }} </div> 
                 </div>
                 <div class="container">
-                    <span>Texte</span>
+                    <span> {{ $res->items[$keys[$index]]['item']->ecologie }}  {{ $res->items[$keys[$index]]['item']->type_trophique }} </span> 
                     <div class="sub-container">
                     <img src="data:image/png;base64, {{ base64_encode(QrCode::format('png')->size(100)->generate(url('/mushroom/'.$res->items[$keys[$index]]['item']->id))) }}" class="qrcode"/>
                     </div>
