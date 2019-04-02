@@ -44,19 +44,19 @@
                 <div class="col">
                     <div class="form-group">
                         <label>Chapeau</label>
-                        <textarea class="form-control mushroomAddInput" type="chapeau" name="chapeau" placeholder="Chapeau" value="{{ $mushroom->chapeau }}"></textarea>
+                        <textarea class="form-control mushroomAddInput" type="chapeau" name="chapeau" placeholder="Chapeau" >{{ $mushroom->chapeau }}</textarea>
                     </div>
                 </div>
                 <div class="col">
                     <div class="form-group">
                         <label>Lames</label>
-                        <textarea class="form-control mushroomAddInput" type="lames" name="lames" placeholder="Lames" value="{{ $mushroom->lames }}"></textarea>
+                        <textarea class="form-control mushroomAddInput" type="lames" name="lames" placeholder="Lames" >{{ $mushroom->lames }}</textarea>
                     </div>
                 </div>
                 <div class="col">
                     <div class="form-group">
                         <label>Pied</label>
-                        <textarea class="form-control mushroomAddInput" type="pied" name="pied" placeholder="Pied" value="{{ $mushroom->pied }}"></textarea>
+                        <textarea class="form-control mushroomAddInput" type="pied" name="pied" placeholder="Pied" >{{ $mushroom->pied }}</textarea>
                     </div>
                 </div>
             </div>
@@ -65,7 +65,7 @@
                 <div class="col">
                     <div class="form-group">
                         <label>Chair</label>
-                        <textarea class="form-control mushroomAddInput" type="chair" name="chair" placeholder="Chair" value="{{ $mushroom->chair }}"></textarea>
+                        <textarea class="form-control mushroomAddInput" type="chair" name="chair" placeholder="Chair">{{ $mushroom->chair }}</textarea>
                     </div>
                 </div>
                 <div class="col">
