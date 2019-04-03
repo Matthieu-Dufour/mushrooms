@@ -36,25 +36,10 @@
                         @if($res->items[$keys[$index]]['item']->comestible == "Toxique") <div class ="comestibilite"> {{ $res->items[$keys[$index]]['item']->comestible }} </div> <div class="cercleorange"></div> @endif
                     </div>
                 </div>
-                @php($len = strlen($res->items[$keys[$index]]['item']->name))
-                @if($len > 30)
                 <div class="champignon" style="margin-bottom: 14px;">
-                @else
                 <div class="champignon">
-                @endif
-                    <!-- cut nameLatin -->
-                    @if($len > 30)
-                        <div class="nomlatin"><i> {{ strval(substr($res->items[$keys[$index]]['item']->nameLatin, 0, 30)) }}- <br> -{{ strval(substr($res->items[$keys[$index]]['item']->nameLatin, 30, $len-30)) }}</i></div>
-                    @else
-                        <div class="nomlatin"><i> {{ $res->items[$keys[$index]]['item']->nameLatin }} </i></div>
-                    @endif
-                    
-                    <!-- cut name -->
-                    @if($len > 30)
-                        <div class="nom"><i> {{ strval(substr($res->items[$keys[$index]]['item']->name, 0, 30)) }}- <br> -{{ strval(substr($res->items[$keys[$index]]['item']->name, 30, $len-30)) }}</i></div>
-                    @else
-                        <div class="nom"><i> {{ $res->items[$keys[$index]]['item']->name }} </i></div>
-                    @endif 
+                    <div class="nomlatin"><i> {{ $res->items[$keys[$index]]['item']->nameLatin }} </i></div>
+                    <div class="nom"> {{ $res->items[$keys[$index]]['item']->name }} </div>
                 </div>
                 <span class="container">
                     <span class="info"> {{ $res->items[$keys[$index]]['item']->ecologie }} <br> {{ $res->items[$keys[$index]]['item']->type_trophique }} </span> 

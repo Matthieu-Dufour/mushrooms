@@ -42,12 +42,13 @@
     display: inline-block;
 }
 .nomlatin {
-    font-size: 30px;
+    font-size: 22px;
 }
 .nom {
-    font-size: 18px;  
+    font-size: 16px;  
 }
 .info {
+    text-align: left;
     display: inline-block;
     width: 420px;
 }
