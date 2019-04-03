@@ -144,7 +144,6 @@ class CardController extends Controller
             $ecologieid = $ress['item']->ecologie;
             $ress['item']->comestible = DB::table('Comestibilité')->where('id', $comestibleid)->first()->nom;
             $ress['item']->ecologie = DB::table('Ecologie')->where('id', $ecologieid)->first()->region;
-            //dd(DB::table('Type_Trophique')->where('id', $trophiqueid)->first());
             $ress['item']->type_trophique = DB::table('Type_Trophique')->where('id', $trophiqueid)->first()->status;
         }
         $view = view('pdf', array('res' => $res))->render();

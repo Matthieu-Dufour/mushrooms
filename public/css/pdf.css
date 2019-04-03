@@ -8,17 +8,16 @@
     max-width: 535px;
     max-height: 348px; 
     font-family: 'Gill Sans', sans-serif;
-    overflow: hidden;
 }
 /* Mise en page élément fiches */
 .imgslm {
     display: inline-block;
-    width: 15%;
+    width: 80px;
     margin-top: 10px;
 }
 .SLMC {
     display: inline-block;  
-    width: 82%;     
+    width: 438px;     
 }
 .SLM {
     text-align: center;
@@ -40,26 +39,17 @@
 }
 .qrcode {
     width: 17%;
-}
-.nom {
-    font-size: 36px;
+    display: inline-block;
 }
 .nomlatin {
-    font-size: 22px;
+    font-size: 30px;
 }
-.container {
-    height: 95px;
-    line-height: 50px;
-    padding-left: 10px;
-    padding-right: 10px;
+.nom {
+    font-size: 18px;  
 }
-.sub-container {
-    float: right;
-    text-align: right;
-}
-.sub-container::after {
-    content: '';
-    clear: both;
+.info {
+    display: inline-block;
+    width: 420px;
 }
 
 /* Tout les cercles pour les comestibles*/
@@ -96,6 +86,6 @@
     display: inline-block;
 }
 
-table, th, td {
-    width: 100%;
+table {
+    max-width: 100%;
 }
