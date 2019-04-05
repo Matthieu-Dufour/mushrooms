@@ -23,6 +23,7 @@
                 <div class="col">
                     <label>Comestibilite</label>
                     <select class="form-control" v-model="comestibilite">
+                    <option value="Non renseigné">Non renseigné</option>
                         @foreach ($comestibilites as $comestibilite)
                         <option value="{{ $comestibilite->id }}">{{ $comestibilite->nom }}</option>
                         @endforeach
@@ -31,6 +32,7 @@
                 <div class="col">
                     <label>Odeur</label>
                     <select class="form-control" v-model="odeur">
+                    <option value="Non renseigné">Non renseigné</option>
                         @foreach ($odeurs as $odeur)
                         <option value="{{ $odeur->id }}">{{ $odeur->nom }}</option>
                         @endforeach
@@ -39,6 +41,7 @@
                 <div class="col">
                     <label>Ecologie</label>
                     <select class="form-control" v-model="ecologie">
+                    <option value="Non renseigné">Non renseigné</option>
                         @foreach ($ecologies as $ecologie)
                         <option value="{{ $ecologie->id }}">{{ $ecologie->region }}</option>
                         @endforeach
@@ -49,6 +52,7 @@
                 <div class="col">
                     <label>Trophique</label>
                     <select class="form-control" v-model="trophique">
+                    <option value="Non renseigné">Non renseigné</option>
                         @foreach ($trophiques as $trophique)
                         <option value="{{ $trophique->id }}">{{ $trophique->status }}</option>
                         @endforeach
@@ -57,6 +61,7 @@
                 <div class="col">
                     <label>Groupe</label>
                     <select class="form-control" v-model="groupe">
+                    <option value="Non renseigné">Non renseigné</option>
                         @foreach ($groupes as $groupe)
                             <option value="{{ $groupe->id }}">{{ $groupe->nom }}</option>
                         @endforeach
@@ -122,12 +127,12 @@
         data: {
             mushrooms: {!!json_encode($mushrooms) !!},
             search: "",
-            odeur: "",
+            odeur: "Non renseigné",
             url: {!!json_encode($url) !!},
-            groupe: "",
-            trophique: "",
-            ecologie: "",
-            comestibilite: "",
+            groupe: "Non renseigné",
+            trophique: "Non renseigné",
+            ecologie: "Non renseigné",
+            comestibilite: "Non renseigné",
         },
 
         methods: {
@@ -146,23 +151,23 @@
 
                     list = mushroom.name.toLowerCase().includes(this.search.toLowerCase())
 
-                    if (this.odeur != "") {
+                    if (this.odeur != "Non renseigné") {
                         list = list && mushroom.odeur.includes(this.odeur)
                     }
 
-                    if (this.comestibilite != "") {
+                    if (this.comestibilite != "Non renseigné") {
                         list = list && mushroom.comestible.includes(this.comestibilite)
                     }
 
-                    if (this.ecologie != "") {
+                    if (this.ecologie != "Non renseigné") {
                         list = list && mushroom.ecologie.includes(this.ecologie)
                     }
 
-                    if (this.groupe != "") {
+                    if (this.groupe != "Non renseigné") {
                         list = list && mushroom.groupe.includes(this.groupe)
                     }
 
-                    if (this.trophique != "") {
+                    if (this.trophique != "Non renseigné") {
                         list = list && mushroom.type_trophique.includes(this.trophique)
                     }
 
