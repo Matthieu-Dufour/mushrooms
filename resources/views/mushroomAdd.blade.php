@@ -26,7 +26,7 @@
                 <div class="col">
                     <div class="form-group">
                         <label>Nom Latin</label>
-                        <input class="form-control mushroomAddInput" type="nameLatin" name="nameLatin" placeholder="Nom Latin">
+                        <input class="form-control mushroomAddInput" type="nameLatin" name="nameLatin" placeholder="Nom Latin" required>
                     </div>
                 </div>
                 <div class="col">

@@ -104,7 +104,7 @@
                     @if(Auth::user()->hasRole("mycologist"))
 
                     <a class="btn btn-secondary mushroomsBtn" :href="mushroom.routeEdit">Editer</a>
-                    <a class="btn btn-secondary mushroomsBtn" :href="mushroom.addToCart">Ajouter au panier</a>
+                    <a class="btn btn-secondary mushroomsBtn" :href="mushroom.addToCart">Ajouter à la liste</a>
                     <a class="btn btn-danger mushroomsBtn" style="color: #FFF !important;" data-toggle="confirmation" data-btn-ok-label="Supprimer" data-btn-ok-class="btn-danger" data-btn-cancel-label="Annuler" data-btn-cancel-class="btn-dark" data-title="Êtes vous sûr ?" data-content="Cette action est irréversible" :href="mushroom.routeSuppr">Supprimer</a>
 
 
